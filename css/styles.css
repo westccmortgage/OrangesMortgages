@@ -145,7 +145,7 @@ p { color: var(--muted); }
 
 /* On desktop, keep the bar uncrowded — these links live in the mobile menu
    and the footer; on the hamburger menu (<=1200px) they reappear. */
-@media (min-width: 1201px) { .nav__secondary { display: none; } }
+@media (min-width: 1201px) { .nav__links .nav__secondary { display: none; } }
 
 .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav__toggle span { width: 24px; height: 2.5px; background: var(--navy-900); border-radius: 3px; transition: .25s; }
@@ -720,3 +720,9 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
   .promo__visual { display: flex; justify-content: center; }
   .promo__orange { right: 0; }
 }
+
+/* ---------- The Orange Family page ---------- */
+.fam-tag { font-weight: 800; color: var(--orange-600); font-size: 1.06rem; margin-top: 16px; }
+.fam-values { text-align: center; max-width: 720px; margin: 0 auto; }
+.fam-values__emoji { display: block; font-size: 2.4rem; margin-bottom: 14px; }
+.fam-values p { font-size: 1.12rem; margin-top: 14px; }

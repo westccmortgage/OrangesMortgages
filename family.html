@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="ms.title">Mortgage Strategy — Check Your County Limit | Orange Mortgage</title>
-  <meta name="description" data-i18n-content="ms.desc" content="Run your property against the county conforming line — conforming vs jumbo, an estimated payment, and the smartest review path. Educational only. California & Florida." />
+  <title data-i18n="fam.title">The Orange Family — Mortgages with a Family Touch | Orange Mortgage</title>
+  <meta name="description" data-i18n-content="fam.desc" content="Meet the Orange family. Warm, trustworthy mortgage guidance for families across California and Florida — your first home, your next home, and building for the kids." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,8 +26,8 @@
       <nav class="nav__links" id="navLinks" aria-label="Primary">
         <a href="index.html#loans" data-i18n="nav.loans">Loan Options</a>
         <a href="index.html#why" class="nav__secondary" data-i18n="nav.why">Why Orange</a>
-        <a href="mortgage-strategy.html" aria-current="page" data-i18n="nav.strategy">Mortgage Strategy</a>
-        <a href="family.html" data-i18n="nav.family">Family</a>
+        <a href="mortgage-strategy.html" data-i18n="nav.strategy">Mortgage Strategy</a>
+        <a href="family.html" aria-current="page" data-i18n="nav.family">Family</a>
         <a href="index.html#calculator" class="nav__secondary" data-i18n="nav.calc">Calculator</a>
         <a href="index.html#process" class="nav__secondary" data-i18n="nav.how">How It Works</a>
         <a href="index.html#areas" class="nav__secondary" data-i18n="nav.areas">Service Areas</a>
@@ -58,50 +58,68 @@
 
   <main>
     <!-- ============ HERO ============ -->
-    <section class="ms-hero">
-      <div class="container ms-hero__grid">
-        <div class="ms-hero__copy">
-          <span class="eyebrow" data-i18n="ms.eyebrow">🍊 Mortgage Strategy</span>
-          <h1 data-i18n="ms.h1">Check your limit <span class="accent">before you assume jumbo.</span></h1>
-          <p class="lead" data-i18n="ms.lead">Tell Orange the property and your numbers. The studio runs them against your county's conforming line and shows conforming vs jumbo, an estimated payment, and the review path — for California and Florida.</p>
-          <ul class="ms-points">
-            <li><span class="ms-points__n">1</span><span data-i18n="ms.p1">Confirm the property county</span></li>
-            <li><span class="ms-points__n">2</span><span data-i18n="ms.p2">See the conforming vs jumbo line</span></li>
-            <li><span class="ms-points__n">3</span><span data-i18n="ms.p3">Preview an estimated payment</span></li>
-          </ul>
+    <section class="subhero">
+      <div class="container subhero__grid">
+        <div class="subhero__copy">
+          <span class="eyebrow" data-i18n="fam.eyebrow">🍊 The Orange Family</span>
+          <h1 data-i18n="fam.h1">A family helping <span class="accent">your family</span> feel at home.</h1>
+          <p class="lead" data-i18n="fam.lead">From your first home to your forever home, the Orange family treats every client like one of their own — calm, clear, caring guidance across California and Florida.</p>
+          <p class="fam-tag" data-i18n="fam.tag">Family first.</p>
+          <div class="subhero__actions">
+            <a href="index.html#contact" class="btn btn--primary btn--lg js-ask-orange" data-i18n="hero.ask">Ask Orange</a>
+            <a href="index.html#calculator" class="btn btn--ghost btn--lg" data-i18n="hero.estimate">Estimate My Payment</a>
+          </div>
         </div>
-        <div class="ms-hero__visual">
-          <figure class="orange-hero orange-hero--about">
-            <img class="orange-hero__layer orange-hero__body hero__orange"
-                 src="assets/orange-about-body.webp"
-                 alt="Orange, the friendly mortgage mascot, presenting the Mortgage Strategy studio"
-                 width="898" height="1368" fetchpriority="high" decoding="async" />
-            <img class="orange-hero__layer orange-hero__eyes" src="assets/orange-about-eyes-closed.webp"
-                 alt="" width="898" height="1368" decoding="async" aria-hidden="true" />
-            <img class="orange-hero__layer orange-hero__leaf" src="assets/orange-about-leaf.webp"
-                 alt="" width="898" height="1368" decoding="async" aria-hidden="true" />
-          </figure>
+        <div class="subhero__visual">
+          <!-- TODO: swap for the cut-out Orange-family image (assets/orange-family.webp) once provided. -->
+          <img src="assets/orange-cutout.webp" alt="The Orange family — a friendly family of orange mascots ready to help yours" class="fam-hero-img" width="621" height="968" fetchpriority="high" decoding="async" />
         </div>
       </div>
     </section>
 
-    <!-- ============ STUDIO (embedded module) ============ -->
-    <section class="ms-studio">
+    <!-- ============ HOW THE FAMILY HELPS ============ -->
+    <section class="section">
       <div class="container">
-        <div class="ms-screen">
-          <div class="ms-screen__bar" aria-hidden="true">
-            <span class="ms-screen__dot"></span><span class="ms-screen__dot"></span><span class="ms-screen__dot"></span>
-            <span class="ms-screen__url">orangesmortgages.com/studio</span>
-            <span class="ms-screen__badge" data-i18n="ms.toolLabel">Strategy Studio</span>
-          </div>
-          <!-- Self-contained module from /studio/. Posts its height to this
-               page via postMessage({cmStudioHeight}); main.js sets the height. -->
-          <iframe id="studioFrame" class="ms-screen__frame" src="/studio/"
-                  title="Orange Mortgage — Strategy Studio" loading="lazy" scrolling="no"></iframe>
+        <div class="section__head">
+          <span class="eyebrow eyebrow--center" data-i18n="fam.helpEyebrow">How the Orange family helps</span>
+          <h2 data-i18n="fam.helpH2">Every family, every chapter</h2>
         </div>
-        <p class="ms-disclaimer" data-i18n="ms.disclaimer">
-          Educational structure estimate only — not a rate quote, APR, loan estimate, approval, or commitment to lend. All numbers are owner-provided assumptions; verify current FHFA/HUD limits and pricing before relying on any figure.
-        </p>
+        <div class="cards cards--4">
+          <article class="card"><div class="card__icon">🔑</div><h3 data-i18n="fam.c1t">First-time families</h3><p data-i18n="fam.c1p">Buying your first home together, explained step by step — no pressure, no jargon.</p></article>
+          <article class="card"><div class="card__icon">🏡</div><h3 data-i18n="fam.c2t">Growing families</h3><p data-i18n="fam.c2p">More room for more love. Move up with a plan that fits your real budget.</p></article>
+          <article class="card"><div class="card__icon">🌱</div><h3 data-i18n="fam.c3t">Building for the kids</h3><p data-i18n="fam.c3p">Investment and multi-generational options to build something that lasts.</p></article>
+          <article class="card"><div class="card__icon">🤝</div><h3 data-i18n="fam.c4t">Always a real person</h3><p data-i18n="fam.c4p">When you call, you get family — never a call center.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VALUES BAND ============ -->
+    <section class="section section--tint">
+      <div class="container">
+        <div class="fam-values">
+          <span class="fam-values__emoji" aria-hidden="true">🍊👨‍👩‍👧‍👦</span>
+          <h2 data-i18n="fam.valuesH2">Buying a home is a family moment.</h2>
+          <p data-i18n="fam.valuesP">Orange is here to make it joyful, not stressful — with honest guidance you can trust, in English, Español, or Русский.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta">
+      <div class="container cta__inner cta__inner--center">
+        <div class="cta__copy">
+          <span class="eyebrow eyebrow--light" data-i18n="fam.eyebrow">🍊 The Orange Family</span>
+          <h2 data-i18n="fam.ctaH2">Let's find your family's home</h2>
+          <p data-i18n="fam.ctaP">Tell Orange what your family is dreaming about, and we'll help you understand the next step — across California and Florida.</p>
+          <div class="hero__actions hero__actions--center">
+            <a href="index.html#contact" class="btn btn--primary btn--lg js-ask-orange" data-i18n="hero.ask">Ask Orange</a>
+            <a href="index.html#calculator" class="btn btn--ghost btn--lg" data-i18n="hero.estimate">Estimate My Payment</a>
+          </div>
+          <a href="mailto:orange@orangesmortgages.com" class="cta__email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            orange@orangesmortgages.com
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -126,8 +144,7 @@
       </div>
       <div class="footer__col">
         <h4 data-i18n="foot.company">Company</h4>
-        <a href="about.html" data-i18n="foot.about">About Orange</a><a href="mortgage-strategy.html" data-i18n="nav.strategy">Mortgage Strategy</a>
-        <a href="family.html" data-i18n="nav.family">Family</a><a href="index.html#why" class="nav__secondary" data-i18n="nav.why">Why Orange</a><a href="index.html#areas" data-i18n="nav.areas">Service Areas</a><a href="index.html#contact" data-i18n="foot.ask">Ask Orange</a>
+        <a href="about.html" data-i18n="foot.about">About Orange</a><a href="family.html" data-i18n="nav.family">Family</a><a href="mortgage-strategy.html" data-i18n="nav.strategy">Mortgage Strategy</a><a href="index.html#areas" data-i18n="nav.areas">Service Areas</a><a href="index.html#contact" data-i18n="foot.ask">Ask Orange</a>
       </div>
       <div class="footer__col">
         <h4 data-i18n="foot.touch">Get in touch</h4>

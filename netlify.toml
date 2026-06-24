@@ -11,6 +11,12 @@
   # No build/bundling step for a plain static site.
   command = ""
 
+# Serverless function that emails "Ask Orange" form submissions via Resend.
+# Endpoint: /api/ask-orange (set via the function's config.path).
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Long-cache fingerprint-free static assets are fine to revalidate; the SVGs
 # and favicon rarely change, so allow a long cache with revalidation.
 [[headers]]

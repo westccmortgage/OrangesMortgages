@@ -406,11 +406,9 @@
         </div>
 
         <form class="cta__form glass" id="leadForm" name="ask-orange" method="POST"
-              data-netlify="true" netlify-honeypot="bot-field" novalidate>
-          <!-- Netlify Forms: submissions are captured in the Netlify dashboard and
-               can be emailed to orange@orangesmortgages.com (Site settings → Forms
-               → Form notifications). These hidden fields are required for detection. -->
-          <input type="hidden" name="form-name" value="ask-orange" />
+              action="/api/ask-orange" novalidate>
+          <!-- Submissions are emailed via Resend by netlify/functions/ask-orange.mjs.
+               The hidden bot-field is a spam honeypot the function checks. -->
           <p class="form__hp" hidden aria-hidden="true">
             <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>

@@ -72,7 +72,7 @@
     calc();
   }
 
-  /* ---- Lead form -> Netlify Forms (AJAX, keeps the inline success state) ---- */
+  /* ---- Lead form -> Resend via Netlify Function (AJAX, inline success state) ---- */
   const form = document.getElementById("leadForm");
   if (form) {
     const success = document.getElementById("formSuccess");
@@ -90,12 +90,12 @@
       const label = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
 
-      // Netlify captures any POST that includes the hidden `form-name` field.
-      const body = new URLSearchParams(new FormData(form)).toString();
-      fetch("/", {
+      // POST to the serverless function, which emails the lead via Resend.
+      const payload = Object.fromEntries(new FormData(form));
+      fetch(form.getAttribute("action") || "/api/ask-orange", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       })
         .then((res) => {
           if (!res.ok) throw new Error("Bad response");

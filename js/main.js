@@ -64,10 +64,13 @@
       `Loan amount ${fmt(principal)} &middot; Principal &amp; interest only`;
   }
 
-  Object.values(inputs).forEach((el) =>
-    el && el.addEventListener("input", calc)
-  );
-  calc();
+  // Only wire the calculator on pages that actually contain it.
+  if (inputs.price && inputs.down && inputs.rate && inputs.term) {
+    Object.values(inputs).forEach((el) =>
+      el.addEventListener("input", calc)
+    );
+    calc();
+  }
 
   /* ---- Lead form (demo only) ---- */
   const form = document.getElementById("leadForm");

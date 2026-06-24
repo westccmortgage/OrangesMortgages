@@ -57,8 +57,8 @@
       "loans.6t": "Refinance", "loans.6p": "Explore adjusting your rate or term, or tapping into your home equity.",
 
       "why.eyebrow": "Why Orange",
-      "why.h2": "A local mortgage guide who makes the process easier",
-      "why.1t": "Local Orange County focus", "why.1p": "Guidance grounded in the OC market and the way homes trade here.",
+      "why.h2": "A mortgage guide who makes the process easier",
+      "why.1t": "California & Florida focus", "why.1p": "Wherever you're buying, Orange helps you close with confidence — not just quote a rate.",
       "why.2t": "Clear explanation of your options", "why.2p": "Every program and number explained simply, so you can decide with confidence.",
       "why.3t": "Fast digital application", "why.3p": "A modern, paperless process you can start from your phone in minutes.",
       "why.4t": "Human help when you need it", "why.4p": "A real person to talk to whenever a question comes up — no call centers.",
@@ -237,8 +237,8 @@
       "loans.6t": "Рефинансирование", "loans.6p": "Изменить ставку или срок либо использовать капитал в жилье.",
 
       "why.eyebrow": "Почему Orange",
-      "why.h2": "Местный ипотечный гид, который упрощает процесс",
-      "why.1t": "Фокус на округе Ориндж", "why.1p": "Сопровождение, основанное на рынке OC и том, как здесь продаётся жильё.",
+      "why.h2": "Ипотечный гид, который упрощает процесс",
+      "why.1t": "Калифорния и Флорида", "why.1p": "Где бы вы ни покупали, Orange помогает закрыть сделку уверенно — а не просто назвать ставку.",
       "why.2t": "Понятное объяснение вариантов", "why.2p": "Каждая программа и цифра объяснены просто, чтобы вы решали уверенно.",
       "why.3t": "Быстрая онлайн-заявка", "why.3p": "Современный безбумажный процесс, который можно начать с телефона за минуты.",
       "why.4t": "Живая помощь, когда нужно", "why.4p": "Реальный человек, с которым можно поговорить по любому вопросу — без колл-центров.",
@@ -415,8 +415,8 @@
       "loans.6t": "Refinanciación", "loans.6p": "Explora ajustar tu tasa o plazo, o usar el capital de tu vivienda.",
 
       "why.eyebrow": "Por qué Orange",
-      "why.h2": "Un guía hipotecario local que hace el proceso más fácil",
-      "why.1t": "Enfoque local en el Condado de Orange", "why.1p": "Orientación basada en el mercado de OC y en cómo se venden las casas aquí.",
+      "why.h2": "Un guía hipotecario que hace el proceso más fácil",
+      "why.1t": "California y Florida", "why.1p": "Dondequiera que compres, Orange te ayuda a cerrar con confianza — no solo a cotizar una tasa.",
       "why.2t": "Explicación clara de tus opciones", "why.2p": "Cada programa y número explicado de forma simple, para que decidas con confianza.",
       "why.3t": "Solicitud digital rápida", "why.3p": "Un proceso moderno y sin papel que puedes iniciar desde tu teléfono en minutos.",
       "why.4t": "Ayuda humana cuando la necesitas", "why.4p": "Una persona real con quien hablar ante cualquier duda — sin centros de llamadas.",

@@ -690,6 +690,19 @@
 
   ];
 
+  /* ---- "When to talk to a professional" — per path (compliance-safe) ---- */
+  var whenToTalk = {
+    "first-time": "When you're ready to look at real numbers for a specific home or price range, a licensed mortgage professional can review your full picture. What you qualify for depends on a complete application and documentation.",
+    "credit": "If your credit or debt feels like a question mark, a licensed mortgage professional can review your actual mortgage credit profile before you apply. Final options depend on full application and lender review.",
+    "self-employed": "When your income is more than a single pay stub, a licensed mortgage professional can review which documentation approach fits your business. Your tax advisor can confirm the tax side.",
+    "w2-business": "If you combine a paycheck with business, side, or variable income, a licensed mortgage professional can review how each part may be counted toward qualification.",
+    "jumbo": "Before assuming the jumbo path, a licensed mortgage professional can review your county line, reserves, and structure options. The right structure depends on the property and your full profile.",
+    "refinance": "When you want to know whether the math works for your home and timeline, a licensed mortgage professional can review your break-even. Nobody can promise where rates go.",
+    "investment": "For a specific property and rent scenario, a licensed mortgage professional can review how the deal and your profile fit together. It depends on full application and documentation.",
+    "documents": "Before you move money or change anything, talk it through with a licensed mortgage professional so your file stays clean. When in doubt, ask first."
+  };
+  var defaultWhenToTalk = "When you're ready, a licensed mortgage professional can review your full situation. Final options depend on a complete application, documentation, and lender approval — and your tax or legal advisor can confirm anything outside the loan itself.";
+
   /* ---- Public API (also AI Phase-2 friendly) ---- */
   root.OrangeEducation = {
     brand: brand,
@@ -697,6 +710,7 @@
     situations: situations,
     paths: paths,
     topics: topics,
+    whenToTalk: whenToTalk,
     /* convenience: id → topic */
     byId: function (id) {
       for (var i = 0; i < topics.length; i++) { if (topics[i].id === id) return topics[i]; }
@@ -707,6 +721,10 @@
       var out = [];
       for (var i = 0; i < topics.length; i++) { if (topics[i].path === pathId) out.push(topics[i]); }
       return out;
+    },
+    /* convenience: when-to-talk copy for a path (safe fallback) */
+    whenToTalkFor: function (pathId) {
+      return whenToTalk[pathId] || defaultWhenToTalk;
     }
   };
 

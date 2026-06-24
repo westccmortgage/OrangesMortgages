@@ -3,8 +3,9 @@
    ------------------------------------------------------------
    Renders the learning experience from window.OrangeEducation
    (js/data/orangeEducationTopics.js). No AI / API / backend.
-   Phase 2: the same topic data can ground a real AI assistant;
-   this UI stays as the curated, safe fallback.
+   Phase 2: the same topic data can ground a real AI assistant
+   or a speaking Orange avatar; this UI stays as the curated,
+   compliance-safe fallback.
    ============================================================ */
 (function () {
   "use strict";
@@ -28,10 +29,12 @@
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
   }
+  function truncate(s, n) { s = String(s || ""); return s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, "") + "…" : s; }
   function seen() {
     try { return JSON.parse(localStorage.getItem(SEEN_KEY) || "[]"); }
     catch (e) { return []; }
   }
+  function isSeen(id) { return seen().indexOf(id) !== -1; }
   function markSeen(id) {
     var s = seen();
     if (s.indexOf(id) === -1) { s.push(id); }
@@ -40,14 +43,17 @@
   function pathPct(pathId) {
     var topics = DATA.byPath(pathId);
     if (!topics.length) return 0;
-    var s = seen(), done = 0;
-    topics.forEach(function (t) { if (s.indexOf(t.id) !== -1) done++; });
-    return Math.round((done / topics.length) * 100);
+    return Math.round((pathDone(pathId) / topics.length) * 100);
   }
   function pathDone(pathId) {
     var topics = DATA.byPath(pathId), s = seen(), done = 0;
     topics.forEach(function (t) { if (s.indexOf(t.id) !== -1) done++; });
     return done;
+  }
+  function pathOf(id) { return DATA.paths.filter(function (p) { return p.id === id; })[0] || {}; }
+  function nextPathId(pathId) {
+    var i = DATA.paths.map(function (p) { return p.id; }).indexOf(pathId);
+    return DATA.paths[(i + 1) % DATA.paths.length].id;
   }
 
   /* ---------- element refs (filled on init) ---------- */
@@ -79,35 +85,37 @@
     wrap.innerHTML = "";
     DATA.paths.forEach(function (p) {
       var topics = DATA.byPath(p.id);
-      var item = el("div", "ao-path" + (state.path === p.id ? " is-active" : ""));
+      var done = pathDone(p.id), pct = pathPct(p.id);
+      var item = el("div", "ao-path" + (state.path === p.id ? " is-active" : "") + (done === topics.length ? " is-complete" : ""));
       item.setAttribute("data-path", p.id);
+
+      var statusLabel = done === 0 ? "Start here"
+        : done === topics.length ? "Completed ✓"
+        : done + " / " + topics.length + " lessons";
 
       var head = el("button", "ao-path__head",
         '<span class="ao-path__emoji" aria-hidden="true">' + p.emoji + "</span>" +
         '<span class="ao-path__meta">' +
           '<span class="ao-path__title">' + esc(p.title) + "</span>" +
-          '<span class="ao-path__count">' + pathDone(p.id) + " / " + topics.length + " · " +
-            esc(p.blurb) + "</span>" +
+          '<span class="ao-path__count">' + esc(statusLabel) + "</span>" +
         "</span>" +
-        '<span class="ao-path__pct" aria-hidden="true">' + pathPct(p.id) + "%</span>");
+        '<span class="ao-path__pct" aria-hidden="true">' + pct + "%</span>");
       head.type = "button";
       head.setAttribute("data-ao-path", p.id);
       head.setAttribute("aria-expanded", state.path === p.id ? "true" : "false");
       item.appendChild(head);
 
       var bar = el("span", "ao-path__bar");
-      bar.appendChild(el("i", null, "")).style.width = pathPct(p.id) + "%";
+      bar.appendChild(el("i", null, "")).style.width = pct + "%";
       item.appendChild(bar);
 
-      // topic sub-list (only meaningful when expanded; CSS handles show/hide)
       var list = el("ul", "ao-path__topics");
-      var s = seen();
       topics.forEach(function (t, i) {
         var li = el("li", null,
           '<button type="button" class="ao-toplink' +
             (state.topic === t.id ? " is-current" : "") +
-            (s.indexOf(t.id) !== -1 ? " is-seen" : "") + '" data-ao-topic="' + t.id + '">' +
-            '<span class="ao-toplink__n" aria-hidden="true">' + (i + 1) + "</span>" +
+            (isSeen(t.id) ? " is-seen" : "") + '" data-ao-topic="' + t.id + '">' +
+            '<span class="ao-toplink__n" aria-hidden="true">' + (isSeen(t.id) ? "✓" : (i + 1)) + "</span>" +
             '<span class="ao-toplink__q">' + esc(t.question) + "</span>" +
           "</button>");
         list.appendChild(li);
@@ -123,12 +131,24 @@
     var done = seen().filter(function (id) { return !!DATA.byId(id); }).length;
     var pct = total ? Math.round((done / total) * 100) : 0;
     if (els.progFill) els.progFill.style.width = pct + "%";
-    if (els.progText) els.progText.textContent = done + " of " + total + " topics explored";
+    if (els.progText) {
+      els.progText.textContent = done === 0
+        ? "Your learning journey starts here"
+        : done >= total ? "🎉 You've explored every topic!" : done + " of " + total + " topics completed";
+    }
   }
 
   /* ============================================================
-     RENDER: main answer card
+     Shared fragments
      ============================================================ */
+  function avatarCue() {
+    return '<div class="ao-avatarcue">' +
+      '<span class="ao-avatarcue__dot" aria-hidden="true"><img src="assets/orange-cutout.webp" alt="" width="34" height="34" loading="lazy" /></span>' +
+      '<p class="ao-avatarcue__txt">Soon, Orange will be able to walk you through this topic step by step.</p>' +
+      '<span class="ao-avatarcue__tag">Coming soon</span>' +
+      "</div>";
+  }
+
   function followupsHtml(topic) {
     if (!topic.followUpQuestions || !topic.followUpQuestions.length) return "";
     var chips = topic.followUpQuestions.map(function (f) {
@@ -137,45 +157,91 @@
         (to ? 'data-ao-topic="' + to + '"' : 'data-ao-search="' + esc(f.q) + '"') + ">" +
         '<span aria-hidden="true">💬</span> ' + esc(f.q) + "</button>";
     }).join("");
-    return '<div class="ao-next">' +
-      '<p class="ao-next__title">🍊 Ask ' + esc(BRAND.name) + " next</p>" +
-      '<div class="ao-next__chips">' + chips + "</div></div>";
+    return '<section class="ao-next">' +
+      '<h3 class="ao-next__title">🍊 Most borrowers ask this next</h3>' +
+      '<div class="ao-next__chips">' + chips + "</div></section>";
   }
 
+  /* ============================================================
+     RENDER: answer card (a "lesson")
+     ============================================================ */
   function renderCard(topic) {
     if (!els.stage) return;
-    var p = DATA.paths.filter(function (x) { return x.id === topic.path; })[0] || {};
-    var stepIdx = DATA.byPath(topic.path).map(function (t) { return t.id; }).indexOf(topic.id);
+    var p = pathOf(topic.path);
+    var pathTopics = DATA.byPath(topic.path);
+    var idx = pathTopics.map(function (t) { return t.id; }).indexOf(topic.id);
+    var total = pathTopics.length;
+    var wasSeen = isSeen(topic.id);
+    var isFirst = idx === 0;
+    var next = idx < total - 1 ? pathTopics[idx + 1] : null;
+
+    // forward recommendation (next lesson, or finished)
+    var nextHtml;
+    if (next) {
+      nextHtml =
+        '<aside class="ao-nextlesson">' +
+          '<span class="ao-nextlesson__k">🍊 Orange recommends this next</span>' +
+          '<button type="button" class="ao-nextlesson__card" data-ao-topic="' + next.id + '">' +
+            '<span class="ao-nextlesson__n">Lesson ' + (idx + 2) + " of " + total + "</span>" +
+            '<span class="ao-nextlesson__q">' + esc(next.question) + "</span>" +
+            '<span class="ao-nextlesson__go">Next lesson →</span>' +
+          "</button>" +
+        "</aside>";
+    } else {
+      var np = pathOf(nextPathId(topic.path));
+      nextHtml =
+        '<aside class="ao-nextlesson ao-nextlesson--done">' +
+          '<span class="ao-nextlesson__k">🎉 You\'ve finished the ' + esc(p.title) + " path</span>" +
+          "<p>Nice work — you've completed every lesson here. When you're ready, Orange can review your situation, or keep your momentum with another path.</p>" +
+          '<div class="ao-nextlesson__actions">' +
+            '<a class="btn btn--primary btn--sm" href="' + esc(BRAND.contactUrl) + '">Ask ' + esc(BRAND.name) + "</a>" +
+            '<button type="button" class="btn btn--ghost btn--sm" data-ao-path="' + np.id + '">' + esc(np.emoji) + " Start " + esc(np.title) + " →</button>" +
+          "</div>" +
+        "</aside>";
+    }
 
     var html =
       '<article class="ao-card" id="ao-answer">' +
         '<header class="ao-card__head">' +
           '<span class="ao-card__path">' + (p.emoji || "🍊") + " " + esc(p.title || "Ask Orange") +
-            ' · Topic ' + (stepIdx + 1) + " of " + DATA.byPath(topic.path).length + "</span>" +
+            " · Lesson " + (idx + 1) + " of " + total + "</span>" +
           '<div class="ao-card__tools">' +
+            (wasSeen ? '<span class="ao-done">✓ You\'ve completed this topic</span>' : "") +
             '<button type="button" class="ao-tool" data-ao-share aria-label="Copy a link to this topic">' +
               '<span aria-hidden="true">🔗</span> Save / share</button>' +
           "</div>" +
         "</header>" +
 
+        avatarCue() +
+
         '<div class="ao-card__qrow">' +
-          '<span class="ao-card__avatar" aria-hidden="true">🍊</span>' +
+          (isFirst ? '<span class="ao-startbadge">Start here</span>' : "") +
           '<h2 class="ao-card__q">' + esc(topic.question) + "</h2>" +
         "</div>" +
 
-        '<p class="ao-card__answer">' + esc(topic.shortAnswer) + "</p>" +
+        '<div class="ao-ans">' +
+          '<h3 class="ao-ans__label">Orange\'s simple answer</h3>' +
+          '<p class="ao-card__answer">' + esc(topic.shortAnswer) + "</p>" +
+        "</div>" +
 
-        '<div class="ao-block ao-block--why">' +
-          '<p class="ao-block__label">Why this matters</p>' +
+        '<section class="ao-block ao-block--why">' +
+          '<h3 class="ao-block__label">Why this matters</h3>' +
           "<p>" + esc(topic.whyItMatters) + "</p>" +
-        "</div>" +
+        "</section>" +
 
-        '<div class="ao-block ao-block--mistake">' +
-          '<p class="ao-block__label">⚠️ Common mistake</p>' +
+        '<section class="ao-block ao-block--mistake">' +
+          '<h3 class="ao-block__label">⚠️ Common mistake</h3>' +
           "<p>" + esc(topic.commonMistake) + "</p>" +
-        "</div>" +
+        "</section>" +
 
         followupsHtml(topic) +
+
+        '<section class="ao-block ao-block--pro">' +
+          '<h3 class="ao-block__label">👋 When to talk to a professional</h3>' +
+          "<p>" + esc(DATA.whenToTalkFor(topic.path)) + "</p>" +
+        "</section>" +
+
+        nextHtml +
 
         '<div class="ao-card__cta">' +
           "<p>" + esc(topic.nextBestStep || ("Want " + BRAND.name + " to review your situation?")) + "</p>" +
@@ -187,35 +253,98 @@
 
         '<p class="ao-card__disc">' + esc(DATA.disclaimer) + "</p>" +
 
-        '<nav class="ao-card__nav" aria-label="Topic navigation">' +
-          (stepIdx > 0
-            ? '<button type="button" class="btn btn--ghost btn--sm" data-ao-step="prev">← Previous</button>'
-            : "<span></span>") +
-          (stepIdx < DATA.byPath(topic.path).length - 1
-            ? '<button type="button" class="btn btn--ghost btn--sm" data-ao-step="next">Next topic →</button>'
-            : '<a class="btn btn--ghost btn--sm" href="' + esc(BRAND.contactUrl) + '">Finish — Ask ' + esc(BRAND.name) + " →</a>") +
+        '<nav class="ao-card__nav" aria-label="Lesson navigation">' +
+          (idx > 0
+            ? '<button type="button" class="btn btn--ghost btn--sm" data-ao-step="prev">← Previous lesson</button>'
+            : '<button type="button" class="btn btn--ghost btn--sm" data-ao-browse>Browse all questions</button>') +
+          '<span class="ao-card__navpos">' + (idx + 1) + " / " + total + "</span>" +
         "</nav>" +
       "</article>";
 
     els.stage.innerHTML = html;
   }
 
+  /* ============================================================
+     RENDER: path intro ("course start" — no topic selected)
+     ============================================================ */
   function renderPathIntro(pathId) {
-    var p = DATA.paths.filter(function (x) { return x.id === pathId; })[0];
-    if (!p || !els.stage) return;
+    var p = pathOf(pathId);
+    if (!p.id || !els.stage) return;
     var topics = DATA.byPath(pathId);
     var list = topics.map(function (t, i) {
-      return '<button type="button" class="ao-introtopic" data-ao-topic="' + t.id + '">' +
+      var tag = i === 0 ? '<span class="ao-introtopic__badge">Start here</span>'
+        : isSeen(t.id) ? '<span class="ao-introtopic__seen" aria-hidden="true">✓</span>' : "";
+      return '<button type="button" class="ao-introtopic' + (isSeen(t.id) ? " is-seen" : "") + '" data-ao-topic="' + t.id + '">' +
         '<span class="ao-introtopic__n">' + (i + 1) + "</span>" +
         '<span class="ao-introtopic__q">' + esc(t.question) + "</span>" +
+        tag +
         '<span class="ao-introtopic__go" aria-hidden="true">→</span></button>';
     }).join("");
     els.stage.innerHTML =
       '<div class="ao-intro">' +
         '<span class="ao-intro__emoji" aria-hidden="true">' + p.emoji + "</span>" +
+        '<span class="ao-intro__kicker">Guided path · ' + topics.length + " lessons · go at your pace</span>" +
         "<h2>" + esc(p.title) + "</h2>" +
         '<p class="ao-intro__blurb">' + esc(p.blurb) + "</p>" +
         '<div class="ao-introlist">' + list + "</div>" +
+        '<button type="button" class="btn btn--primary btn--lg ao-intro__start" data-ao-topic="' + topics[0].id + '">Start lesson 1 →</button>' +
+      "</div>";
+  }
+
+  /* ============================================================
+     RENDER: situation recommendation
+     ("Based on your situation, Orange recommends starting with…")
+     ============================================================ */
+  function renderRecommendation(pathId) {
+    var p = pathOf(pathId);
+    if (!p.id || !els.stage) return;
+    state.path = pathId; state.topic = null;
+    renderPaths();
+    var topics = DATA.byPath(pathId);
+    var first = topics[0];
+    var rest = topics.slice(1, 5).map(function (t, i) {
+      return '<button type="button" class="ao-introtopic" data-ao-topic="' + t.id + '">' +
+        '<span class="ao-introtopic__n">' + (i + 2) + "</span>" +
+        '<span class="ao-introtopic__q">' + esc(t.question) + "</span>" +
+        '<span class="ao-introtopic__go" aria-hidden="true">→</span></button>';
+    }).join("");
+    els.stage.innerHTML =
+      '<div class="ao-reco">' +
+        '<span class="ao-reco__kicker">' + p.emoji + " Based on your situation</span>" +
+        "<h2>Orange recommends starting with…</h2>" +
+        '<button type="button" class="ao-reco__primary" data-ao-topic="' + first.id + '">' +
+          '<span class="ao-reco__badge">Start here · Lesson 1 of ' + topics.length + "</span>" +
+          '<span class="ao-reco__q">' + esc(first.question) + "</span>" +
+          '<span class="ao-reco__answer">' + esc(truncate(first.shortAnswer, 150)) + "</span>" +
+          '<span class="ao-reco__go">Start this lesson →</span>' +
+        "</button>" +
+        '<p class="ao-reco__then">Then Orange will walk you through:</p>' +
+        '<div class="ao-introlist">' + rest + "</div>" +
+      "</div>";
+    setHash(null);
+    scrollToStage();
+  }
+
+  /* ============================================================
+     RENDER: browse all questions (semantic, SEO-friendly headings)
+     ============================================================ */
+  function renderBrowseAll() {
+    if (!els.stage) return;
+    var groups = DATA.paths.map(function (p) {
+      var rows = DATA.byPath(p.id).map(function (t) {
+        return '<button type="button" class="ao-result" data-ao-topic="' + t.id + '">' +
+          '<span class="ao-result__q">' + esc(t.question) + "</span>" +
+          (isSeen(t.id) ? '<span class="ao-result__seen" aria-hidden="true">✓</span>' : '<span class="ao-result__path">' + esc(t.category || "") + "</span>") +
+          "</button>";
+      }).join("");
+      return '<section class="ao-browse__group">' +
+        '<h3 class="ao-browse__h">' + p.emoji + " " + esc(p.title) + "</h3>" +
+        '<div class="ao-results">' + rows + "</div></section>";
+    }).join("");
+    els.stage.innerHTML =
+      '<div class="ao-browse">' +
+        '<div class="ao-search-head"><h2>All questions</h2><p>Every topic Orange can explain today — pick any one to start.</p></div>' +
+        groups +
       "</div>";
   }
 
@@ -253,12 +382,13 @@
             esc(BRAND.name) + " directly.</p>" +
           '<div class="ao-card__cta-actions" style="justify-content:center">' +
             '<a class="btn btn--primary" href="' + esc(BRAND.contactUrl) + '">Ask ' + esc(BRAND.name) + "</a>" +
+            '<button type="button" class="btn btn--ghost" data-ao-browse>Browse all questions</button>' +
           "</div>" +
         "</div>";
       return;
     }
     var list = results.map(function (t) {
-      var p = DATA.paths.filter(function (x) { return x.id === t.path; })[0] || {};
+      var p = pathOf(t.path);
       return '<button type="button" class="ao-result" data-ao-topic="' + t.id + '">' +
         '<span class="ao-result__q">' + esc(t.question) + "</span>" +
         '<span class="ao-result__path">' + (p.emoji || "🍊") + " " + esc(p.title || "") + "</span>" +
@@ -296,9 +426,9 @@
     if (!topic) return;
     state.path = topic.path;
     state.topic = id;
-    markSeen(id);
+    renderCard(topic);   // render first (reads wasSeen) …
+    markSeen(id);        // … then mark, so "completed" shows on return visits
     renderPaths();
-    renderCard(topic);
     setHash(id);
     if (!opts || !opts.silent) scrollToStage();
   }
@@ -314,9 +444,15 @@
 
   function scrollToStage() {
     if (!els.stageWrap) return;
-    var top = els.stageWrap.getBoundingClientRect().top + window.pageYOffset - 90;
+    var top = els.stageWrap.getBoundingClientRect().top + window.pageYOffset - 84;
     try { window.scrollTo({ top: top, behavior: "smooth" }); }
     catch (e) { window.scrollTo(0, top); }
+  }
+
+  function scrollTo(node) {
+    if (!node) return;
+    var top = node.getBoundingClientRect().top + window.pageYOffset - 84;
+    try { window.scrollTo({ top: top, behavior: "smooth" }); } catch (e) { window.scrollTo(0, top); }
   }
 
   function doShare() {
@@ -346,6 +482,7 @@
     if ((m = h.match(/^p=(.+)$/)) && DATA.paths.some(function (p) { return p.id === m[1]; })) {
       openPath(m[1], { silent: true }); return true;
     }
+    if (h === "browse") { renderBrowseAll(); return true; }
     return false;
   }
 
@@ -361,13 +498,7 @@
       if (p) { e.preventDefault(); openPath(p.getAttribute("data-ao-path")); return; }
 
       var s = e.target.closest("[data-ao-situation]");
-      if (s) {
-        e.preventDefault();
-        var firstTopics = DATA.byPath(s.getAttribute("data-ao-situation"));
-        if (firstTopics.length) openTopic(firstTopics[0].id);
-        else openPath(s.getAttribute("data-ao-situation"));
-        return;
-      }
+      if (s) { e.preventDefault(); renderRecommendation(s.getAttribute("data-ao-situation")); return; }
 
       var sr = e.target.closest("[data-ao-search]");
       if (sr) {
@@ -383,14 +514,20 @@
       var step = e.target.closest("[data-ao-step]");
       if (step) { e.preventDefault(); stepTopic(step.getAttribute("data-ao-step")); return; }
 
-      if (e.target.closest("[data-ao-start]")) {
+      if (e.target.closest("[data-ao-browse]")) {
         e.preventDefault();
-        openPath(DATA.paths[0].id);
+        renderBrowseAll();
+        try { history.replaceState(null, "", location.pathname + location.search + "#browse"); } catch (x) {}
+        scrollToStage();
         return;
       }
-      if (e.target.closest("[data-ao-ask]")) {
+
+      // "Start with My Situation" → scroll to the situation chips
+      if (e.target.closest("[data-ao-start]")) {
         e.preventDefault();
-        if (els.search) { els.search.focus(); els.search.scrollIntoView({ behavior: "smooth", block: "center" }); }
+        scrollTo(els.situations);
+        var first = els.situations && els.situations.querySelector(".ao-sit");
+        if (first) { first.classList.add("is-hint"); setTimeout(function () { first.classList.remove("is-hint"); }, 1400); }
         return;
       }
     });

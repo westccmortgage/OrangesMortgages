@@ -3,8 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="aca.title">Ask Orange Academy — Learn How Mortgages Really Work | Orange Mortgage</title>
-  <meta name="description" data-i18n-content="aca.desc" content="Ask Orange Academy — a guided, AI-style mortgage learning journey. Understand approval, credit, debt, down payment, self-employment, jumbo, refinance, and investment property financing. Educational only." />
+  <title data-i18n="aca.title">Ask Orange Academy — A Guided Mortgage Learning Experience | Orange Mortgage</title>
+  <meta name="description" data-i18n-content="aca.desc" content="Ask Orange Academy — a guided mortgage learning experience for buyers, homeowners, self-employed borrowers, and investors. Understand approval, credit, debt, down payment, self-employment, jumbo, refinance, and investment financing. Educational only." />
+  <link rel="canonical" href="https://orangesmortgages.com/academy.html" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Orange Mortgage" />
+  <meta property="og:title" content="Ask Orange Academy — A Guided Mortgage Learning Experience" />
+  <meta property="og:description" content="Learn how mortgage approval really works — credit, income, debt, down payment, self-employment, jumbo, refinance, and investment property — guided by Orange, in plain English." />
+  <meta property="og:url" content="https://orangesmortgages.com/academy.html" />
+  <meta property="og:image" content="https://orangesmortgages.com/assets/orange-cutout.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ask Orange Academy — A Guided Mortgage Learning Experience" />
+  <meta name="twitter:description" content="A guided, plain-English mortgage education for buyers, homeowners, self-employed borrowers, and investors. Educational only." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Ask Orange Academy",
+    "description": "A guided mortgage learning experience for buyers, homeowners, self-employed borrowers, and investors — covering approval, credit, debt, down payment, self-employment, jumbo, refinance, and investment property financing. Educational only.",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "provider": {
+      "@type": "Organization",
+      "name": "Orange Mortgage",
+      "url": "https://orangesmortgages.com"
+    },
+    "about": ["Mortgage approval","Credit and debt","Down payment","Self-employed income","Jumbo loans","Refinance","Investment property financing"]
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,14 +88,20 @@
     <!-- ============ ACADEMY HERO ============ -->
     <section class="aca-hero">
       <div class="container aca-hero__inner">
-        <span class="eyebrow">🍊 Ask Orange Academy</span>
-        <h1>Not sure where to start? <span class="accent">Ask Orange.</span></h1>
-        <p class="lead">Learn how mortgage approval really works — credit, income, debt, down payment,
-          self-employment, jumbo loans, and more. A guided, plain-English journey, at your pace.</p>
+        <span class="eyebrow">🍊 A guided mortgage learning experience</span>
+        <h1>Ask Orange <span class="accent">Academy</span></h1>
+        <p class="lead">A guided mortgage learning experience for buyers, homeowners, self-employed
+          borrowers, and investors. Learn how approval really works — in plain English, at your pace.</p>
 
         <div class="aca-hero__actions">
-          <button type="button" class="btn btn--primary btn--lg" data-ao-start>Start Learning with Orange →</button>
-          <button type="button" class="btn btn--ghost btn--lg" data-ao-ask>Ask a Mortgage Question</button>
+          <button type="button" class="btn btn--primary btn--lg" data-ao-start>Start with My Situation →</button>
+          <button type="button" class="btn btn--ghost btn--lg" data-ao-browse>Browse All Questions</button>
+        </div>
+
+        <!-- Choose your situation (first — the guided entry point) -->
+        <div class="aca-pick">
+          <p class="aca-hero__pick">👇 Choose your situation — Orange recommends the best path first:</p>
+          <div class="aca-situations" id="aoSituations" role="group" aria-label="Choose your situation"></div>
         </div>
 
         <!-- Search -->
@@ -77,10 +110,6 @@
           <input id="aoSearch" type="search" autocomplete="off"
                  placeholder="Ask Orange a mortgage question…" aria-label="Ask Orange a mortgage question" />
         </div>
-
-        <!-- Choose your situation -->
-        <p class="aca-hero__pick">Or choose your situation — Orange opens the best path first:</p>
-        <div class="aca-situations" id="aoSituations" role="group" aria-label="Choose your situation"></div>
       </div>
     </section>
 

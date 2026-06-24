@@ -1,0 +1,27 @@
+# Netlify configuration — Orange Mortgage
+# This is a zero-build static site served straight from the repository root
+# (index.html, css/, js/, assets/). There is no build step and no subdirectory.
+
+[build]
+  # Repository root is the base. An empty string resets any previously
+  # configured (and invalid) base directory back to the repo root.
+  base = ""
+  # Publish the repo root, where index.html lives.
+  publish = "."
+  # No build/bundling step for a plain static site.
+  command = ""
+
+# Long-cache fingerprint-free static assets are fine to revalidate; the SVGs
+# and favicon rarely change, so allow a long cache with revalidation.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Sensible baseline security headers for a public marketing site.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"

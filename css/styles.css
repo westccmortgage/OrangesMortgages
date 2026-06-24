@@ -527,8 +527,20 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
 .subhero__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
 .subhero__copy h1 { margin-bottom: 18px; }
 .subhero__copy .lead { font-size: 1.16rem; max-width: 540px; }
+.subhero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+
+/* centered CTA variant (About page) */
+.cta__inner--center { grid-template-columns: 1fr; max-width: 700px; margin-inline: auto; text-align: center; }
+.cta__inner--center .eyebrow { margin-inline: auto; }
+.cta__inner--center .cta__email { margin: 22px auto 0; }
+.hero__actions--center { justify-content: center; }
 .subhero__visual { display: grid; place-items: center; }
 .subhero__visual img { width: min(100%, 380px); border-radius: var(--radius-lg); filter: drop-shadow(0 26px 38px rgba(20,38,74,.18)); animation: float 6s ease-in-out infinite; }
+
+/* AnimatedOrangeHero — About variant (different mascot art = different leaf
+   pivot + aspect ratio; reuses the same blink/sway/breathe animations) */
+.orange-hero--about { height: clamp(340px, 38vw, 520px); aspect-ratio: 898 / 1368; }
+.orange-hero--about .orange-hero__leaf { transform-origin: 42% 9.5%; }
 
 /* origin-story timeline */
 .timeline { max-width: 760px; margin: 0 auto; position: relative; padding-left: 30px; }

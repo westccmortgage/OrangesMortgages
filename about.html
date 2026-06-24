@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meet Orange — About | Orange Mortgage</title>
-  <meta name="description" content="Meet Orange, the friendly mascot of Orange Mortgage — the consumer brand of West Coast Capital Mortgage, Inc. (NMLS #2817729). A playful story with the serious licensing details." />
+  <title>About Orange — West Coast Capital Mortgage, Inc. | Orange Mortgage</title>
+  <meta name="description" content="Meet Orange, the friendly brand of West Coast Capital Mortgage, Inc. — a modern mortgage company led by founder Anatoliy Kanevsky. Clear, honest guidance for Orange County buyers, homeowners, and investors." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,7 +27,13 @@
         <a href="index.html#loans">Loan Options</a>
         <a href="index.html#why">Why Orange</a>
         <a href="index.html#calculator">Calculator</a>
+        <a href="index.html#process">How It Works</a>
+        <a href="index.html#areas">Service Areas</a>
         <a href="about.html" aria-current="page">About</a>
+        <a href="mailto:orange@orangesmortgages.com" class="nav__email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          orange@orangesmortgages.com
+        </a>
         <a href="index.html#contact" class="btn btn--primary btn--sm nav__cta">Get Pre-Approved</a>
       </nav>
 
@@ -45,21 +51,37 @@
         <div class="subhero__copy">
           <span class="eyebrow">🍊 The (mostly true) story</span>
           <h1>Meet <span class="accent">Orange</span></h1>
-          <p class="lead">Part citrus, part mortgage genius, fully committed to getting Orange County into their dream homes. He's the friendly face of <strong>West Coast Capital Mortgage, Inc.</strong> — here to make home financing simple, smart, and a little more fun.</p>
+          <p class="lead">Part citrus, part mortgage guide, fully committed to helping Orange County buy, refinance, and invest with confidence. He's the friendly face of <strong>West Coast Capital Mortgage, Inc.</strong> — here to make home financing simple, smart, and a little more fun.</p>
+          <div class="subhero__actions">
+            <a href="index.html#contact" class="btn btn--primary btn--lg js-ask-orange">Ask Orange</a>
+            <a href="index.html#calculator" class="btn btn--ghost btn--lg">Estimate My Payment</a>
+          </div>
         </div>
         <div class="subhero__visual">
-          <img src="assets/orange-pointing.webp" alt="Orange the mascot pointing upward" width="1536" height="1024" />
+          <!-- AnimatedOrangeHero (About variant). Same swappable-media approach
+               as the homepage: replace this figure with one transparent, muted,
+               looping <video class="hero__orange"> to make Orange speak later. -->
+          <figure class="orange-hero orange-hero--about">
+            <img class="orange-hero__layer orange-hero__body hero__orange"
+                 src="assets/orange-about-body.webp"
+                 alt="Orange, the friendly Orange County mortgage mascot, smiling and presenting with an open hand"
+                 width="898" height="1368" fetchpriority="high" decoding="async" />
+            <img class="orange-hero__layer orange-hero__eyes" src="assets/orange-about-eyes-closed.webp"
+                 alt="" width="898" height="1368" decoding="async" aria-hidden="true" />
+            <img class="orange-hero__layer orange-hero__leaf" src="assets/orange-about-leaf.webp"
+                 alt="" width="898" height="1368" decoding="async" aria-hidden="true" />
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ ORIGIN STORY ============ -->
+    <!-- ============ ORIGIN STORY (the fun part) ============ -->
     <section class="section">
       <div class="container">
         <div class="section__head">
           <span class="eyebrow eyebrow--center">Origin Story</span>
           <h2>How a citrus became a closer</h2>
-          <p>Every great mascot has a humble beginning. Orange's just happens to involve a grove, a tiny blue suit, and an unhealthy obsession with interest rates.</p>
+          <p>Every great mascot has a humble beginning. Orange's just happens to involve a grove, a tiny navy suit, and an unhealthy obsession with interest rates.</p>
         </div>
 
         <div class="timeline">
@@ -76,12 +98,12 @@
           <div class="tl">
             <div class="tl__year">The Calling</div>
             <h3>Fell head over peel for home loans 🏡</h3>
-            <p>While neighbors were busy being juice, Orange was reading rate sheets, comparing loan programs, and helping families figure out what they could afford.</p>
+            <p>While neighbors were busy being juice, Orange was reading rate sheets, comparing loan programs, and helping families understand what they could afford.</p>
           </div>
           <div class="tl">
             <div class="tl__year">Today</div>
-            <h3>Orange County's friendliest advisor ⭐</h3>
-            <p>Now he guides buyers and homeowners from pre-approval to keys-in-hand — backed by the licensed team at West Coast Capital Mortgage, Inc.</p>
+            <h3>Orange County's friendliest guide ⭐</h3>
+            <p>Now he helps buyers, homeowners, and investors understand their options — backed by the licensed team at West Coast Capital Mortgage, Inc.</p>
           </div>
         </div>
       </div>
@@ -98,22 +120,22 @@
           <article class="fact">
             <div class="fact__emoji">🧃</div>
             <h3>100% locally grown</h3>
-            <p>Orange County born and raised. He knows the neighborhoods, the prices, and where to find the best tacos after a closing.</p>
+            <p>Orange County focused. He knows the neighborhoods, the market, and where to find the best tacos after a closing.</p>
           </article>
           <article class="fact">
             <div class="fact__emoji">⚡</div>
             <h3>Vitamin C-losing speed</h3>
-            <p>Famous for fast pre-approvals and an average close time of just 18 days. No squeezing required.</p>
+            <p>A fast, modern, paperless process that keeps things moving — no squeezing required.</p>
           </article>
           <article class="fact">
             <div class="fact__emoji">📞</div>
             <h3>Always picks up</h3>
-            <p>No call centers, no runaround. When you call Orange, you get Orange — every step of the way.</p>
+            <p>No call centers, no runaround. When you reach out to Orange, you get a real person — every step of the way.</p>
           </article>
           <article class="fact">
             <div class="fact__emoji">💎</div>
             <h3>Jumbo-loan whisperer</h3>
-            <p>From cozy condos to coastal estates, Orange has a soft spot for Orange County's luxury homes.</p>
+            <p>From cozy condos to coastal estates, Orange has a soft spot for Orange County's higher-priced homes.</p>
           </article>
           <article class="fact">
             <div class="fact__emoji">🛡️</div>
@@ -129,19 +151,82 @@
       </div>
     </section>
 
-    <!-- ============ THE SERIOUS PART ============ -->
+    <!-- ============ OUR MISSION (the real company) ============ -->
     <section class="section">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow eyebrow--center">Okay, the serious part</span>
-          <h2>Who's behind Orange</h2>
-          <p>Orange is the fun part. The trust, licensing, and expertise come from a real, regulated mortgage company.</p>
+          <span class="eyebrow eyebrow--center">Our Mission</span>
+          <h2>Financing made clear, honest, and built around your goals</h2>
+          <p>West Coast Capital Mortgage, Inc. is a modern mortgage company focused on helping people buy homes, refinance, and build equity with confidence. We pair efficient technology with experienced, licensed guidance.</p>
+        </div>
+        <div class="cards cards--4">
+          <article class="card">
+            <div class="card__icon">💬</div>
+            <h3>Clear guidance</h3>
+            <p>Straight answers and transparent options.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon">🧩</div>
+            <h3>Smart solutions</h3>
+            <p>A full range of programs for every borrower.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon">⚙️</div>
+            <h3>Technology + people</h3>
+            <p>Modern tools backed by real advisors.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon">🤝</div>
+            <h3>Borrower-first</h3>
+            <p>No hype, no pressure — just a smooth process.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOUNDER ============ -->
+    <section class="section section--tint" id="founder">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow eyebrow--center">Founder &amp; Mortgage Professional</span>
+          <h2>Meet Anatoliy Kanevsky</h2>
+        </div>
+        <div class="founder">
+          <div class="founder__card">
+            <!-- Swap the monogram for a real headshot when available:
+                 <img src="assets/anatoliy.webp" alt="Anatoliy Kanevsky, founder of West Coast Capital Mortgage, Inc." /> -->
+            <div class="founder__avatar" aria-hidden="true">AK</div>
+            <strong class="founder__name">Anatoliy Kanevsky</strong>
+            <span class="founder__role">Founder · West Coast Capital Mortgage, Inc.</span>
+            <ul class="founder__creds">
+              <li>California Real Estate Broker</li>
+              <li>Mortgage professional since 2001</li>
+              <li>Luxury real estate &amp; development experience</li>
+              <li>Purchase, refinance, jumbo, Non-QM, DSCR &amp; self-employed borrower strategy</li>
+            </ul>
+          </div>
+          <div class="founder__bio">
+            <p>Anatoliy Kanevsky is the founder of West Coast Capital Mortgage, Inc. and a California real estate and mortgage professional with decades of experience helping borrowers, investors, and real estate clients navigate complex financing decisions.</p>
+            <p>His background combines mortgage lending, real estate brokerage, luxury residential development, and real-world deal analysis. That perspective allows West Coast Capital Mortgage to approach every client scenario with both lending discipline and practical real estate experience.</p>
+            <p>Whether a client is buying a primary residence, refinancing, purchasing a luxury property, financing an investment property, or exploring self-employed, Non-QM, jumbo, FHA, VA, or DSCR options, Anatoliy's focus is simple: clear guidance, smart structure, and a mortgage strategy that fits the client's actual situation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LICENSING & COMPANY ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow eyebrow--center">Licensing &amp; Company</span>
+          <h2>The licensed company behind Orange</h2>
+          <p>Orange is the fun, friendly brand. The trust, licensing, and lending come from a real, regulated mortgage company.</p>
         </div>
 
         <div class="company">
           <div class="company__intro">
             <h2>West Coast Capital Mortgage, Inc.</h2>
-            <p><strong>Orange</strong> (a.k.a. OrangeMortgage) is the mascot and consumer brand of <strong>West Coast Capital Mortgage, Inc.</strong> This site is affiliated with — and operated under — that licensed company. All loans are originated by West Coast Capital Mortgage, Inc. in accordance with state and federal lending law.</p>
+            <p><strong>Orange Mortgage</strong> (OrangesMortgages.com) is the consumer brand of <strong>West Coast Capital Mortgage, Inc.</strong> All loans are originated by West Coast Capital Mortgage, Inc. in accordance with state and federal lending law.</p>
             <div class="badge-ehl">
               <span>⌂</span> Equal Housing Lender
             </div>
@@ -166,11 +251,11 @@
             <dt>Serving</dt>
             <dd>Orange County &amp; California<small>Irvine, Newport Beach, Laguna Beach, Huntington Beach, Anaheim, Costa Mesa, Fullerton &amp; more</small></dd>
 
-            <dt>Phone</dt>
-            <dd><a href="tel:+13106865053">(310) 686-5053</a></dd>
-
             <dt>Email</dt>
             <dd><a href="mailto:orange@orangesmortgages.com">orange@orangesmortgages.com</a></dd>
+
+            <dt>Phone</dt>
+            <dd><a href="tel:+13106865053">(310) 686-5053</a></dd>
 
             <dt>Corporate site</dt>
             <dd><a href="https://westccmortgage.com" target="_blank" rel="noopener noreferrer">westccmortgage.com</a></dd>
@@ -179,10 +264,11 @@
 
         <p class="disclaimer">
           West Coast Capital Mortgage, Inc. — NMLS #2817729, California DRE #01385024. Equal Housing Lender.
-          Orange is a brand mascot and does not change the terms of any loan. This page is for informational
-          purposes only and is not a commitment to lend or an offer to extend credit. All loans are subject to
-          credit approval, income verification, and property appraisal. Rates, programs, and terms are subject
-          to change without notice. Verify license status anytime via
+          Orange is a brand mascot and does not change the terms of any loan. This page is for general
+          education and informational purposes only and is not a commitment to lend or an offer to extend
+          credit. All loans are subject to full application, credit approval, income verification, and
+          property appraisal. Rates, programs, and terms are subject to change without notice. Verify license
+          status anytime via
           <a href="https://www.nmlsconsumeraccess.org" target="_blank" rel="noopener noreferrer">NMLS Consumer Access</a>.
         </p>
       </div>
@@ -190,14 +276,19 @@
 
     <!-- ============ CTA ============ -->
     <section class="cta">
-      <div class="container cta__inner" style="grid-template-columns: 1fr; text-align: center; max-width: 640px; margin-inline: auto;">
+      <div class="container cta__inner cta__inner--center">
         <div class="cta__copy">
-          <h2>Ready to talk to Orange?</h2>
-          <p>Whether you're buying, refinancing, or just exploring — Orange and the West Coast Capital Mortgage team are here to help.</p>
-          <div class="hero__actions" style="justify-content: center;">
-            <a href="index.html#contact" class="btn btn--primary btn--lg">Start My Mortgage Strategy →</a>
+          <span class="eyebrow eyebrow--light">🍊 Ask Orange</span>
+          <h2>Ready to ask Orange?</h2>
+          <p>Whether you're buying, refinancing, or investing — Orange and the West Coast Capital Mortgage team are here to help you understand your next step.</p>
+          <div class="hero__actions hero__actions--center">
+            <a href="index.html#contact" class="btn btn--primary btn--lg js-ask-orange">Ask Orange</a>
             <a href="index.html#calculator" class="btn btn--ghost btn--lg">Estimate My Payment</a>
           </div>
+          <a href="mailto:orange@orangesmortgages.com" class="cta__email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            orange@orangesmortgages.com
+          </a>
         </div>
       </div>
     </section>
@@ -213,28 +304,65 @@
           </span>
           <span class="brand__text">Orange<strong>Mortgage</strong></span>
         </a>
-        <p>The friendly face of West Coast Capital Mortgage, Inc. Making homeownership easy in Orange County.</p>
+        <p>Friendly, local mortgage guidance for Orange County. Ask Orange anytime.</p>
+        <a href="https://orangesmortgages.com" class="footer__site">OrangesMortgages.com</a>
+        <a href="mailto:orange@orangesmortgages.com" class="footer__site">orange@orangesmortgages.com</a>
       </div>
       <div class="footer__col">
         <h4>Loans</h4>
-        <a href="index.html#loans">Conventional</a><a href="index.html#loans">Jumbo</a><a href="index.html#loans">FHA</a><a href="index.html#loans">VA</a><a href="index.html#loans">Refinance</a>
+        <a href="index.html#loans">Conventional</a><a href="index.html#loans">Jumbo</a><a href="index.html#loans">FHA</a><a href="index.html#loans">VA</a><a href="index.html#loans">DSCR</a><a href="index.html#loans">Refinance</a>
       </div>
       <div class="footer__col">
         <h4>Company</h4>
-        <a href="about.html">About Orange</a><a href="index.html#why">Why Orange</a><a href="index.html#process">How It Works</a><a href="index.html#contact">Contact</a>
+        <a href="about.html">About Orange</a><a href="index.html#why">Why Orange</a><a href="index.html#process">How It Works</a><a href="index.html#areas">Service Areas</a><a href="index.html#contact">Ask Orange</a>
       </div>
       <div class="footer__col">
-        <h4>Licensing</h4>
-        <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/2817729" target="_blank" rel="noopener noreferrer">NMLS #2817729</a>
-        <span>CA DRE #01385024</span>
-        <a href="https://westccmortgage.com" target="_blank" rel="noopener noreferrer">westccmortgage.com</a>
+        <h4>Get in touch</h4>
+        <a href="mailto:orange@orangesmortgages.com">orange@orangesmortgages.com</a>
+        <a href="tel:+13106865053">(310) 686-5053</a>
+        <span>Serving Orange County, CA</span>
+        <span>Mon–Sat · 8am–7pm PT</span>
       </div>
     </div>
     <div class="container footer__legal">
-      <p>© <span id="year">2026</span> West Coast Capital Mortgage, Inc. All rights reserved. Equal Housing Lender. NMLS #2817729 · CA DRE #01385024.</p>
-      <p class="footer__disc">Orange is a brand mascot of West Coast Capital Mortgage, Inc. Not a commitment to lend. All loans subject to credit approval.</p>
+      <p>
+        <strong>Orange Mortgage</strong> is a brand of West Coast Capital Mortgage, Inc.
+        NMLS&nbsp;#2817729 · CA&nbsp;DRE&nbsp;#01385024 · Equal Housing Lender.
+      </p>
+      <p class="footer__disc">© <span id="year">2026</span> West Coast Capital Mortgage, Inc. All rights reserved. Orange provides general mortgage education only. Figures and examples shown are illustrative, are not a rate quote or a commitment to lend, and all loans are subject to full application, credit, income, property, and lender approval.</p>
     </div>
   </footer>
+
+  <!-- ============ FLOATING "ASK ORANGE" ASSISTANT ============ -->
+  <div class="ask-orange" id="askOrange">
+    <button class="ask-orange__fab" id="askOrangeFab" aria-expanded="false" aria-controls="askOrangePanel">
+      <span class="ask-orange__avatar" aria-hidden="true">
+        <img src="assets/orange-cutout.webp" alt="" width="44" height="44" loading="lazy" />
+      </span>
+      <span class="ask-orange__label"><strong>Ask Orange</strong><small>I'm here to help!</small></span>
+      <span class="ask-orange__pulse" aria-hidden="true"></span>
+    </button>
+
+    <div class="ask-orange__panel" id="askOrangePanel" role="dialog" aria-modal="false" aria-labelledby="askOrangeTitle" hidden>
+      <div class="ask-orange__head">
+        <span class="ask-orange__avatar ask-orange__avatar--lg" aria-hidden="true">
+          <img src="assets/orange-cutout.webp" alt="" width="56" height="56" loading="lazy" />
+        </span>
+        <div>
+          <strong id="askOrangeTitle">Ask Orange</strong>
+          <small>Your Orange County mortgage guide</small>
+        </div>
+        <button class="ask-orange__close" id="askOrangeClose" aria-label="Close">×</button>
+      </div>
+      <p class="ask-orange__text">Orange will soon be able to guide you through your mortgage options right here. In the meantime, pick a starting point:</p>
+      <div class="ask-orange__actions">
+        <a href="index.html#contact" class="btn btn--primary btn--block js-ask-close">Start My Strategy</a>
+        <a href="index.html#calculator" class="btn btn--ghost btn--block js-ask-close">Estimate Payment</a>
+        <a href="mailto:orange@orangesmortgages.com" class="btn btn--ghost btn--block">Email Orange</a>
+      </div>
+      <p class="ask-orange__disclaimer">Orange provides general mortgage education only — not rates, approvals, or specific loan terms. Those depend on a full application and lender review.</p>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

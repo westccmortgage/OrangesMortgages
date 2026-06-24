@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="ms.title">Mortgage Strategy — Check Your County Limit | Orange Mortgage</title>
-  <meta name="description" data-i18n-content="ms.desc" content="Run your property against the county conforming line — conforming vs jumbo, an estimated payment, and the smartest review path. Educational only. California & Florida." />
+  <title data-i18n="aca.title">Ask Orange Academy — Learn How Mortgages Really Work | Orange Mortgage</title>
+  <meta name="description" data-i18n-content="aca.desc" content="Ask Orange Academy — a guided, AI-style mortgage learning journey. Understand approval, credit, debt, down payment, self-employment, jumbo, refinance, and investment property financing. Educational only." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/academy.css" />
 </head>
 <body>
 
@@ -26,10 +27,9 @@
       <nav class="nav__links" id="navLinks" aria-label="Primary">
         <a href="index.html#loans" data-i18n="nav.loans">Loan Options</a>
         <a href="index.html#why" class="nav__secondary" data-i18n="nav.why">Why Orange</a>
-        <a href="mortgage-strategy.html" aria-current="page" data-i18n="nav.strategy">Mortgage Strategy</a>
-        <a href="academy.html" data-i18n="nav.academy">Academy</a>
+        <a href="mortgage-strategy.html" data-i18n="nav.strategy">Mortgage Strategy</a>
+        <a href="academy.html" aria-current="page" data-i18n="nav.academy">Academy</a>
         <a href="family.html" data-i18n="nav.family">Family</a>
-        <a href="index.html#calculator" class="nav__secondary" data-i18n="nav.calc">Calculator</a>
         <a href="index.html#process" class="nav__secondary" data-i18n="nav.how">How It Works</a>
         <a href="index.html#areas" class="nav__secondary" data-i18n="nav.areas">Service Areas</a>
         <a href="about.html" data-i18n="nav.about">About</a>
@@ -58,49 +58,76 @@
   </header>
 
   <main>
-    <!-- ============ HERO ============ -->
-    <section class="ms-hero">
-      <div class="container ms-hero__grid">
-        <div class="ms-hero__copy">
-          <span class="eyebrow" data-i18n="ms.eyebrow">🍊 Mortgage Strategy</span>
-          <h1 data-i18n="ms.h1">Check your limit <span class="accent">before you assume jumbo.</span></h1>
-          <p class="lead" data-i18n="ms.lead">Tell Orange the property and your numbers. The studio runs them against your county's conforming line and shows conforming vs jumbo, an estimated payment, and the review path — for California and Florida.</p>
-          <ul class="ms-points">
-            <li><span class="ms-points__n">1</span><span data-i18n="ms.p1">Confirm the property county</span></li>
-            <li><span class="ms-points__n">2</span><span data-i18n="ms.p2">See the conforming vs jumbo line</span></li>
-            <li><span class="ms-points__n">3</span><span data-i18n="ms.p3">Preview an estimated payment</span></li>
-          </ul>
+    <!-- ============ ACADEMY HERO ============ -->
+    <section class="aca-hero">
+      <div class="container aca-hero__inner">
+        <span class="eyebrow">🍊 Ask Orange Academy</span>
+        <h1>Not sure where to start? <span class="accent">Ask Orange.</span></h1>
+        <p class="lead">Learn how mortgage approval really works — credit, income, debt, down payment,
+          self-employment, jumbo loans, and more. A guided, plain-English journey, at your pace.</p>
+
+        <div class="aca-hero__actions">
+          <button type="button" class="btn btn--primary btn--lg" data-ao-start>Start Learning with Orange →</button>
+          <button type="button" class="btn btn--ghost btn--lg" data-ao-ask>Ask a Mortgage Question</button>
         </div>
-        <div class="ms-hero__visual">
-          <figure class="ms-hero__video">
-            <video class="ms-hero__player"
-                   src="assets/video/avatar/intro.mp4"
-                   width="1920" height="1080"
-                   autoplay muted loop playsinline controls preload="metadata"
-                   aria-label="Orange introduces the Mortgage Strategy studio"></video>
-          </figure>
+
+        <!-- Search -->
+        <div class="aca-search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="aoSearch" type="search" autocomplete="off"
+                 placeholder="Ask Orange a mortgage question…" aria-label="Ask Orange a mortgage question" />
         </div>
+
+        <!-- Choose your situation -->
+        <p class="aca-hero__pick">Or choose your situation — Orange opens the best path first:</p>
+        <div class="aca-situations" id="aoSituations" role="group" aria-label="Choose your situation"></div>
       </div>
     </section>
 
-    <!-- ============ STUDIO (embedded module) ============ -->
-    <section class="ms-studio">
-      <div class="container">
-        <div class="ms-screen">
-          <div class="ms-screen__bar" aria-hidden="true">
-            <span class="ms-screen__dot"></span><span class="ms-screen__dot"></span><span class="ms-screen__dot"></span>
-            <span class="ms-screen__url">orangesmortgages.com/studio</span>
-            <span class="ms-screen__badge" data-i18n="ms.toolLabel">Strategy Studio</span>
+    <!-- ============ ACADEMY WORKSPACE ============ -->
+    <section class="aca-work">
+      <div class="container aca-grid">
+
+        <!-- LEFT: learning paths + topic navigation -->
+        <aside class="aca-side" aria-label="Learning paths">
+          <div class="aca-side__head">
+            <h2>Learning paths</h2>
+            <p>Eight guided tracks. Pick one and Orange walks you through it.</p>
           </div>
-          <!-- Self-contained module from /studio/. Posts its height to this
-               page via postMessage({cmStudioHeight}); main.js sets the height. -->
-          <iframe id="studioFrame" class="ms-screen__frame" src="/studio/"
-                  title="Orange Mortgage — Strategy Studio" loading="lazy" scrolling="no"></iframe>
+          <div class="aca-progress">
+            <span class="aca-progress__bar"><i id="aoProgFill"></i></span>
+            <span class="aca-progress__text" id="aoProgText">0 topics explored</span>
+          </div>
+          <div id="aoPaths" class="aca-paths"></div>
+        </aside>
+
+        <!-- MAIN: Orange answer card -->
+        <div class="aca-main" id="aoStageWrap">
+          <div id="aoStage" class="aca-stage" aria-live="polite"></div>
         </div>
-        <p class="ms-disclaimer" data-i18n="ms.disclaimer">
-          Educational structure estimate only — not a rate quote, APR, loan estimate, approval, or commitment to lend. All numbers are owner-provided assumptions; verify current FHFA/HUD limits and pricing before relying on any figure.
-        </p>
+
+        <!-- RIGHT: Orange helper + soft CTA (clean area reserved for future talking Orange) -->
+        <aside class="aca-help" aria-label="Ask Orange">
+          <div class="aca-help__card">
+            <span class="aca-help__avatar" aria-hidden="true">
+              <img src="assets/orange-cutout.webp" alt="" width="72" height="72" loading="lazy" />
+            </span>
+            <h3>Want Orange to review your situation?</h3>
+            <p>Once you’ve learned the basics, a licensed mortgage professional can look at your
+              real numbers — no pressure, no jargon.</p>
+            <a class="btn btn--primary btn--block" href="index.html#contact">Ask Orange</a>
+            <a class="aca-help__email" href="mailto:orange@orangesmortgages.com">orange@orangesmortgages.com</a>
+            <p class="aca-help__note">Orange serves California &amp; Florida. Education first — action when you’re ready.</p>
+          </div>
+        </aside>
+
       </div>
+
+      <p class="container aca-disc">
+        Orange provides general mortgage education. Final loan options depend on full application, credit,
+        income, assets, property, program guidelines, and lender approval. Nothing here is a rate quote,
+        an approval, a commitment to lend, or tax or legal advice.
+      </p>
     </section>
   </main>
 
@@ -124,8 +151,7 @@
       </div>
       <div class="footer__col">
         <h4 data-i18n="foot.company">Company</h4>
-        <a href="about.html" data-i18n="foot.about">About Orange</a><a href="mortgage-strategy.html" data-i18n="nav.strategy">Mortgage Strategy</a>
-        <a href="family.html" data-i18n="nav.family">Family</a><a href="index.html#why" class="nav__secondary" data-i18n="nav.why">Why Orange</a><a href="index.html#areas" data-i18n="nav.areas">Service Areas</a><a href="index.html#contact" data-i18n="foot.ask">Ask Orange</a>
+        <a href="about.html" data-i18n="foot.about">About Orange</a><a href="academy.html" data-i18n="nav.academy">Academy</a><a href="mortgage-strategy.html" data-i18n="nav.strategy">Mortgage Strategy</a><a href="family.html" data-i18n="nav.family">Family</a><a href="index.html#contact" data-i18n="foot.ask">Ask Orange</a>
       </div>
       <div class="footer__col">
         <h4 data-i18n="foot.touch">Get in touch</h4>
@@ -175,11 +201,9 @@
     </div>
   </div>
 
-  <!-- Renders the guided-tour "Financial Navigator" video card on this page
-       (the studio iframe drives the flow via postMessage). -->
-  <link rel="stylesheet" href="/assets/css/tutorial.css" />
-  <script src="/assets/js/tutorial-host.js" defer></script>
   <script src="js/i18n.js"></script>
+  <script src="js/data/orangeEducationTopics.js"></script>
+  <script src="js/academy.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

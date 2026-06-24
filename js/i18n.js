@@ -139,6 +139,7 @@
       "ms.toolLabel": "Strategy Studio",
 
       "nav.family": "Family",
+      "nav.academy": "Academy",
       "fam.title": "The Orange Family — Mortgages with a Family Touch | Orange Mortgage",
       "fam.desc": "Meet the Orange family. Warm, trustworthy mortgage guidance for families across California and Florida — your first home, your next home, and building for the kids.",
       "fam.eyebrow": "🍊 The Orange Family",
@@ -337,6 +338,7 @@
       "ms.toolLabel": "Strategy Studio",
 
       "nav.family": "Семья",
+      "nav.academy": "Академия",
       "fam.title": "Семья Orange — ипотека по-семейному | Orange Mortgage",
       "fam.desc": "Знакомьтесь с семьёй Orange. Тёплое, надёжное сопровождение по ипотеке для семей в Калифорнии и Флориде — первый дом, следующий дом и будущее для детей.",
       "fam.eyebrow": "🍊 Семья Orange",
@@ -533,6 +535,7 @@
       "ms.toolLabel": "Strategy Studio",
 
       "nav.family": "Familia",
+      "nav.academy": "Academia",
       "fam.title": "La Familia Orange — hipotecas con calidez de familia | Orange Mortgage",
       "fam.desc": "Conoce a la familia Orange. Orientación hipotecaria cálida y confiable para familias en California y Florida — tu primera casa, tu próxima casa y el futuro de los niños.",
       "fam.eyebrow": "🍊 La Familia Orange",

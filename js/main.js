@@ -72,44 +72,11 @@
     calc();
   }
 
-  /* ---- Lead form -> Resend via Netlify Function (AJAX, inline success state) ---- */
-  const form = document.getElementById("leadForm");
-  if (form) {
-    const success = document.getElementById("formSuccess");
-    const error = document.getElementById("formError");
-    const submitBtn = document.getElementById("leadSubmit");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      if (success) success.hidden = true;
-      if (error) error.hidden = true;
-      const label = submitBtn ? submitBtn.textContent : "";
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
-
-      // POST to the serverless function, which emails the lead via Resend.
-      const payload = Object.fromEntries(new FormData(form));
-      fetch(form.getAttribute("action") || "/api/ask-orange", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error("Bad response");
-          if (success) success.hidden = false;
-          form.reset();
-        })
-        .catch(() => {
-          if (error) error.hidden = false;
-        })
-        .finally(() => {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = label; }
-        });
-    });
-  }
+  /* ---- Lead form ----
+     Handled natively by Netlify Forms — no JS needed. The form POSTs to
+     Netlify, which stores the submission, emails the notification, and
+     redirects to /thank-you. Native browser validation covers required
+     fields. ---- */
 
   /* ---- Ask Orange floating assistant ----
      Placeholder for the future interactive/talking Orange avatar widget.

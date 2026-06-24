@@ -406,9 +406,14 @@
         </div>
 
         <form class="cta__form glass" id="leadForm" name="ask-orange" method="POST"
-              action="/api/ask-orange" novalidate>
-          <!-- Submissions are emailed via Resend by netlify/functions/ask-orange.mjs.
-               The hidden bot-field is a spam honeypot the function checks. -->
+              action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
+          <!-- Netlify Forms: detected at deploy via data-netlify + the hidden
+               form-name. Submissions are stored by Netlify and emailed to
+               orange@orangesmortgages.com (Site config → Forms → notifications).
+               The "subject" field sets the notification subject; the "email"
+               field lets Netlify set Reply-To. -->
+          <input type="hidden" name="form-name" value="ask-orange" />
+          <input type="hidden" name="subject" value="New Orange Mortgage lead from OrangesMortgages.com" />
           <p class="form__hp" hidden aria-hidden="true">
             <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
@@ -427,10 +432,9 @@
               <option>Not sure yet</option>
             </select>
           </label>
-          <button type="submit" class="btn btn--primary btn--lg btn--block" id="leadSubmit">Ask Orange →</button>
-          <p class="form__note">By submitting, you agree to be contacted about your inquiry. This form provides general guidance and is not a loan application, approval, or commitment to lend.</p>
-          <p class="form__success" id="formSuccess" hidden>🍊 Thanks! Orange will reach out shortly.</p>
-          <p class="form__error" id="formError" hidden>Sorry, that didn't go through. Please email <a href="mailto:orange@orangesmortgages.com">orange@orangesmortgages.com</a> and we'll help.</p>
+          <label>Message<textarea name="message" rows="4" placeholder="Tell Orange a bit about what you're trying to do…"></textarea></label>
+          <button type="submit" class="btn btn--primary btn--lg btn--block">Ask Orange →</button>
+          <p class="form__note">By submitting this form, you agree to be contacted about your mortgage inquiry. This form is for general mortgage information only and does not constitute a loan approval or commitment to lend.</p>
         </form>
       </div>
     </section>

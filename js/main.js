@@ -86,9 +86,54 @@
     });
   }
 
+  /* ---- Ask Orange floating assistant ----
+     Placeholder for the future interactive/talking Orange avatar widget.
+     For now it opens a lightweight panel; later this can mount a live
+     avatar session (HeyGen / Tavus / D-ID / Runway / custom). */
+  const ask = document.getElementById("askOrange");
+  if (ask) {
+    const fab = document.getElementById("askOrangeFab");
+    const panel = document.getElementById("askOrangePanel");
+    const closeBtn = document.getElementById("askOrangeClose");
+
+    const openPanel = () => {
+      panel.hidden = false;
+      fab.setAttribute("aria-expanded", "true");
+    };
+    const closePanel = () => {
+      panel.hidden = true;
+      fab.setAttribute("aria-expanded", "false");
+    };
+    const togglePanel = () => (panel.hidden ? openPanel() : closePanel());
+
+    fab.addEventListener("click", togglePanel);
+    closeBtn.addEventListener("click", closePanel);
+
+    // Action buttons inside the panel close it, then their anchor scrolls.
+    panel.querySelectorAll(".js-ask-close").forEach((a) =>
+      a.addEventListener("click", closePanel)
+    );
+
+    // Close on Escape or when clicking outside the widget.
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !panel.hidden) closePanel();
+    });
+    document.addEventListener("click", (e) => {
+      if (!panel.hidden && !ask.contains(e.target)) closePanel();
+    });
+  }
+
+  /* ---- "Ask Orange" CTAs: scroll to form and focus the first field ---- */
+  document.querySelectorAll(".js-ask-orange").forEach((a) => {
+    a.addEventListener("click", () => {
+      const first = document.querySelector('#leadForm input[name="first"]');
+      if (first) window.setTimeout(() => first.focus({ preventScroll: true }), 650);
+    });
+  });
+
   /* ---- Scroll reveal ---- */
   const revealTargets = document.querySelectorAll(
-    ".section__head, .card, .step, .quote, .features li, .why__media, .calc__panel, .areas__map, .cta__form"
+    ".section__head, .card, .step, .features li, .why__media, .calc__panel, .areas__cities li, .cta__form"
   );
   revealTargets.forEach((el) => el.classList.add("reveal"));
 

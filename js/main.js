@@ -119,6 +119,17 @@
     });
   }
 
+  /* ---- Strategy Studio iframe auto-resize ----
+     The /studio/ module posts {cmStudioHeight} to this page; match the
+     iframe height so there's no inner scrollbar. ---- */
+  const studioFrame = document.getElementById("studioFrame");
+  if (studioFrame) {
+    window.addEventListener("message", (e) => {
+      const h = e && e.data && e.data.cmStudioHeight;
+      if (typeof h === "number" && h > 0) studioFrame.style.height = h + "px";
+    });
+  }
+
   /* ---- "Ask Orange" CTAs: scroll to form and focus the first field ---- */
   document.querySelectorAll(".js-ask-orange").forEach((a) => {
     a.addEventListener("click", () => {

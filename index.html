@@ -26,7 +26,8 @@
       <nav class="nav__links" id="navLinks" aria-label="Primary">
         <a href="#loans" data-i18n="nav.loans">Loan Options</a>
         <a href="#why" data-i18n="nav.why">Why Orange</a>
-        <a href="#calculator" data-i18n="nav.calc">Calculator</a>
+        <a href="mortgage-strategy.html" data-i18n="nav.strategy">Mortgage Strategy</a>
+        <a href="#calculator" class="nav__secondary" data-i18n="nav.calc">Calculator</a>
         <a href="#process" class="nav__secondary" data-i18n="nav.how">How It Works</a>
         <a href="#areas" class="nav__secondary" data-i18n="nav.areas">Service Areas</a>
         <a href="about.html" data-i18n="nav.about">About</a>
@@ -71,9 +72,9 @@
 
       <div class="container hero__grid">
         <div class="hero__intro">
-          <span class="eyebrow" data-i18n="hero.eyebrow">🍊 Orange County's Friendly Mortgage Advisor</span>
+          <span class="eyebrow" data-i18n="hero.eyebrow">🍊 Your Friendly Mortgage Guide for California &amp; Florida</span>
           <h1 data-i18n="hero.h1">Hi, I'm <span class="accent">Orange.</span><br />Home financing made <span class="accent">simple.</span></h1>
-          <p class="lead" data-i18n="hero.lead">Smart mortgage guidance for Orange County buyers, homeowners, and investors — without pressure, confusion, or jargon.</p>
+          <p class="lead" data-i18n="hero.lead">Smart mortgage guidance for buyers, homeowners, and investors across California and Florida — without pressure, confusion, or jargon.</p>
         </div>
 
         <div class="hero__stage">
@@ -113,7 +114,7 @@
           </li>
           <li>
             <span class="hero__trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21c5-5 7-8.5 7-12a7 7 0 10-14 0c0 3.5 2 7 7 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="2"/></svg></span>
-            <span data-i18n="hero.trust2">Local Orange<br />County Focus</span>
+            <span data-i18n="hero.trust2">Serving California<br />&amp; Florida</span>
           </li>
           <li>
             <span class="hero__trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9h12v-9" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
@@ -132,7 +133,7 @@
     <section class="badges">
       <div class="container badges__inner">
         <span data-i18n="badge.1">Licensed Mortgage Guidance</span><i></i>
-        <span data-i18n="badge.2">Local Orange County Focus</span><i></i>
+        <span data-i18n="badge.2">California &amp; Florida</span><i></i>
         <span data-i18n="badge.3">Purchase &amp; Refinance</span><i></i>
         <span data-i18n="badge.4">Investment &amp; Jumbo Loans</span><i></i>
         <span data-i18n="badge.5">Equal Housing Lender</span>
@@ -315,6 +316,31 @@
       </div>
     </section>
 
+    <!-- ============ STRATEGY PROMO (Orange reads the screen) ============ -->
+    <section class="promo">
+      <div class="container promo__inner">
+        <div class="promo__copy">
+          <span class="eyebrow" data-i18n="promo.eyebrow">Property-Location Intelligence</span>
+          <h2 data-i18n="promo.h2">See your strategy, not just an estimate</h2>
+          <p data-i18n="promo.p">Orange reads your scenario against the county line — conforming vs jumbo, an estimated payment, and the smartest review path. Check your limit before you assume jumbo.</p>
+          <a href="mortgage-strategy.html" class="btn btn--primary btn--lg" data-i18n="promo.cta">Open Mortgage Strategy →</a>
+        </div>
+        <div class="promo__visual">
+          <div class="promo__screen" aria-hidden="true">
+            <div class="promo__screen-bar"><span></span><span></span><span></span></div>
+            <div class="promo__card">
+              <div class="promo__card-title" data-i18n="promo.badge">Strategy Studio</div>
+              <div class="promo__row"><span data-i18n="promo.k1">Loan amount</span><b>$1,250,000</b></div>
+              <div class="promo__row"><span data-i18n="promo.k2">County line</span><b>$1,249,125</b></div>
+              <div class="promo__meter"><i></i></div>
+              <div class="promo__row promo__row--path"><span data-i18n="promo.k3">Review path</span><b data-i18n="promo.kpath">High-balance</b></div>
+            </div>
+          </div>
+          <img src="assets/orange-cutout.webp" class="promo__orange" alt="Orange presenting the Mortgage Strategy studio" width="621" height="968" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PROCESS ============ -->
     <section class="section" id="process">
       <div class="container">
@@ -360,15 +386,23 @@
       <div class="container">
         <div class="section__head">
           <span class="eyebrow eyebrow--center" data-i18n="areas.eyebrow">Service Areas</span>
-          <h2 data-i18n="areas.h2">Orange County mortgage help, city by city</h2>
-          <p data-i18n="areas.p">From the coast to the canyons, Orange helps families and investors across Orange County. Don't see your city? We almost certainly serve it too.</p>
+          <h2 data-i18n="areas.h2">Mortgage help across California and Florida</h2>
+          <p data-i18n="areas.p">From the California coast to the Florida Keys, Orange helps buyers, homeowners, and investors. Don't see your area? We almost certainly serve it too.</p>
         </div>
-        <ul class="areas__cities">
-          <li>Irvine</li><li>Newport Beach</li><li>Laguna Beach</li><li>Huntington Beach</li>
-          <li>Anaheim</li><li>Costa Mesa</li><li>Fullerton</li><li>Mission Viejo</li>
-          <li>Orange</li><li>Tustin</li><li>Yorba Linda</li><li>Dana Point</li>
-          <li>San Clemente</li>
-        </ul>
+        <div class="areas__groups">
+          <div class="areas__group">
+            <h3 class="areas__group-title"><span aria-hidden="true">🌉</span> <span data-i18n="areas.ca">California</span></h3>
+            <ul class="areas__cities">
+              <li>Orange County</li><li>Los Angeles County</li><li>San Diego County</li><li>Riverside County</li><li>Ventura County</li>
+            </ul>
+          </div>
+          <div class="areas__group">
+            <h3 class="areas__group-title"><span aria-hidden="true">🌴</span> <span data-i18n="areas.fl">Florida</span></h3>
+            <ul class="areas__cities">
+              <li>Miami-Dade</li><li>Broward</li><li>Palm Beach</li><li>Monroe County / Florida Keys</li><li>Orlando</li><li>Tampa Bay</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -435,7 +469,7 @@
           </span>
           <span class="brand__text">Orange<strong>Mortgage</strong></span>
         </a>
-        <p data-i18n="foot.brand">Friendly, local mortgage guidance for Orange County. Ask Orange anytime.</p>
+        <p data-i18n="foot.brand">Friendly mortgage guidance across California and Florida. Ask Orange anytime.</p>
         <a href="https://orangesmortgages.com" class="footer__site">OrangesMortgages.com</a>
         <a href="mailto:orange@orangesmortgages.com" class="footer__site">orange@orangesmortgages.com</a>
       </div>
@@ -451,7 +485,7 @@
         <h4 data-i18n="foot.touch">Get in touch</h4>
         <a href="mailto:orange@orangesmortgages.com">orange@orangesmortgages.com</a>
         <a href="tel:+13106865053">(310) 686-5053</a>
-        <span data-i18n="foot.serving">Serving Orange County, CA</span>
+        <span data-i18n="foot.serving">Serving California &amp; Florida</span>
         <span data-i18n="foot.hours">Mon–Sat · 8am–7pm PT</span>
       </div>
     </div>

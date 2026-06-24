@@ -467,6 +467,12 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
   background: linear-gradient(135deg, var(--orange), var(--orange-600)); }
 .steps--rail .step h3 { margin-bottom: 4px; }
 
+/* ---------- Service areas (California + Florida groups) ---------- */
+.areas__groups { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); max-width: 940px; margin: 0 auto; }
+.areas__group-title { display: flex; align-items: center; gap: 9px; font-size: 1.15rem; color: var(--navy-900);
+  padding-bottom: 14px; margin-bottom: 18px; border-bottom: 2px solid var(--orange-soft); }
+.areas__group .areas__cities { grid-template-columns: 1fr; max-width: none; }
+
 /* ---------- Service-area city chips ---------- */
 .areas__cities { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 940px; margin: 0 auto; }
 .areas__cities li { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--line);
@@ -646,9 +652,71 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
    ============================================================ */
 @media (max-width: 960px) {
   .process { grid-template-columns: 1fr; }
-  .areas__cities { grid-template-columns: repeat(3, 1fr); }
   .steps--rail { max-width: 520px; margin-inline: auto; }
 }
-@media (max-width: 560px) {
-  .areas__cities { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 640px) {
+  .areas__groups { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ============================================================
+   Mortgage Strategy page (hosts the /studio/ module) + homepage promo
+   ============================================================ */
+.ms-hero { position: relative; overflow: hidden; padding: clamp(40px,6vw,76px) 0 clamp(28px,4vw,44px);
+  background: linear-gradient(160deg, var(--bg-blue), #fff); border-bottom: 1px solid var(--line); }
+.ms-hero__grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 40px; align-items: center; }
+.ms-hero__copy .lead { font-size: 1.12rem; margin: 20px 0 22px; max-width: 540px; }
+.ms-points { list-style: none; display: grid; gap: 12px; }
+.ms-points li { display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--navy-800); }
+.ms-points__n { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--orange-600)); color: #fff; font-weight: 800; font-size: 0.9rem;
+  box-shadow: 0 6px 14px rgba(245,117,0,.28); }
+.ms-hero__visual { display: grid; place-items: end center; }
+.ms-hero__visual .orange-hero--about { height: clamp(300px, 32vw, 440px); }
+
+.ms-studio { padding: clamp(32px,5vw,56px) 0 clamp(48px,7vw,80px); }
+.ms-screen { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg); background: #fff; }
+.ms-screen__bar { display: flex; align-items: center; gap: 8px; padding: 11px 16px; background: var(--navy-900); }
+.ms-screen__dot { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.28); }
+.ms-screen__dot:first-child { background: #ff6159; } .ms-screen__dot:nth-child(2) { background: #ffbd2e; } .ms-screen__dot:nth-child(3) { background: #28c840; }
+.ms-screen__url { margin-left: 10px; color: #9fb0d0; font-size: 0.84rem; font-weight: 600; }
+.ms-screen__badge { margin-left: auto; color: #ffd9b0; background: rgba(255,255,255,.12); font-size: 0.74rem; font-weight: 700;
+  padding: 4px 10px; border-radius: 100px; }
+.ms-screen__frame { width: 100%; border: 0; display: block; height: 1600px; background: #fff; }
+.ms-disclaimer { max-width: 880px; margin: 20px auto 0; text-align: center; font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+/* ---------- Homepage promo (Orange "reads the screen") ---------- */
+.promo { padding: clamp(56px,8vw,96px) 0; background: linear-gradient(160deg, #fff, var(--bg-tint)); overflow: hidden; }
+.promo__inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px,5vw,64px); align-items: center; }
+.promo__copy h2 { margin-bottom: 14px; }
+.promo__copy p { font-size: 1.08rem; margin-bottom: 26px; max-width: 480px; }
+.promo__visual { position: relative; min-height: 300px; }
+.promo__screen { position: relative; z-index: 1; width: min(100%, 396px); border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--line); box-shadow: var(--shadow-lg); background: #fff; }
+.promo__screen-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: var(--navy-900); }
+.promo__screen-bar span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.25); }
+.promo__screen-bar span:first-child { background: #ff6159; } .promo__screen-bar span:nth-child(2) { background: #ffbd2e; } .promo__screen-bar span:nth-child(3) { background: #28c840; }
+.promo__card { padding: 22px 22px 24px; }
+.promo__card-title { font-size: 0.74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--orange-600); margin-bottom: 16px; }
+.promo__row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding: 11px 0; border-bottom: 1px dashed var(--line); }
+.promo__row span { color: var(--muted); font-size: 0.92rem; font-weight: 600; }
+.promo__row b { color: var(--navy-900); font-weight: 800; font-variant-numeric: tabular-nums; }
+.promo__meter { height: 8px; border-radius: 6px; background: var(--bg-blue); margin: 14px 0 4px; overflow: hidden; }
+.promo__meter i { display: block; height: 100%; width: 82%; border-radius: 6px; background: linear-gradient(90deg, var(--orange), var(--orange-600)); }
+.promo__row--path { border-bottom: 0; padding-bottom: 0; }
+.promo__row--path b { color: var(--orange-600); }
+.promo__row b { padding-right: 56px; }
+.promo__orange { position: absolute; z-index: 2; right: -10px; bottom: -12px; width: clamp(120px, 14vw, 162px); height: auto;
+  filter: drop-shadow(0 22px 26px rgba(20,38,74,.22)); }
+
+@media (max-width: 860px) {
+  .ms-hero__grid { grid-template-columns: 1fr; text-align: center; }
+  .ms-hero__copy .lead { margin-inline: auto; }
+  .ms-points { max-width: 320px; margin-inline: auto; text-align: left; }
+  .ms-hero__visual { order: -1; }
+  .promo__inner { grid-template-columns: 1fr; }
+  .promo__visual { display: flex; justify-content: center; }
+  .promo__orange { right: 0; }
 }

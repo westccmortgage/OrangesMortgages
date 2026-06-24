@@ -726,3 +726,7 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
 .fam-values { text-align: center; max-width: 720px; margin: 0 auto; }
 .fam-values__emoji { display: block; font-size: 2.4rem; margin-bottom: 14px; }
 .fam-values p { font-size: 1.12rem; margin-top: 14px; }
+
+/* New avatar images */
+.promo__deskimg { width: 100%; height: auto; filter: drop-shadow(0 24px 34px rgba(20,38,74,.18)); animation: float 7s ease-in-out infinite; }
+.subhero__visual img.fam-hero-img { width: min(100%, 480px); border-radius: 0; }

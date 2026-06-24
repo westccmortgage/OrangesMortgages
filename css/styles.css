@@ -670,8 +670,13 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
 .ms-points__n { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
   background: linear-gradient(135deg, var(--orange), var(--orange-600)); color: #fff; font-weight: 800; font-size: 0.9rem;
   box-shadow: 0 6px 14px rgba(245,117,0,.28); }
-.ms-hero__visual { display: grid; place-items: end center; }
+.ms-hero__visual { display: grid; place-items: center; }
 .ms-hero__visual .orange-hero--about { height: clamp(300px, 32vw, 440px); }
+.ms-hero__video { width: 100%; max-width: 540px; margin: 0; border-radius: var(--radius-lg);
+  overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-lg);
+  background: var(--navy-900); }
+.ms-hero__player { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+  object-fit: cover; background: var(--navy-900); }
 
 .ms-studio { padding: clamp(32px,5vw,56px) 0 clamp(48px,7vw,80px); }
 .ms-screen { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line);

@@ -71,15 +71,12 @@
           </ul>
         </div>
         <div class="ms-hero__visual">
-          <figure class="orange-hero orange-hero--about">
-            <img class="orange-hero__layer orange-hero__body hero__orange"
-                 src="assets/orange-about-body.webp"
-                 alt="Orange, the friendly mortgage mascot, presenting the Mortgage Strategy studio"
-                 width="898" height="1368" fetchpriority="high" decoding="async" />
-            <img class="orange-hero__layer orange-hero__eyes" src="assets/orange-about-eyes-closed.webp"
-                 alt="" width="898" height="1368" decoding="async" aria-hidden="true" />
-            <img class="orange-hero__layer orange-hero__leaf" src="assets/orange-about-leaf.webp"
-                 alt="" width="898" height="1368" decoding="async" aria-hidden="true" />
+          <figure class="ms-hero__video">
+            <video class="ms-hero__player"
+                   src="assets/video/avatar/intro.mp4"
+                   width="1920" height="1080"
+                   autoplay muted loop playsinline controls preload="metadata"
+                   aria-label="Orange introduces the Mortgage Strategy studio"></video>
           </figure>
         </div>
       </div>
@@ -177,6 +174,10 @@
     </div>
   </div>
 
+  <!-- Renders the guided-tour "Financial Navigator" video card on this page
+       (the studio iframe drives the flow via postMessage). -->
+  <link rel="stylesheet" href="/assets/css/tutorial.css" />
+  <script src="/assets/js/tutorial-host.js" defer></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>

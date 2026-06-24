@@ -168,6 +168,26 @@
     revealTargets.forEach((el) => el.classList.add("is-visible"));
   }
 
+  /* ---- Mortgage Strategy hero avatar: tap for sound ---- */
+  const msAvatar = document.getElementById("msAvatar");
+  const msSound = document.getElementById("msAvatarSound");
+  if (msAvatar) {
+    const setMuted = (m) => {
+      msAvatar.muted = m;
+      if (msSound) {
+        msSound.classList.toggle("is-muted", m);
+        msSound.setAttribute("aria-label", m ? "Turn on Orange's sound" : "Mute Orange");
+      }
+      if (!m) { try { msAvatar.play(); } catch (e) {} }
+    };
+    setMuted(true); // start muted so autoplay is allowed; class is the state source
+    const isMuted = () =>
+      msSound ? msSound.classList.contains("is-muted") : msAvatar.muted;
+    const toggle = () => setMuted(!isMuted());
+    if (msSound) msSound.addEventListener("click", (e) => { e.stopPropagation(); toggle(); });
+    msAvatar.addEventListener("click", toggle);
+  }
+
   /* ---- Footer year ---- */
   const yr = document.getElementById("year");
   if (yr) yr.textContent = new Date().getFullYear();

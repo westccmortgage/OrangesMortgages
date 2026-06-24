@@ -662,7 +662,7 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
    Mortgage Strategy page (hosts the /studio/ module) + homepage promo
    ============================================================ */
 .ms-hero { position: relative; overflow: hidden; padding: clamp(40px,6vw,76px) 0 clamp(28px,4vw,44px);
-  background: linear-gradient(160deg, var(--bg-blue), #fff); border-bottom: 1px solid var(--line); }
+  background: #fff; border-bottom: 1px solid var(--line); }
 .ms-hero__grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 40px; align-items: center; }
 .ms-hero__copy .lead { font-size: 1.12rem; margin: 20px 0 22px; max-width: 540px; }
 .ms-points { list-style: none; display: grid; gap: 12px; }
@@ -677,12 +677,25 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
   background: var(--navy-900); }
 .ms-hero__player { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
   object-fit: cover; background: var(--navy-900); }
-/* Portrait Orange avatar (replaces the 16:9 framed player) */
-.ms-hero__video--avatar { max-width: clamp(260px, 27vw, 340px); border: 0;
-  aspect-ratio: 608 / 1080;
-  background: radial-gradient(120% 80% at 50% 18%, var(--orange-soft), var(--bg-blue) 70%); }
-.ms-hero__video--avatar .ms-hero__player { height: 100%; aspect-ratio: 608 / 1080;
-  object-fit: cover; object-position: center top; background: transparent; }
+/* Portrait Orange avatar — frameless, standing on white */
+.ms-hero__video--avatar { position: relative; max-width: clamp(280px, 30vw, 380px); border: 0;
+  border-radius: 0; box-shadow: none; aspect-ratio: 720 / 1280; background: #fff; }
+.ms-hero__video--avatar .ms-hero__player { height: 100%; aspect-ratio: 720 / 1280;
+  object-fit: cover; object-position: center top; background: #fff; }
+/* Tap-for-sound control (unobtrusive, not a frame) */
+.ms-hero__sound { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  padding: 9px 15px 9px 12px; border: 0; border-radius: 999px;
+  background: rgba(20,38,74,.82); color: #fff; font: 700 .82rem var(--font);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  box-shadow: 0 8px 22px rgba(20,38,74,.28); transition: background .15s, transform .1s; }
+.ms-hero__sound:hover { background: var(--orange-600); }
+.ms-hero__sound:active { transform: translateX(-50%) translateY(1px); }
+.ms-hero__sound-ico { display: inline-flex; }
+.ms-hero__sound .i-on { display: none; }
+.ms-hero__sound:not(.is-muted) .i-mute { display: none; }
+.ms-hero__sound:not(.is-muted) .i-on { display: inline-flex; }
+.ms-hero__sound:not(.is-muted) .ms-hero__sound-txt { display: none; }
 
 .ms-studio { padding: clamp(32px,5vw,56px) 0 clamp(48px,7vw,80px); }
 .ms-screen { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line);

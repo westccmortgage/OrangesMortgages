@@ -651,7 +651,7 @@
     var yr = document.getElementById("year");
     if (yr) yr.textContent = new Date().getFullYear();
 
-    document.querySelectorAll("[data-lang]").forEach(function (b) {
+    document.querySelectorAll(".lang__menu [data-lang]").forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
     });
     var cur = document.querySelector("[data-lang-current]");
@@ -681,7 +681,7 @@
 
   function start() {
     apply(initial());
-    document.querySelectorAll("[data-lang]").forEach(function (b) {
+    document.querySelectorAll(".lang__menu [data-lang]").forEach(function (b) {
       b.addEventListener("click", function (e) {
         e.preventDefault();
         apply(b.getAttribute("data-lang"));

@@ -72,17 +72,42 @@
     calc();
   }
 
-  /* ---- Lead form (demo only) ---- */
+  /* ---- Lead form -> Netlify Forms (AJAX, keeps the inline success state) ---- */
   const form = document.getElementById("leadForm");
   if (form) {
+    const success = document.getElementById("formSuccess");
+    const error = document.getElementById("formError");
+    const submitBtn = document.getElementById("leadSubmit");
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
-      document.getElementById("formSuccess").hidden = false;
-      form.reset();
+      if (success) success.hidden = true;
+      if (error) error.hidden = true;
+      const label = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
+
+      // Netlify captures any POST that includes the hidden `form-name` field.
+      const body = new URLSearchParams(new FormData(form)).toString();
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error("Bad response");
+          if (success) success.hidden = false;
+          form.reset();
+        })
+        .catch(() => {
+          if (error) error.hidden = false;
+        })
+        .finally(() => {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = label; }
+        });
     });
   }
 

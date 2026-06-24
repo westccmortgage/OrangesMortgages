@@ -410,7 +410,15 @@
           </a>
         </div>
 
-        <form class="cta__form glass" id="leadForm" novalidate>
+        <form class="cta__form glass" id="leadForm" name="ask-orange" method="POST"
+              data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <!-- Netlify Forms: submissions are captured in the Netlify dashboard and
+               can be emailed to orange@orangesmortgages.com (Site settings → Forms
+               → Form notifications). These hidden fields are required for detection. -->
+          <input type="hidden" name="form-name" value="ask-orange" />
+          <p class="form__hp" hidden aria-hidden="true">
+            <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
           <div class="form__row">
             <label>First name<input type="text" name="first" required placeholder="Jamie" autocomplete="given-name" /></label>
             <label>Last name<input type="text" name="last" required placeholder="Rivera" autocomplete="family-name" /></label>
@@ -426,9 +434,10 @@
               <option>Not sure yet</option>
             </select>
           </label>
-          <button type="submit" class="btn btn--primary btn--lg btn--block">Ask Orange →</button>
+          <button type="submit" class="btn btn--primary btn--lg btn--block" id="leadSubmit">Ask Orange →</button>
           <p class="form__note">By submitting, you agree to be contacted about your inquiry. This form provides general guidance and is not a loan application, approval, or commitment to lend.</p>
           <p class="form__success" id="formSuccess" hidden>🍊 Thanks! Orange will reach out shortly.</p>
+          <p class="form__error" id="formError" hidden>Sorry, that didn't go through. Please email <a href="mailto:orange@orangesmortgages.com">orange@orangesmortgages.com</a> and we'll help.</p>
         </form>
       </div>
     </section>

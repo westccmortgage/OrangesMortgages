@@ -55,13 +55,15 @@
         (Math.pow(1 + monthlyRate, n) - 1);
     }
 
+    const T = (k, v) => (window.OMi18n ? window.OMi18n.t(k, v) : null);
     $("priceOut").textContent = fmt(price);
     $("downOut").textContent = `${fmt(downAmt)} (${downPct}%)`;
     $("rateOut").textContent = rate.toFixed(3).replace(/0+$/, "").replace(/\.$/, "") + "%";
-    $("termOut").textContent = years + " years";
-    $("payment").innerHTML = fmt(payment) + "<small>/mo</small>";
-    $("loanAmount").innerHTML =
-      `Loan amount ${fmt(principal)} &middot; Principal &amp; interest only`;
+    $("termOut").textContent = T("calc.years", { n: years }) || years + " years";
+    $("payment").innerHTML = fmt(payment) + "<small>" + (T("calc.perMo") || "/mo") + "</small>";
+    $("loanAmount").textContent =
+      T("calc.loanAmount", { amt: fmt(principal) }) ||
+      `Loan amount ${fmt(principal)} · Principal & interest only`;
   }
 
   // Only wire the calculator on pages that actually contain it.
@@ -70,6 +72,8 @@
       el.addEventListener("input", calc)
     );
     calc();
+    // re-render localized calculator strings when the language changes
+    document.addEventListener("om:lang", calc);
   }
 
   /* ---- Lead form ----

@@ -129,6 +129,24 @@ p { color: var(--muted); }
 .nav__email svg { color: var(--orange-600); }
 .nav__email:hover { color: var(--orange-600) !important; }
 
+/* Language switcher */
+.lang { position: relative; }
+.lang__btn { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1.5px solid var(--line);
+  border-radius: 100px; padding: 7px 12px; font-family: inherit; font-weight: 700; font-size: 0.84rem;
+  color: var(--navy-800); cursor: pointer; transition: border-color .15s; white-space: nowrap; }
+.lang__btn:hover { border-color: var(--navy-500); }
+.lang__btn svg { color: var(--orange-600); flex: none; }
+.lang__menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 152px; background: #fff;
+  border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-md); padding: 6px; z-index: 120; }
+.lang__menu button { display: block; width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
+  font-family: inherit; font-size: 0.94rem; font-weight: 600; color: var(--navy-800); padding: 9px 12px; border-radius: 9px; }
+.lang__menu button:hover { background: var(--bg-tint); color: var(--orange-600); }
+.lang__menu button[aria-pressed="true"] { color: var(--orange-600); background: var(--orange-soft); }
+
+/* On desktop, keep the bar uncrowded — these links live in the mobile menu
+   and the footer; on the hamburger menu (<=1200px) they reappear. */
+@media (min-width: 1201px) { .nav__secondary { display: none; } }
+
 .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav__toggle span { width: 24px; height: 2.5px; background: var(--navy-900); border-radius: 3px; transition: .25s; }
 .nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }

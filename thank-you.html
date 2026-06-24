@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You — Orange Mortgage</title>
-  <meta name="description" content="Thanks — Orange received your request. We'll follow up shortly." />
+  <title data-i18n="ty.title">Thank You — Orange Mortgage</title>
+  <meta name="description" data-i18n-content="ty.desc" content="Thanks — Orange received your request. We'll follow up shortly." />
   <meta name="robots" content="noindex" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,17 +25,28 @@
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="index.html#loans">Loan Options</a>
-        <a href="index.html#why">Why Orange</a>
-        <a href="index.html#calculator">Calculator</a>
-        <a href="index.html#process">How It Works</a>
-        <a href="index.html#areas">Service Areas</a>
-        <a href="about.html">About</a>
+        <a href="index.html#loans" data-i18n="nav.loans">Loan Options</a>
+        <a href="index.html#why" data-i18n="nav.why">Why Orange</a>
+        <a href="index.html#calculator" data-i18n="nav.calc">Calculator</a>
+        <a href="index.html#process" class="nav__secondary" data-i18n="nav.how">How It Works</a>
+        <a href="index.html#areas" class="nav__secondary" data-i18n="nav.areas">Service Areas</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
         <a href="mailto:orange@orangesmortgages.com" class="nav__email">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           orange@orangesmortgages.com
         </a>
-        <a href="index.html#contact" class="btn btn--primary btn--sm nav__cta">Get Pre-Approved</a>
+        <div class="lang" id="langSwitch">
+          <button class="lang__btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n-aria="lang.label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18" stroke="currentColor" stroke-width="2"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" stroke="currentColor" stroke-width="2"/></svg>
+            <span data-lang-current>EN</span>
+          </button>
+          <div class="lang__menu" id="langMenu" hidden>
+            <button type="button" data-lang="en">English</button>
+            <button type="button" data-lang="ru">Русский</button>
+            <button type="button" data-lang="es">Español</button>
+          </div>
+        </div>
+        <a href="index.html#contact" class="btn btn--primary btn--sm nav__cta" data-i18n="nav.cta">Get Pre-Approved</a>
       </nav>
 
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -48,12 +59,12 @@
     <section class="thanks">
       <div class="container thanks__inner">
         <img src="assets/orange-cutout.webp" alt="Orange the mascot waving" class="thanks__orange" width="621" height="968" />
-        <span class="eyebrow">🍊 Request received</span>
-        <h1>Thanks — Orange received your request.</h1>
-        <p>We'll follow up shortly. In the meantime, feel free to explore your options or estimate a payment.</p>
+        <span class="eyebrow" data-i18n="ty.eyebrow">🍊 Request received</span>
+        <h1 data-i18n="ty.h1">Thanks — Orange received your request.</h1>
+        <p data-i18n="ty.p">We'll follow up shortly. In the meantime, feel free to explore your options or estimate a payment.</p>
         <div class="hero__actions hero__actions--center">
-          <a href="index.html" class="btn btn--primary btn--lg">Back to home</a>
-          <a href="index.html#calculator" class="btn btn--ghost btn--lg">Estimate My Payment</a>
+          <a href="index.html" class="btn btn--primary btn--lg" data-i18n="ty.home">Back to home</a>
+          <a href="index.html#calculator" class="btn btn--ghost btn--lg" data-i18n="ty.estimate">Estimate My Payment</a>
         </div>
       </div>
     </section>
@@ -69,35 +80,36 @@
           </span>
           <span class="brand__text">Orange<strong>Mortgage</strong></span>
         </a>
-        <p>Friendly, local mortgage guidance for Orange County. Ask Orange anytime.</p>
+        <p data-i18n="foot.brand">Friendly, local mortgage guidance for Orange County. Ask Orange anytime.</p>
         <a href="https://orangesmortgages.com" class="footer__site">OrangesMortgages.com</a>
         <a href="mailto:orange@orangesmortgages.com" class="footer__site">orange@orangesmortgages.com</a>
       </div>
       <div class="footer__col">
-        <h4>Loans</h4>
-        <a href="index.html#loans">Conventional</a><a href="index.html#loans">Jumbo</a><a href="index.html#loans">FHA</a><a href="index.html#loans">VA</a><a href="index.html#loans">DSCR</a><a href="index.html#loans">Refinance</a>
+        <h4 data-i18n="foot.loans">Loans</h4>
+        <a href="index.html#loans" data-i18n="loans.1t">Conventional</a><a href="index.html#loans" data-i18n="loans.2t">Jumbo</a><a href="index.html#loans" data-i18n="loans.3t">FHA</a><a href="index.html#loans" data-i18n="loans.4t">VA</a><a href="index.html#loans" data-i18n="loans.5t">DSCR</a><a href="index.html#loans" data-i18n="loans.6t">Refinance</a>
       </div>
       <div class="footer__col">
-        <h4>Company</h4>
-        <a href="about.html">About Orange</a><a href="index.html#why">Why Orange</a><a href="index.html#process">How It Works</a><a href="index.html#areas">Service Areas</a><a href="index.html#contact">Ask Orange</a>
+        <h4 data-i18n="foot.company">Company</h4>
+        <a href="about.html" data-i18n="foot.about">About Orange</a><a href="index.html#why" data-i18n="nav.why">Why Orange</a><a href="index.html#process" data-i18n="nav.how">How It Works</a><a href="index.html#areas" data-i18n="nav.areas">Service Areas</a><a href="index.html#contact" data-i18n="foot.ask">Ask Orange</a>
       </div>
       <div class="footer__col">
-        <h4>Get in touch</h4>
+        <h4 data-i18n="foot.touch">Get in touch</h4>
         <a href="mailto:orange@orangesmortgages.com">orange@orangesmortgages.com</a>
         <a href="tel:+13106865053">(310) 686-5053</a>
-        <span>Serving Orange County, CA</span>
-        <span>Mon–Sat · 8am–7pm PT</span>
+        <span data-i18n="foot.serving">Serving Orange County, CA</span>
+        <span data-i18n="foot.hours">Mon–Sat · 8am–7pm PT</span>
       </div>
     </div>
     <div class="container footer__legal">
-      <p>
+      <p data-i18n="foot.legal">
         <strong>Orange Mortgage</strong> is a brand of West Coast Capital Mortgage, Inc.
         NMLS&nbsp;#2817729 · CA&nbsp;DRE&nbsp;#01385024 · Equal Housing Lender.
       </p>
-      <p class="footer__disc">© <span id="year">2026</span> West Coast Capital Mortgage, Inc. All rights reserved. Orange provides general mortgage education only. Figures and examples shown are illustrative, are not a rate quote or a commitment to lend, and all loans are subject to full application, credit, income, property, and lender approval.</p>
+      <p class="footer__disc" data-i18n="foot.disc">© <span id="year">2026</span> West Coast Capital Mortgage, Inc. All rights reserved. Orange provides general mortgage education only. Figures and examples shown are illustrative, are not a rate quote or a commitment to lend, and all loans are subject to full application, credit, income, property, and lender approval.</p>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orange Mortgage — Ask Orange, Your Orange County Mortgage Guide</title>
-  <meta name="description" content="Ask Orange. Smart, friendly mortgage guidance for Orange County buyers, homeowners, and investors — purchase, refinance, and investment loans, explained without pressure or jargon." />
+  <title data-i18n="home.title">Orange Mortgage — Ask Orange, Your Orange County Mortgage Guide</title>
+  <meta name="description" data-i18n-content="home.desc" content="Ask Orange. Smart, friendly mortgage guidance for Orange County buyers, homeowners, and investors — purchase, refinance, and investment loans, explained without pressure or jargon." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,17 +24,28 @@
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="#loans">Loan Options</a>
-        <a href="#why">Why Orange</a>
-        <a href="#calculator">Calculator</a>
-        <a href="#process">How It Works</a>
-        <a href="#areas">Service Areas</a>
-        <a href="about.html">About</a>
+        <a href="#loans" data-i18n="nav.loans">Loan Options</a>
+        <a href="#why" data-i18n="nav.why">Why Orange</a>
+        <a href="#calculator" data-i18n="nav.calc">Calculator</a>
+        <a href="#process" class="nav__secondary" data-i18n="nav.how">How It Works</a>
+        <a href="#areas" class="nav__secondary" data-i18n="nav.areas">Service Areas</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
         <a href="mailto:orange@orangesmortgages.com" class="nav__email">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           orange@orangesmortgages.com
         </a>
-        <a href="#contact" class="btn btn--primary btn--sm nav__cta">Get Pre-Approved</a>
+        <div class="lang" id="langSwitch">
+          <button class="lang__btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n-aria="lang.label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18" stroke="currentColor" stroke-width="2"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" stroke="currentColor" stroke-width="2"/></svg>
+            <span data-lang-current>EN</span>
+          </button>
+          <div class="lang__menu" id="langMenu" hidden>
+            <button type="button" data-lang="en">English</button>
+            <button type="button" data-lang="ru">Русский</button>
+            <button type="button" data-lang="es">Español</button>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn--primary btn--sm nav__cta" data-i18n="nav.cta">Get Pre-Approved</a>
       </nav>
 
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -47,7 +58,6 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <!-- Soft Orange County coastal scene — pure CSS, no stock photos -->
       <div class="hero__scene" aria-hidden="true">
         <span class="hero__sky"></span>
         <span class="hero__sun"></span>
@@ -61,41 +71,16 @@
 
       <div class="container hero__grid">
         <div class="hero__intro">
-          <span class="eyebrow">🍊 Orange County's Friendly Mortgage Advisor</span>
-          <h1>Hi, I'm <span class="accent">Orange.</span><br />Home financing made <span class="accent">simple.</span></h1>
-          <p class="lead">Smart mortgage guidance for Orange County buyers, homeowners, and investors — without pressure, confusion, or jargon.</p>
+          <span class="eyebrow" data-i18n="hero.eyebrow">🍊 Orange County's Friendly Mortgage Advisor</span>
+          <h1 data-i18n="hero.h1">Hi, I'm <span class="accent">Orange.</span><br />Home financing made <span class="accent">simple.</span></h1>
+          <p class="lead" data-i18n="hero.lead">Smart mortgage guidance for Orange County buyers, homeowners, and investors — without pressure, confusion, or jargon.</p>
         </div>
 
-        <!--
-          ORANGE — free-standing character in the hero scene.
-          This is a SWAPPABLE MEDIA SLOT. Orange stands naturally in the scene
-          with NO frame, NO player UI, NO container chrome.
-
-          To upgrade Orange to a living/talking avatar later, replace ONLY the
-          [img.hero__orange] element below. Keep class="hero__orange" so the
-          layout and positioning stay identical. Options (illustrative markup,
-          tags spaced so this stays a single valid comment):
-
-          1) Transparent idle-loop video — MUST be muted, no autoplay audio:
-             [video class="hero__orange" autoplay muted loop playsinline
-                    poster="assets/orange-cutout.webp"]
-               [source src="assets/orange.webm" type="video/webm"]  (VP9/AV1, Chrome/FF/Edge)
-               [source src="assets/orange.mov"  type="video/quicktime"]  (HEVC alpha, Safari)
-             [/video]
-
-          2) WebGL / AI avatar (HeyGen, Tavus, D-ID, Runway, custom):
-             [canvas class="hero__orange" id="orangeAvatar"][/canvas]
-             then mount the renderer onto #orangeAvatar — same box, same place.
-        -->
         <div class="hero__stage">
           <!-- AnimatedOrangeHero — layered, CSS-animated character.
-               • Static fallback: the layers at rest render the full Orange,
-                 so with JS/animation disabled it looks identical to the
-                 original still image.
-               • Animated version: leaf sway + eye blink + breathing (below).
-               • Future video: replace the whole .orange-hero figure with one
-                 transparent, muted, looping <video class="hero__orange"> —
-                 layout and positioning stay identical. -->
+               Replace the whole .orange-hero figure with one transparent, muted,
+               looping <video class="hero__orange"> to make Orange speak later;
+               layout and positioning stay identical. -->
           <figure class="orange-hero" id="orangeHero">
             <img class="orange-hero__layer orange-hero__body hero__orange"
                  src="assets/orange-body.webp"
@@ -111,12 +96,12 @@
 
         <div class="hero__actions">
           <a href="#contact" class="btn btn--primary btn--lg js-ask-orange">
-            Ask Orange
+            <span data-i18n="hero.ask">Ask Orange</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </a>
           <a href="#calculator" class="btn btn--ghost btn--lg">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            Estimate My Payment
+            <span data-i18n="hero.estimate">Estimate My Payment</span>
           </a>
           <a href="mailto:orange@orangesmortgages.com" class="hero__email">orange@orangesmortgages.com</a>
         </div>
@@ -124,81 +109,81 @@
         <ul class="hero__trust">
           <li>
             <span class="hero__trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span>Licensed Mortgage<br />Guidance</span>
+            <span data-i18n="hero.trust1">Licensed Mortgage<br />Guidance</span>
           </li>
           <li>
             <span class="hero__trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21c5-5 7-8.5 7-12a7 7 0 10-14 0c0 3.5 2 7 7 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="2"/></svg></span>
-            <span>Local Orange<br />County Focus</span>
+            <span data-i18n="hero.trust2">Local Orange<br />County Focus</span>
           </li>
           <li>
             <span class="hero__trust-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 11l8-6 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9h12v-9" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-            <span>Purchase, Refinance<br />&amp; Investment Loans</span>
+            <span data-i18n="hero.trust3">Purchase, Refinance<br />&amp; Investment Loans</span>
           </li>
         </ul>
       </div>
 
       <p class="hero__disclaimer">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h1v4h1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Orange provides general mortgage education. Final loan options depend on full application, credit, income, property, and lender approval.
+        <span data-i18n="hero.disclaimer">Orange provides general mortgage education. Final loan options depend on full application, credit, income, property, and lender approval.</span>
       </p>
     </section>
 
     <!-- ============ TRUST BADGES STRIP ============ -->
     <section class="badges">
       <div class="container badges__inner">
-        <span>Licensed Mortgage Guidance</span><i></i>
-        <span>Local Orange County Focus</span><i></i>
-        <span>Purchase &amp; Refinance</span><i></i>
-        <span>Investment &amp; Jumbo Loans</span><i></i>
-        <span>Equal Housing Lender</span>
+        <span data-i18n="badge.1">Licensed Mortgage Guidance</span><i></i>
+        <span data-i18n="badge.2">Local Orange County Focus</span><i></i>
+        <span data-i18n="badge.3">Purchase &amp; Refinance</span><i></i>
+        <span data-i18n="badge.4">Investment &amp; Jumbo Loans</span><i></i>
+        <span data-i18n="badge.5">Equal Housing Lender</span>
       </div>
     </section>
 
-    <!-- ============ WHAT ORANGE HELPS WITH (replaces testimonials) ============ -->
+    <!-- ============ WHAT ORANGE HELPS WITH ============ -->
     <section class="section" id="help">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow eyebrow--center">What Orange Helps With</span>
-          <h2>Solutions for every kind of homeowner</h2>
-          <p>Wherever you are in the journey, Orange helps you understand your options and your next step.</p>
+          <span class="eyebrow eyebrow--center" data-i18n="help.eyebrow">What Orange Helps With</span>
+          <h2 data-i18n="help.h2">Solutions for every kind of homeowner</h2>
+          <p data-i18n="help.p">Wherever you are in the journey, Orange helps you understand your options and your next step.</p>
         </div>
 
         <div class="cards cards--3">
           <article class="card">
             <div class="card__icon">🔑</div>
-            <h3>First-Time Home Buyers</h3>
-            <p>Understand each step, from budgeting to keys in hand — at your pace.</p>
-            <a href="#contact" class="card__link js-ask-orange">Ask Orange →</a>
+            <h3 data-i18n="help.1t">First-Time Home Buyers</h3>
+            <p data-i18n="help.1p">Understand each step, from budgeting to keys in hand — at your pace.</p>
+            <a href="#contact" class="card__link js-ask-orange" data-i18n="help.link">Ask Orange →</a>
           </article>
           <article class="card">
             <div class="card__icon">💎</div>
-            <h3>Jumbo Loans</h3>
-            <p>Navigate higher loan amounts for Orange County's higher-priced homes.</p>
-            <a href="#contact" class="card__link js-ask-orange">Ask Orange →</a>
+            <h3 data-i18n="help.2t">Jumbo Loans</h3>
+            <p data-i18n="help.2p">Navigate higher loan amounts for Orange County's higher-priced homes.</p>
+            <a href="#contact" class="card__link js-ask-orange" data-i18n="help.link">Ask Orange →</a>
           </article>
           <article class="card">
             <div class="card__icon">🔄</div>
-            <h3>Refinance Options</h3>
-            <p>See whether refinancing could fit your goals before you commit.</p>
-            <a href="#contact" class="card__link js-ask-orange">Ask Orange →</a>
+            <h3 data-i18n="help.3t">Refinance Options</h3>
+            <p data-i18n="help.3p">See whether refinancing could fit your goals before you commit.</p>
+            <a href="#contact" class="card__link js-ask-orange" data-i18n="help.link">Ask Orange →</a>
           </article>
           <article class="card">
             <div class="card__icon">🏘️</div>
-            <h3>Investment Property Loans</h3>
-            <p>Finance rentals and build a portfolio with strategy-first guidance.</p>
-            <a href="#contact" class="card__link js-ask-orange">Ask Orange →</a>
+            <h3 data-i18n="help.4t">Investment Property Loans</h3>
+            <p data-i18n="help.4p">Finance rentals and build a portfolio with strategy-first guidance.</p>
+            <a href="#contact" class="card__link js-ask-orange" data-i18n="help.link">Ask Orange →</a>
           </article>
           <article class="card">
             <div class="card__icon">📁</div>
-            <h3>Self-Employed Borrowers</h3>
-            <p>Explore options designed for non-traditional and variable income.</p>
-            <a href="#contact" class="card__link js-ask-orange">Ask Orange →</a>
+            <h3 data-i18n="help.5t">Self-Employed Borrowers</h3>
+            <p data-i18n="help.5p">Explore options designed for non-traditional and variable income.</p>
+            <a href="#contact" class="card__link js-ask-orange" data-i18n="help.link">Ask Orange →</a>
           </article>
           <article class="card">
             <div class="card__icon">📊</div>
-            <h3>Payment Strategy</h3>
-            <p>Compare scenarios to find a monthly payment that feels comfortable.</p>
-            <a href="#contact" class="card__link js-ask-orange">Ask Orange →</a>
+            <h3 data-i18n="help.6t">Payment Strategy</h3>
+            <p data-i18n="help.6p">Compare scenarios to find a monthly payment that feels comfortable.</p>
+            <a href="#contact" class="card__link js-ask-orange" data-i18n="help.link">Ask Orange →</a>
           </article>
         </div>
       </div>
@@ -208,46 +193,46 @@
     <section class="section section--tint" id="loans">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow eyebrow--center">Loan Options</span>
-          <h2>The right loan starts with the right strategy</h2>
-          <p>Orange walks you through the programs and helps you understand which fits your situation — no rate promises, just clear guidance.</p>
+          <span class="eyebrow eyebrow--center" data-i18n="loans.eyebrow">Loan Options</span>
+          <h2 data-i18n="loans.h2">The right loan starts with the right strategy</h2>
+          <p data-i18n="loans.p">Orange walks you through the programs and helps you understand which fits your situation — no rate promises, just clear guidance.</p>
         </div>
 
         <figure class="loans-figure">
           <img src="assets/orange-loans.webp" alt="Orange the mascot at a teaching board presenting Conventional, Jumbo, FHA, and VA loan options" width="1536" height="1024" loading="lazy" decoding="async" />
-          <figcaption class="orange-moment">🍊 Orange explains every program in plain English.</figcaption>
+          <figcaption class="orange-moment" data-i18n="loans.moment">🍊 Orange explains every program in plain English.</figcaption>
         </figure>
 
         <div class="cards cards--3">
           <article class="card">
             <div class="card__icon">🏠</div>
-            <h3>Conventional</h3>
-            <p>Flexible financing for primary homes, with a range of down-payment options.</p>
+            <h3 data-i18n="loans.1t">Conventional</h3>
+            <p data-i18n="loans.1p">Flexible financing for primary homes, with a range of down-payment options.</p>
           </article>
           <article class="card card--feature">
             <div class="card__icon">💎</div>
-            <h3>Jumbo</h3>
-            <p>Financing above conforming limits for Orange County's higher-priced homes.</p>
+            <h3 data-i18n="loans.2t">Jumbo</h3>
+            <p data-i18n="loans.2p">Financing above conforming limits for Orange County's higher-priced homes.</p>
           </article>
           <article class="card">
             <div class="card__icon">🛡️</div>
-            <h3>FHA</h3>
-            <p>Government-backed loans with flexible qualifying for the right borrower.</p>
+            <h3 data-i18n="loans.3t">FHA</h3>
+            <p data-i18n="loans.3p">Government-backed loans with flexible qualifying for the right borrower.</p>
           </article>
           <article class="card">
             <div class="card__icon">⭐</div>
-            <h3>VA</h3>
-            <p>Benefits for eligible veterans, active-duty service members, and spouses.</p>
+            <h3 data-i18n="loans.4t">VA</h3>
+            <p data-i18n="loans.4p">Benefits for eligible veterans, active-duty service members, and spouses.</p>
           </article>
           <article class="card">
             <div class="card__icon">🏘️</div>
-            <h3>DSCR</h3>
-            <p>Qualify an investment property on its rental income, not personal income.</p>
+            <h3 data-i18n="loans.5t">DSCR</h3>
+            <p data-i18n="loans.5p">Qualify an investment property on its rental income, not personal income.</p>
           </article>
           <article class="card">
             <div class="card__icon">🔄</div>
-            <h3>Refinance</h3>
-            <p>Explore adjusting your rate or term, or tapping into your home equity.</p>
+            <h3 data-i18n="loans.6t">Refinance</h3>
+            <p data-i18n="loans.6p">Explore adjusting your rate or term, or tapping into your home equity.</p>
           </article>
         </div>
       </div>
@@ -260,28 +245,28 @@
           <img src="assets/orange-cutout.webp" alt="Orange the mascot smiling and pointing upward, ready to help" class="why__mascot" width="621" height="968" loading="lazy" decoding="async" />
         </div>
         <div class="why__copy">
-          <span class="eyebrow">Why Orange</span>
-          <h2>A local mortgage guide who makes the process easier</h2>
+          <span class="eyebrow" data-i18n="why.eyebrow">Why Orange</span>
+          <h2 data-i18n="why.h2">A local mortgage guide who makes the process easier</h2>
           <ul class="features">
             <li>
               <span class="features__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21c5-5 7-8.5 7-12a7 7 0 10-14 0c0 3.5 2 7 7 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="2"/></svg></span>
-              <div><strong>Local Orange County focus</strong><p>Guidance grounded in the OC market and the way homes trade here.</p></div>
+              <div><strong data-i18n="why.1t">Local Orange County focus</strong><p data-i18n="why.1p">Guidance grounded in the OC market and the way homes trade here.</p></div>
             </li>
             <li>
               <span class="features__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 7h14M5 12h14M5 17h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-              <div><strong>Clear explanation of your options</strong><p>Every program and number explained simply, so you can decide with confidence.</p></div>
+              <div><strong data-i18n="why.2t">Clear explanation of your options</strong><p data-i18n="why.2p">Every program and number explained simply, so you can decide with confidence.</p></div>
             </li>
             <li>
               <span class="features__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-              <div><strong>Fast digital application</strong><p>A modern, paperless process you can start from your phone in minutes.</p></div>
+              <div><strong data-i18n="why.3t">Fast digital application</strong><p data-i18n="why.3p">A modern, paperless process you can start from your phone in minutes.</p></div>
             </li>
             <li>
               <span class="features__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 18a4 4 0 014-4h2M16 14a4 4 0 014 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="9" r="2.4" stroke="currentColor" stroke-width="2"/></svg></span>
-              <div><strong>Human help when you need it</strong><p>A real person to talk to whenever a question comes up — no call centers.</p></div>
+              <div><strong data-i18n="why.4t">Human help when you need it</strong><p data-i18n="why.4p">A real person to talk to whenever a question comes up — no call centers.</p></div>
             </li>
             <li>
               <span class="features__ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-              <div><strong>No confusing mortgage jargon</strong><p>Plain-language answers that respect your time and your decision.</p></div>
+              <div><strong data-i18n="why.5t">No confusing mortgage jargon</strong><p data-i18n="why.5p">Plain-language answers that respect your time and your decision.</p></div>
             </li>
           </ul>
         </div>
@@ -292,38 +277,38 @@
     <section class="section section--tint" id="calculator">
       <div class="container calc__grid">
         <div class="calc__intro">
-          <span class="eyebrow">Mortgage Calculator</span>
-          <h2>See an estimated payment in seconds</h2>
-          <p class="orange-moment">🍊 Orange helps you estimate — then turns it into a plan.</p>
-          <p>Adjust the numbers for an instant estimate of principal &amp; interest. When you're ready, Orange builds a personalized strategy around your real goals.</p>
-          <a href="#contact" class="btn btn--primary js-ask-orange">Get My Personalized Strategy →</a>
+          <span class="eyebrow" data-i18n="calc.eyebrow">Mortgage Calculator</span>
+          <h2 data-i18n="calc.h2">See an estimated payment in seconds</h2>
+          <p class="orange-moment" data-i18n="calc.moment">🍊 Orange helps you estimate — then turns it into a plan.</p>
+          <p data-i18n="calc.p">Adjust the numbers for an instant estimate of principal &amp; interest. When you're ready, Orange builds a personalized strategy around your real goals.</p>
+          <a href="#contact" class="btn btn--primary js-ask-orange" data-i18n="calc.cta">Get My Personalized Strategy →</a>
         </div>
 
         <div class="calc__panel glass">
           <div class="calc__field">
-            <label for="price">Home Price <output id="priceOut">$1,250,000</output></label>
+            <label for="price"><span data-i18n="calc.price">Home Price</span> <output id="priceOut">$1,250,000</output></label>
             <input type="range" id="price" min="200000" max="3000000" step="10000" value="1250000" />
           </div>
           <div class="calc__field">
-            <label for="down">Down Payment <output id="downOut">$250,000 (20%)</output></label>
+            <label for="down"><span data-i18n="calc.down">Down Payment</span> <output id="downOut">$250,000 (20%)</output></label>
             <input type="range" id="down" min="0" max="60" step="1" value="20" />
           </div>
           <div class="calc__field">
-            <label for="rate">Interest Rate (for estimate) <output id="rateOut">6.125%</output></label>
+            <label for="rate"><span data-i18n="calc.rate">Interest Rate (for estimate)</span> <output id="rateOut">6.125%</output></label>
             <input type="range" id="rate" min="3" max="10" step="0.125" value="6.125" />
           </div>
           <div class="calc__field">
-            <label for="term">Loan Term <output id="termOut">30 years</output></label>
+            <label for="term"><span data-i18n="calc.term">Loan Term</span> <output id="termOut">30 years</output></label>
             <input type="range" id="term" min="10" max="30" step="5" value="30" />
           </div>
 
           <div class="calc__result">
-            <span>Estimated monthly payment</span>
+            <span data-i18n="calc.result">Estimated monthly payment</span>
             <div class="calc__amount" id="payment">$6,073<small>/mo</small></div>
             <p class="calc__sub" id="loanAmount">Loan amount $1,000,000 · Principal &amp; interest only</p>
           </div>
 
-          <p class="calc__disclaimer">
+          <p class="calc__disclaimer" data-i18n="calc.disclaimer">
             Estimated payment is for educational purposes only and does not include taxes, insurance, HOA, mortgage insurance, or final lender pricing. The interest rate above is an adjustable example, not a rate quote.
           </p>
         </div>
@@ -334,9 +319,9 @@
     <section class="section" id="process">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow eyebrow--center">How It Works</span>
-          <h2>Four simple steps with Orange</h2>
-          <p class="orange-moment">🍊 Orange walks you through the whole process — start to keys.</p>
+          <span class="eyebrow eyebrow--center" data-i18n="proc.eyebrow">How It Works</span>
+          <h2 data-i18n="proc.h2">Four simple steps with Orange</h2>
+          <p class="orange-moment" data-i18n="proc.moment">🍊 Orange walks you through the whole process — start to keys.</p>
         </div>
 
         <div class="process">
@@ -347,23 +332,23 @@
           <ol class="steps steps--rail">
             <li class="step">
               <span class="step__num">1</span>
-              <div><h3>Tell Orange your goal</h3>
-              <p>Share what you're trying to do — buy, refinance, or invest.</p></div>
+              <div><h3 data-i18n="proc.1t">Tell Orange your goal</h3>
+              <p data-i18n="proc.1p">Share what you're trying to do — buy, refinance, or invest.</p></div>
             </li>
             <li class="step">
               <span class="step__num">2</span>
-              <div><h3>Review your loan options</h3>
-              <p>Orange walks you through the programs that fit your situation.</p></div>
+              <div><h3 data-i18n="proc.2t">Review your loan options</h3>
+              <p data-i18n="proc.2p">Orange walks you through the programs that fit your situation.</p></div>
             </li>
             <li class="step">
               <span class="step__num">3</span>
-              <div><h3>Get pre-approved</h3>
-              <p>Apply digitally and understand what you may qualify for.</p></div>
+              <div><h3 data-i18n="proc.3t">Get pre-approved</h3>
+              <p data-i18n="proc.3p">Apply digitally and understand what you may qualify for.</p></div>
             </li>
             <li class="step">
               <span class="step__num">4</span>
-              <div><h3>Close with confidence</h3>
-              <p>Move forward with a clear plan and guidance at every step.</p></div>
+              <div><h3 data-i18n="proc.4t">Close with confidence</h3>
+              <p data-i18n="proc.4p">Move forward with a clear plan and guidance at every step.</p></div>
             </li>
           </ol>
         </div>
@@ -374,9 +359,9 @@
     <section class="section section--tint" id="areas">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow eyebrow--center">Service Areas</span>
-          <h2>Orange County mortgage help, city by city</h2>
-          <p>From the coast to the canyons, Orange helps families and investors across Orange County. Don't see your city? We almost certainly serve it too.</p>
+          <span class="eyebrow eyebrow--center" data-i18n="areas.eyebrow">Service Areas</span>
+          <h2 data-i18n="areas.h2">Orange County mortgage help, city by city</h2>
+          <p data-i18n="areas.p">From the coast to the canyons, Orange helps families and investors across Orange County. Don't see your city? We almost certainly serve it too.</p>
         </div>
         <ul class="areas__cities">
           <li>Irvine</li><li>Newport Beach</li><li>Laguna Beach</li><li>Huntington Beach</li>
@@ -391,13 +376,13 @@
     <section class="cta" id="contact">
       <div class="container cta__inner">
         <div class="cta__copy">
-          <span class="eyebrow eyebrow--light">🍊 Ask Orange</span>
-          <h2>Ready to ask Orange?</h2>
-          <p>Tell us what you're trying to do, and we'll help you understand your next step — no pressure, no jargon.</p>
+          <span class="eyebrow eyebrow--light" data-i18n="ct.eyebrow">🍊 Ask Orange</span>
+          <h2 data-i18n="ct.h2">Ready to ask Orange?</h2>
+          <p data-i18n="ct.p">Tell us what you're trying to do, and we'll help you understand your next step — no pressure, no jargon.</p>
           <ul class="cta__perks">
-            <li>✓ General mortgage guidance, free</li>
-            <li>✓ A real person, not a call center</li>
-            <li>✓ Clear answers about your options</li>
+            <li data-i18n="ct.perk1">✓ General mortgage guidance, free</li>
+            <li data-i18n="ct.perk2">✓ A real person, not a call center</li>
+            <li data-i18n="ct.perk3">✓ Clear answers about your options</li>
           </ul>
           <a href="mailto:orange@orangesmortgages.com" class="cta__email">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -418,23 +403,23 @@
             <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
           <div class="form__row">
-            <label>First name<input type="text" name="first" required placeholder="Jamie" autocomplete="given-name" /></label>
-            <label>Last name<input type="text" name="last" required placeholder="Rivera" autocomplete="family-name" /></label>
+            <label><span data-i18n="ct.first">First name</span><input type="text" name="first" required placeholder="Jamie" autocomplete="given-name" /></label>
+            <label><span data-i18n="ct.last">Last name</span><input type="text" name="last" required placeholder="Rivera" autocomplete="family-name" /></label>
           </div>
-          <label>Email<input type="email" name="email" required placeholder="you@email.com" autocomplete="email" /></label>
-          <label>Phone<input type="tel" name="phone" placeholder="(714) 555-0199" autocomplete="tel" /></label>
-          <label>I'm looking to
+          <label><span data-i18n="ct.email">Email</span><input type="email" name="email" required placeholder="you@email.com" autocomplete="email" /></label>
+          <label><span data-i18n="ct.phone">Phone</span><input type="tel" name="phone" placeholder="(714) 555-0199" autocomplete="tel" /></label>
+          <label><span data-i18n="ct.looking">I'm looking to</span>
             <select name="goal">
-              <option>Buy a home</option>
-              <option>Refinance</option>
-              <option>Buy investment property</option>
-              <option>Explore jumbo loan</option>
-              <option>Not sure yet</option>
+              <option data-i18n="ct.opt1">Buy a home</option>
+              <option data-i18n="ct.opt2">Refinance</option>
+              <option data-i18n="ct.opt3">Buy investment property</option>
+              <option data-i18n="ct.opt4">Explore jumbo loan</option>
+              <option data-i18n="ct.opt5">Not sure yet</option>
             </select>
           </label>
-          <label>Message<textarea name="message" rows="4" placeholder="Tell Orange a bit about what you're trying to do…"></textarea></label>
-          <button type="submit" class="btn btn--primary btn--lg btn--block">Ask Orange →</button>
-          <p class="form__note">By submitting this form, you agree to be contacted about your mortgage inquiry. This form is for general mortgage information only and does not constitute a loan approval or commitment to lend.</p>
+          <label><span data-i18n="ct.message">Message</span><textarea name="message" rows="4" placeholder="Tell Orange a bit about what you're trying to do…" data-i18n-ph="ct.msgph"></textarea></label>
+          <button type="submit" class="btn btn--primary btn--lg btn--block" data-i18n="ct.submit">Ask Orange →</button>
+          <p class="form__note" data-i18n="ct.note">By submitting this form, you agree to be contacted about your mortgage inquiry. This form is for general mortgage information only and does not constitute a loan approval or commitment to lend.</p>
         </form>
       </div>
     </section>
@@ -450,45 +435,42 @@
           </span>
           <span class="brand__text">Orange<strong>Mortgage</strong></span>
         </a>
-        <p>Friendly, local mortgage guidance for Orange County. Ask Orange anytime.</p>
+        <p data-i18n="foot.brand">Friendly, local mortgage guidance for Orange County. Ask Orange anytime.</p>
         <a href="https://orangesmortgages.com" class="footer__site">OrangesMortgages.com</a>
         <a href="mailto:orange@orangesmortgages.com" class="footer__site">orange@orangesmortgages.com</a>
       </div>
       <div class="footer__col">
-        <h4>Loans</h4>
-        <a href="#loans">Conventional</a><a href="#loans">Jumbo</a><a href="#loans">FHA</a><a href="#loans">VA</a><a href="#loans">DSCR</a><a href="#loans">Refinance</a>
+        <h4 data-i18n="foot.loans">Loans</h4>
+        <a href="#loans" data-i18n="loans.1t">Conventional</a><a href="#loans" data-i18n="loans.2t">Jumbo</a><a href="#loans" data-i18n="loans.3t">FHA</a><a href="#loans" data-i18n="loans.4t">VA</a><a href="#loans" data-i18n="loans.5t">DSCR</a><a href="#loans" data-i18n="loans.6t">Refinance</a>
       </div>
       <div class="footer__col">
-        <h4>Company</h4>
-        <a href="about.html">About Orange</a><a href="#why">Why Orange</a><a href="#process">How It Works</a><a href="#areas">Service Areas</a><a href="#contact">Ask Orange</a>
+        <h4 data-i18n="foot.company">Company</h4>
+        <a href="about.html" data-i18n="foot.about">About Orange</a><a href="#why" data-i18n="nav.why">Why Orange</a><a href="#process" data-i18n="nav.how">How It Works</a><a href="#areas" data-i18n="nav.areas">Service Areas</a><a href="#contact" data-i18n="foot.ask">Ask Orange</a>
       </div>
       <div class="footer__col">
-        <h4>Get in touch</h4>
+        <h4 data-i18n="foot.touch">Get in touch</h4>
         <a href="mailto:orange@orangesmortgages.com">orange@orangesmortgages.com</a>
         <a href="tel:+13106865053">(310) 686-5053</a>
-        <span>Serving Orange County, CA</span>
-        <span>Mon–Sat · 8am–7pm PT</span>
+        <span data-i18n="foot.serving">Serving Orange County, CA</span>
+        <span data-i18n="foot.hours">Mon–Sat · 8am–7pm PT</span>
       </div>
     </div>
     <div class="container footer__legal">
-      <p>
+      <p data-i18n="foot.legal">
         <strong>Orange Mortgage</strong> is a brand of West Coast Capital Mortgage, Inc.
         NMLS&nbsp;#2817729 · CA&nbsp;DRE&nbsp;#01385024 · Equal Housing Lender.
       </p>
-      <p class="footer__disc">© <span id="year">2026</span> West Coast Capital Mortgage, Inc. All rights reserved. Orange provides general mortgage education only. Figures and examples shown are illustrative, are not a rate quote or a commitment to lend, and all loans are subject to full application, credit, income, property, and lender approval.</p>
+      <p class="footer__disc" data-i18n="foot.disc">© <span id="year">2026</span> West Coast Capital Mortgage, Inc. All rights reserved. Orange provides general mortgage education only. Figures and examples shown are illustrative, are not a rate quote or a commitment to lend, and all loans are subject to full application, credit, income, property, and lender approval.</p>
     </div>
   </footer>
 
   <!-- ============ FLOATING "ASK ORANGE" ASSISTANT ============ -->
-  <!-- Future home of the interactive/talking Orange avatar widget. For now it
-       opens a lightweight placeholder panel; later this can mount a live
-       avatar session (HeyGen / Tavus / D-ID / Runway / custom). -->
   <div class="ask-orange" id="askOrange">
     <button class="ask-orange__fab" id="askOrangeFab" aria-expanded="false" aria-controls="askOrangePanel">
       <span class="ask-orange__avatar" aria-hidden="true">
         <img src="assets/orange-cutout.webp" alt="" width="44" height="44" loading="lazy" />
       </span>
-      <span class="ask-orange__label"><strong>Ask Orange</strong><small>I'm here to help!</small></span>
+      <span class="ask-orange__label"><strong data-i18n="ask.fabTitle">Ask Orange</strong><small data-i18n="ask.fabSub">I'm here to help!</small></span>
       <span class="ask-orange__pulse" aria-hidden="true"></span>
     </button>
 
@@ -498,21 +480,22 @@
           <img src="assets/orange-cutout.webp" alt="" width="56" height="56" loading="lazy" />
         </span>
         <div>
-          <strong id="askOrangeTitle">Ask Orange</strong>
-          <small>Your Orange County mortgage guide</small>
+          <strong id="askOrangeTitle" data-i18n="ask.title">Ask Orange</strong>
+          <small data-i18n="ask.sub">Your Orange County mortgage guide</small>
         </div>
-        <button class="ask-orange__close" id="askOrangeClose" aria-label="Close">×</button>
+        <button class="ask-orange__close" id="askOrangeClose" aria-label="Close" data-i18n-aria="ask.close">×</button>
       </div>
-      <p class="ask-orange__text">Orange will soon be able to guide you through your mortgage options right here. In the meantime, pick a starting point:</p>
+      <p class="ask-orange__text" data-i18n="ask.text">Orange will soon be able to guide you through your mortgage options right here. In the meantime, pick a starting point:</p>
       <div class="ask-orange__actions">
-        <a href="#contact" class="btn btn--primary btn--block js-ask-close">Start My Strategy</a>
-        <a href="#calculator" class="btn btn--ghost btn--block js-ask-close">Estimate Payment</a>
-        <a href="mailto:orange@orangesmortgages.com" class="btn btn--ghost btn--block">Email Orange</a>
+        <a href="#contact" class="btn btn--primary btn--block js-ask-close" data-i18n="ask.start">Start My Strategy</a>
+        <a href="#calculator" class="btn btn--ghost btn--block js-ask-close" data-i18n="ask.estimate">Estimate Payment</a>
+        <a href="mailto:orange@orangesmortgages.com" class="btn btn--ghost btn--block" data-i18n="ask.email">Email Orange</a>
       </div>
-      <p class="ask-orange__disclaimer">Orange provides general mortgage education only — not rates, approvals, or specific loan terms. Those depend on a full application and lender review.</p>
+      <p class="ask-orange__disclaimer" data-i18n="ask.disclaimer">Orange provides general mortgage education only — not rates, approvals, or specific loan terms. Those depend on a full application and lender review.</p>
     </div>
   </div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

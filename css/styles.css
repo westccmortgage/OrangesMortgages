@@ -677,6 +677,12 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
   background: var(--navy-900); }
 .ms-hero__player { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
   object-fit: cover; background: var(--navy-900); }
+/* Portrait Orange avatar (replaces the 16:9 framed player) */
+.ms-hero__video--avatar { max-width: clamp(260px, 27vw, 340px); border: 0;
+  aspect-ratio: 608 / 1080;
+  background: radial-gradient(120% 80% at 50% 18%, var(--orange-soft), var(--bg-blue) 70%); }
+.ms-hero__video--avatar .ms-hero__player { height: 100%; aspect-ratio: 608 / 1080;
+  object-fit: cover; object-position: center top; background: transparent; }
 
 .ms-studio { padding: clamp(32px,5vw,56px) 0 clamp(48px,7vw,80px); }
 .ms-screen { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line);

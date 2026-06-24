@@ -376,3 +376,9 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
 }
+
+@media print {
+  .nav, .hero__bg, .blob, .palm { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .cta, .footer { background: #fff !important; color: #000 !important; }
+}

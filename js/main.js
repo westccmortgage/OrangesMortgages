@@ -102,6 +102,13 @@
       { threshold: 0.12 }
     );
     revealTargets.forEach((el) => io.observe(el));
+
+    // Safety net: never leave content permanently hidden (print, stalled
+    // callbacks, programmatic full-page capture). Reveal anything still hidden.
+    const revealAll = () =>
+      revealTargets.forEach((el) => el.classList.add("is-visible"));
+    window.addEventListener("beforeprint", revealAll);
+    window.setTimeout(revealAll, 2500);
   } else {
     revealTargets.forEach((el) => el.classList.add("is-visible"));
   }

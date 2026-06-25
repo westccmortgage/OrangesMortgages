@@ -38,7 +38,7 @@
       body: "Type the ZIP code where the home is located. We use it to find the county, because each county has its own loan size limits.",
       demo: { sel: "#hs-q", value: "90210", silent: true },
       avatarText: "Your Financial Navigator — a quick intro to how this tool works.",
-      videoSrc: "/assets/video/avatar/intro.mp4", audioSrc: null
+      videoSrc: "/assets/video/avatar/intro-orange.mp4", audioSrc: null
     },
     {
       target: "county-limit",

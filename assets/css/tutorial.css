@@ -298,11 +298,15 @@ body.cmtut-lock{overflow:hidden}
    keep only the video, sound, and Skip / Back / Next controls.
    Scoped to the page-hosted card used on the Strategy page.
    ============================================================ */
-.cmtut-host{ width: clamp(300px, 30vw, 380px); }
+.cmtut-host{ width: clamp(280px, 27vw, 340px); }
 .cmtut-host .cmtut__card{ position: relative; flex-direction: column; }
-.cmtut-host .cmtut__media{ flex: none; width: 100%; height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+/* media sizes to the video's own ratio so the whole avatar shows —
+   the clips are mixed (landscape intro, portrait steps), so no fixed ratio */
+.cmtut-host .cmtut__media{ position: relative; flex: none; width: 100%; height: auto;
+  min-height: 180px; aspect-ratio: auto; background: #fff; line-height: 0; overflow: hidden; }
 .cmtut-host .cmtut__video,
-.cmtut-host .cmtut__img{ object-fit: cover; object-position: center; }
+.cmtut-host .cmtut__img{ position: relative; inset: auto; width: 100%; height: auto;
+  max-height: 64vh; object-fit: contain; object-position: center; }
 .cmtut-host .cmtut__media::after{ display: none; }            /* drop the dark scrim (no caption to read) */
 /* hide every bit of surrounding text */
 .cmtut-host .cmtut__badge,
@@ -323,8 +327,10 @@ body.cmtut-lock{overflow:hidden}
 /* keep mute clear of the close button */
 .cmtut-host .cmtut__mute{ left: .6rem; right: auto; }
 @media (max-width:760px){
-  .cmtut-host{ width: auto; }
-  .cmtut-host .cmtut__media{ height: auto; aspect-ratio: 16 / 9; }
+  .cmtut-host{ width: auto; max-width: 320px; }
+  .cmtut-host .cmtut__media{ height: auto; aspect-ratio: auto; }
+  .cmtut-host .cmtut__video,
+  .cmtut-host .cmtut__img{ max-height: 56vh; }
 }
 
 /* ============================================================

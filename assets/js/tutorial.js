@@ -67,7 +67,7 @@
       title: "Down Payment Strategy",
       body: "This is the cash you put in up front. Putting down 20% or more usually removes monthly mortgage insurance (PMI), which lowers your payment.",
       demo: { sel: "#hs-down", value: "20" },
-      videoSrc: "/assets/video/avatar/step-down.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-down-orange.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {

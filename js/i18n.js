@@ -202,7 +202,7 @@
       "ab.cta.h2": "Ready to ask Orange?",
       "ab.cta.p": "Whether you're buying, refinancing, or investing — Orange and the West Coast Capital Mortgage team are here to help you understand your next step.",
       "about.title": "About Orange — West Coast Capital Mortgage, Inc. | Orange Mortgage",
-      "about.desc": "Meet Orange, the friendly brand of West Coast Capital Mortgage, Inc. — a modern mortgage company led by founder Anatoliy Kanevsky. Clear, honest guidance for Orange County buyers, homeowners, and investors.",
+      "about.desc": "Meet Orange, the friendly brand of West Coast Capital Mortgage, Inc. — a modern mortgage company led by founder Anatoliy Kanevsky. Clear, honest guidance for buyers, homeowners, and investors across California and Florida.",
 
       /* ---- Thank-you page ---- */
       "ty.eyebrow": "🍊 Request received",
@@ -400,7 +400,7 @@
       "ab.cta.h2": "Готовы спросить Orange?",
       "ab.cta.p": "Покупаете, рефинансируете или инвестируете — Orange и команда West Coast Capital Mortgage помогут понять ваш следующий шаг.",
       "about.title": "Об Orange — West Coast Capital Mortgage, Inc. | Orange Mortgage",
-      "about.desc": "Знакомьтесь с Orange — дружелюбным брендом West Coast Capital Mortgage, Inc., современной ипотечной компании под руководством основателя Анатолия Каневского. Понятное и честное сопровождение для округа Ориндж.",
+      "about.desc": "Знакомьтесь с Orange — дружелюбным брендом West Coast Capital Mortgage, Inc., современной ипотечной компании под руководством основателя Анатолия Каневского. Понятное и честное сопровождение по всей Калифорнии и Флориде.",
 
       "ty.eyebrow": "🍊 Заявка получена",
       "ty.h1": "Спасибо — Orange получил вашу заявку.",
@@ -597,7 +597,7 @@
       "ab.cta.h2": "¿List@ para preguntarle a Orange?",
       "ab.cta.p": "Ya sea que compres, refinancies o inviertas — Orange y el equipo de West Coast Capital Mortgage están aquí para ayudarte a entender tu siguiente paso.",
       "about.title": "Sobre Orange — West Coast Capital Mortgage, Inc. | Orange Mortgage",
-      "about.desc": "Conoce a Orange, la marca amigable de West Coast Capital Mortgage, Inc. — una empresa hipotecaria moderna liderada por el fundador Anatoliy Kanevsky. Orientación clara y honesta para el Condado de Orange.",
+      "about.desc": "Conoce a Orange, la marca amigable de West Coast Capital Mortgage, Inc. — una empresa hipotecaria moderna liderada por el fundador Anatoliy Kanevsky. Orientación clara y honesta en California y Florida.",
 
       "ty.eyebrow": "🍊 Solicitud recibida",
       "ty.h1": "Gracias — Orange recibió tu solicitud.",

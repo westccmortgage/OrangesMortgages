@@ -1,0 +1,5 @@
+# Orange Mortgage — https://orangesmortgages.com
+User-agent: *
+Allow: /
+
+Sitemap: https://orangesmortgages.com/sitemap.xml

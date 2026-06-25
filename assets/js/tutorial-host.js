@@ -24,6 +24,54 @@
   }
   function nav(dir) { var w = frameWin(); if (w) try { w.postMessage({ cmTut: "nav", dir: dir }, "*"); } catch (e) {} }
 
+  /* ----------------------------------------------------------
+     Scroll sync — keep the studio table aligned with the step
+     ------------------------------------------------------------
+     The studio iframe runs full-height with no inner scroll, so the
+     PARENT page scrolls. The tour (inside the iframe) posts:
+       { cmTut:"scrollTo", y, frac }  — y = field center within the iframe
+       { cmTut:"needViewport" }       — asks for our visible viewport
+     We answer with { cmTut:"viewport", iframeTop, parentH } so the in-frame
+     spotlight positions correctly, and we scroll the page so the field the
+     avatar is talking about sits nicely in view. */
+  function frameEl() { return document.getElementById("studioFrame"); }
+
+  function sendViewport() {
+    var el = frameEl(), w = frameWin();
+    if (!el || !w) return;
+    var r = el.getBoundingClientRect();
+    try { w.postMessage({ cmTut: "viewport", iframeTop: r.top, parentH: window.innerHeight }, "*"); } catch (e) {}
+  }
+
+  function scrollStudioTo(d) {
+    var el = frameEl(); if (!el) return;
+    var frac = (typeof d.frac === "number") ? d.frac : 0.42;
+    var pageY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var topDoc = el.getBoundingClientRect().top + pageY;
+    var target = topDoc + (d.y || 0) - window.innerHeight * frac;
+    if (target < 0) target = 0;
+    try { window.scrollTo({ top: target, behavior: "smooth" }); }
+    catch (e) { window.scrollTo(0, target); }
+    // the iframe's offset relative to the viewport changes as we scroll —
+    // refresh viewport a few times so the spotlight tracks the field
+    window.setTimeout(sendViewport, 200);
+    window.setTimeout(sendViewport, 480);
+  }
+
+  var syncRAF = 0;
+  function onParentReflow() {
+    if (syncRAF) return;
+    syncRAF = requestAnimationFrame(function () { syncRAF = 0; sendViewport(); });
+  }
+  function bindSync() {
+    window.addEventListener("scroll", onParentReflow, { passive: true });
+    window.addEventListener("resize", onParentReflow, { passive: true });
+  }
+  function unbindSync() {
+    window.removeEventListener("scroll", onParentReflow);
+    window.removeEventListener("resize", onParentReflow);
+  }
+
   function build() {
     if (host) return;
     host = document.createElement("div");
@@ -230,12 +278,16 @@
     host.hidden = false;
     requestAnimationFrame(function () { host.classList.add("is-in"); });
     document.addEventListener("keydown", onKey, true);
+    bindSync();
+    sendViewport();
+    window.setTimeout(sendViewport, 120);
   }
   function close() {
     if (!host) return;
     if (els.video) { try { els.video.pause(); } catch (e) {} }
     host.classList.remove("is-in");
     document.removeEventListener("keydown", onKey, true);
+    unbindSync();
     window.setTimeout(function () { if (host && !host.classList.contains("is-in")) host.hidden = true; }, 280);
   }
   function onKey(e) {
@@ -250,5 +302,7 @@
     if (d.cmTut === "open") open();
     else if (d.cmTut === "step") renderStep(d);
     else if (d.cmTut === "close") close();
+    else if (d.cmTut === "needViewport") sendViewport();
+    else if (d.cmTut === "scrollTo") scrollStudioTo(d);
   });
 })();

@@ -82,7 +82,7 @@
       target: "income-type",
       title: "How your income is evaluated",
       body: "Not all income is reviewed the same way. W-2, self-employed, and 1099 each use different documentation — so the goal is how your income is evaluated for qualification, not just how much you earn.",
-      videoSrc: "/assets/video/avatar/step-income-type.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-income-type-orange.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {
@@ -90,14 +90,14 @@
       title: "Qualifying income vs. gross income",
       body: "Gross income and qualifying income aren't always the same. Deductions, business expenses, and documentation can change the final number — and a more accurate income picture means a more accurate strategy.",
       demo: { sel: "#hs-income", value: "180000" },
-      videoSrc: "/assets/video/avatar/step-income.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-income-orange.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {
       target: "result",
       title: "Conforming vs. jumbo result",
       body: "Putting it all together, your scenario fits either conforming (under the county limit) or jumbo (above it). Neither is automatically better — the goal is the most efficient structure for your situation.",
-      videoSrc: "/assets/video/avatar/step-result.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-result-orange.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {

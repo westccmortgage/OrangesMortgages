@@ -292,6 +292,42 @@ body.cmtut-lock{overflow:hidden}
 }
 
 /* ============================================================
+   Minimal tour card — "just Orange explaining"
+   Orange narrates each step himself, so the surrounding text
+   (badge, caption, step counter, title, body) is removed. We
+   keep only the video, sound, and Skip / Back / Next controls.
+   Scoped to the page-hosted card used on the Strategy page.
+   ============================================================ */
+.cmtut-host{ width: clamp(300px, 30vw, 380px); }
+.cmtut-host .cmtut__card{ position: relative; flex-direction: column; }
+.cmtut-host .cmtut__media{ flex: none; width: 100%; height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+.cmtut-host .cmtut__video,
+.cmtut-host .cmtut__img{ object-fit: cover; object-position: center; }
+.cmtut-host .cmtut__media::after{ display: none; }            /* drop the dark scrim (no caption to read) */
+/* hide every bit of surrounding text */
+.cmtut-host .cmtut__badge,
+.cmtut-host .cmtut__media-foot,
+.cmtut-host .cmtut__step,
+.cmtut-host .cmtut__title,
+.cmtut-host .cmtut__rule,
+.cmtut-host .cmtut__body{ display: none !important; }
+/* slim control strip — just the navigation buttons */
+.cmtut-host .cmtut__panel{ position: static; padding: 9px 11px; }
+.cmtut-host .cmtut__nav{ margin-top: 0; padding-top: 0; }
+/* close button floats over the video, top-right */
+.cmtut-host .cmtut__close{ position: absolute; top: .5rem; right: .5rem; z-index: 6;
+  width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  background: rgba(20,38,74,.55); color: #fff;
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.cmtut-host .cmtut__close:hover{ background: rgba(20,38,74,.82); color: #fff; }
+/* keep mute clear of the close button */
+.cmtut-host .cmtut__mute{ left: .6rem; right: auto; }
+@media (max-width:760px){
+  .cmtut-host{ width: auto; }
+  .cmtut-host .cmtut__media{ height: auto; aspect-ratio: 16 / 9; }
+}
+
+/* ============================================================
    Homepage "Financial Navigator" avatar intro panel (navhero)
    A talking-head teaser that launches the full guided tour.
    ============================================================ */

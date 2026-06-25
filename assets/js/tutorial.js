@@ -104,21 +104,21 @@
       target: "payment-strategy",
       title: "Payment strategy",
       body: "Your monthly payment is shaped by rate, term, down payment, and loan structure. The lowest payment isn't always best — the aim is one that supports both qualification and your long-term goals.",
-      videoSrc: "/assets/video/avatar/step-payment.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-payment-orange.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {
       target: "buydown",
       title: "Buydowns & points",
       body: "Points at closing can lower your rate, and temporary buydowns reduce payments in the early years. Every buydown has a cost, so we weigh the upfront investment against the long-term benefit.",
-      videoSrc: "/assets/video/avatar/step-buydown.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-buydown-orange.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {
       target: "interest-only",
       title: "Interest-only financing",
       body: "Interest-only payments cover interest without reducing the balance for a set period — lower payments and better cash flow, but not right for everyone. It's a planning tool worth comparing against the other options.",
-      videoSrc: "/assets/video/avatar/step-io.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-io-orange.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {

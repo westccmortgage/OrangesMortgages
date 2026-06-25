@@ -299,14 +299,18 @@ body.cmtut-lock{overflow:hidden}
    Scoped to the page-hosted card used on the Strategy page.
    ============================================================ */
 .cmtut-host{ width: clamp(280px, 27vw, 340px); }
-.cmtut-host .cmtut__card{ position: relative; flex-direction: column; }
+/* Frameless — no card box at all: Orange just stands and talks, like the
+   big hero avatar. No background, border, shadow, or rounded panel. */
+.cmtut-host .cmtut__card{ position: relative; flex-direction: column;
+  background: transparent; border: 0; box-shadow: none; border-radius: 0; }
 /* media sizes to the video's own ratio so the whole avatar shows —
    the clips are mixed (landscape intro, portrait steps), so no fixed ratio */
 .cmtut-host .cmtut__media{ position: relative; flex: none; width: 100%; height: auto;
-  min-height: 180px; aspect-ratio: auto; background: #fff; line-height: 0; overflow: hidden; }
+  min-height: 0; aspect-ratio: auto; background: transparent; border-radius: 0;
+  line-height: 0; overflow: visible; }
 .cmtut-host .cmtut__video,
 .cmtut-host .cmtut__img{ position: relative; inset: auto; width: 100%; height: auto;
-  max-height: 64vh; object-fit: contain; object-position: center; }
+  max-height: 66vh; object-fit: contain; object-position: center; background: transparent; }
 .cmtut-host .cmtut__media::after{ display: none; }            /* drop the dark scrim (no caption to read) */
 /* hide every bit of surrounding text */
 .cmtut-host .cmtut__badge,
@@ -315,8 +319,8 @@ body.cmtut-lock{overflow:hidden}
 .cmtut-host .cmtut__title,
 .cmtut-host .cmtut__rule,
 .cmtut-host .cmtut__body{ display: none !important; }
-/* slim control strip — just the navigation buttons */
-.cmtut-host .cmtut__panel{ position: static; padding: 9px 11px; }
+/* navigation floats directly under Orange — no panel background */
+.cmtut-host .cmtut__panel{ position: static; padding: 8px 2px 0; background: transparent; }
 .cmtut-host .cmtut__nav{ margin-top: 0; padding-top: 0; }
 /* close button floats over the video, top-right */
 .cmtut-host .cmtut__close{ position: absolute; top: .5rem; right: .5rem; z-index: 6;

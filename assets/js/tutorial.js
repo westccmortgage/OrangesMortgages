@@ -38,7 +38,7 @@
       body: "Type the ZIP code where the home is located. We use it to find the county, because each county has its own loan size limits.",
       demo: { sel: "#hs-q", value: "90210", silent: true },
       avatarText: "Your Financial Navigator — a quick intro to how this tool works.",
-      videoSrc: "/assets/video/avatar/intro-orange-v4.mp4", audioSrc: null
+      videoSrc: "/assets/video/avatar/intro-orange-v5.mp4", audioSrc: null
     },
     {
       target: "county-limit",
@@ -59,7 +59,7 @@
       target: "loan-purpose",
       title: "What you're trying to do",
       body: "Buying a home, refinancing, pulling cash out, or financing a rental? Pick the goal and the tool shows only the fields that matter for it.",
-      videoSrc: "/assets/video/avatar/step-purpose-orange.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-purpose-orange-v2.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {
@@ -67,7 +67,7 @@
       title: "Down Payment Strategy",
       body: "This is the cash you put in up front. Putting down 20% or more usually removes monthly mortgage insurance (PMI), which lowers your payment.",
       demo: { sel: "#hs-down", value: "20" },
-      videoSrc: "/assets/video/avatar/step-down-orange.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-down-orange-v2.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {
@@ -75,7 +75,7 @@
       title: "Credit Score Impact",
       body: "A higher score usually means a lower interest rate. Slide it and watch the assumed rate and payment change. 740 and up is already strong.",
       demo: { sel: "#hs-score", value: "760" },
-      videoSrc: "/assets/video/avatar/step-fico.mp4", audioSrc: null,
+      videoSrc: "/assets/video/avatar/step-fico-orange.mp4", audioSrc: null,
       avatarText: "Avatar explanation will appear here"
     },
     {

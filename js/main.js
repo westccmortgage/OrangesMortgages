@@ -138,34 +138,90 @@
     });
   });
 
-  /* ---- Scroll reveal ---- */
+  /* ---- Scroll reveal ----
+     Progressively enhanced with Motion (motion.dev): when the library loads
+     from the CDN, sections/cards spring up with a per-group stagger. If Motion
+     is unavailable (offline, blocked CDN, slow network) we fall back to a
+     dependency-free IntersectionObserver + CSS transition, so content is never
+     left hidden. prefers-reduced-motion shows everything instantly. */
+  const MOTION_CDN = "https://cdn.jsdelivr.net/npm/motion@12.42.0/+esm";
   const revealTargets = document.querySelectorAll(
     ".section__head, .card, .step, .features li, .why__media, .calc__panel, .areas__cities li, .cta__form"
   );
-  revealTargets.forEach((el) => el.classList.add("reveal"));
 
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    revealTargets.forEach((el) => io.observe(el));
+  if (revealTargets.length) {
+    const showNow = (el) => el.classList.add("is-visible");
+    const reduceMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Safety net: never leave content permanently hidden (print, stalled
-    // callbacks, programmatic full-page capture). Reveal anything still hidden.
-    const revealAll = () =>
-      revealTargets.forEach((el) => el.classList.add("is-visible"));
-    window.addEventListener("beforeprint", revealAll);
-    window.setTimeout(revealAll, 2500);
-  } else {
-    revealTargets.forEach((el) => el.classList.add("is-visible"));
+    if (reduceMotion) {
+      revealTargets.forEach(showNow);
+    } else {
+      revealTargets.forEach((el) => el.classList.add("reveal"));
+
+      let handled = false;
+
+      // Dependency-free fallback: reveal via CSS transition on scroll.
+      const cssFallback = () => {
+        if (handled) return;
+        handled = true;
+        if ("IntersectionObserver" in window) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  showNow(entry.target);
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12 }
+          );
+          revealTargets.forEach((el) => io.observe(el));
+        } else {
+          revealTargets.forEach(showNow);
+        }
+      };
+
+      // Preferred path: spring + stagger via Motion.
+      import(MOTION_CDN)
+        .then(({ animate, inView, stagger }) => {
+          if (handled) return; // safety timeout already revealed everything
+          handled = true;
+
+          // Group reveal targets by parent so cards/list items in the same
+          // row stagger in together as the group scrolls into view.
+          const groups = new Map();
+          revealTargets.forEach((el) => {
+            const parent = el.parentElement;
+            if (!groups.has(parent)) groups.set(parent, []);
+            groups.get(parent).push(el);
+          });
+
+          groups.forEach((els) => {
+            inView(
+              els[0],
+              () => {
+                animate(
+                  els,
+                  { opacity: [0, 1], y: [26, 0] },
+                  { type: "spring", duration: 0.7, bounce: 0.28, delay: stagger(0.08) }
+                );
+                els.forEach(showNow); // keep the CSS final state in sync
+              },
+              { amount: 0.12 }
+            );
+          });
+        })
+        .catch(cssFallback);
+
+      // Never leave content hidden if Motion stalls; also cover print capture.
+      window.setTimeout(cssFallback, 2500);
+      window.addEventListener("beforeprint", () =>
+        revealTargets.forEach(showNow)
+      );
+    }
   }
 
   /* ---- Mortgage Strategy hero avatar: tap for sound ---- */

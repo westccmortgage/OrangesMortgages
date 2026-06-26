@@ -69,3 +69,9 @@ To use the polished 3D render images instead:
   to your CRM / email provider and replace illustrative rates before going live.
 - Fully responsive (desktop → mobile) and respects `prefers-reduced-motion`.
 - Placeholder contact details, NMLS number, and rates are illustrative.
+- **Scroll animations** use [Motion](https://motion.dev) (`motion@12`), loaded on
+  demand from the jsDelivr CDN via a dynamic `import()` in `js/main.js` — no build
+  step or `npm install` required. Sections and cards spring in with a per-group
+  stagger as they scroll into view. If the CDN is unavailable, the site falls back
+  to a dependency-free `IntersectionObserver` + CSS reveal, so content always
+  shows. To pin a different version, edit the `MOTION_CDN` URL in `js/main.js`.

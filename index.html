@@ -18,7 +18,7 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
+    "@type": "MortgageBroker",
     "name": "Orange Mortgage",
     "legalName": "West Coast Capital Mortgage, Inc.",
     "description": "Friendly, plain-English mortgage guidance for buyers, homeowners, and investors across California and Florida — purchase, refinance, jumbo, and investment loans.",
@@ -27,9 +27,28 @@
     "image": "https://orangesmortgages.com/assets/orange-cutout.webp",
     "email": "orange@orangesmortgages.com",
     "telephone": "+1-310-654-1577",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "150 E Olive Ave, Unit 112",
+      "addressLocality": "Burbank",
+      "addressRegion": "CA",
+      "postalCode": "91502",
+      "addressCountry": "US"
+    },
     "areaServed": [
       { "@type": "State", "name": "California" },
       { "@type": "State", "name": "Florida" }
+    ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    }],
+    "sameAs": [
+      "https://westccmortgage.com",
+      "https://www.yelp.com/biz/west-coast-capital-mortgage-burbank"
     ],
     "identifier": [
       { "@type": "PropertyValue", "name": "NMLS", "value": "2817729" },

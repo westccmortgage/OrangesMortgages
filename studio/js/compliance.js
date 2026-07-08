@@ -17,7 +17,7 @@
     individual_nmls: "2775380",
     ca_dre: "01385024",
     lead_email: "orange@orangesmortgages.com",
-    phone: "(310) 686-5053",
+    phone: "(310) 654-1577",
     business_address: "",
     equal_housing: true,
     verification_status: "verify before production launch",

@@ -11,7 +11,7 @@ website** (on Google), so these are steps for you — the site changes are noted
 - [ ] **Primary category:** `Mortgage broker` (or `Mortgage lender`). Add relevant secondary categories.
 - [ ] **Address:** your real licensed office address (or set a service-area business if you don't serve clients at the office).
 - [ ] **Service area:** list the CA counties/cities you serve (Orange County, LA, San Diego, etc.).
-- [ ] **Phone:** `(310) 686-5053` — must match the website exactly.
+- [ ] **Phone:** `(310) 654-1577` — must match the website exactly.
 - [ ] **Website:** `https://orangesmortgages.com` (or westccmortgage.com — pick one primary and be consistent).
 - [ ] **Hours:** `Mon–Sat 8am–7pm PT` (match the site footer).
 - [ ] **Services:** add each loan type (Conventional, FHA, VA, Jumbo, DSCR, Refinance, Bank Statement) with short descriptions.
@@ -52,7 +52,7 @@ identical on:
   "name": "West Coast Capital Mortgage, Inc.",
   "image": "https://orangesmortgages.com/assets/orange-cutout.webp",
   "url": "https://orangesmortgages.com/",
-  "telephone": "+1-310-686-5053",
+  "telephone": "+1-310-654-1577",
   "email": "orange@orangesmortgages.com",
   "priceRange": "$$",
   "address": {

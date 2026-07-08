@@ -28,7 +28,7 @@
     name: "Orange",
     company: "Orange Mortgage",
     email: "orange@orangesmortgages.com",
-    phone: "(310) 686-5053",
+    phone: "(310) 654-1577",
     regions: "California & Florida",
     contactUrl: "index.html#contact",   // the existing ask-orange Netlify form
     applyUrl: "https://2817729.my1003app.com/2775380/register"

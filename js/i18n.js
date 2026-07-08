@@ -117,8 +117,8 @@
       "foot.legal": `<strong>Orange Mortgage</strong> is a brand of West Coast Capital Mortgage, Inc. NMLS&nbsp;#2817729 · CA&nbsp;DRE&nbsp;#01385024 · Equal Housing Lender.`,
       "foot.disc": `© <span id="year">2026</span> West Coast Capital Mortgage, Inc. All rights reserved. Orange provides general mortgage education only. Figures and examples shown are illustrative, are not a rate quote or a commitment to lend, and all loans are subject to full application, credit, income, property, and lender approval.`,
 
-      "home.title": "Orange Mortgage — Ask Orange, Your California & Florida Mortgage Guide",
-      "home.desc": "Ask Orange. Smart, friendly mortgage guidance for buyers, homeowners, and investors across California and Florida — purchase, refinance, and investment loans, explained without pressure or jargon.",
+      "home.title": "California & Florida Mortgage Guide | Orange Mortgage",
+      "home.desc": "Friendly, plain-English mortgage guidance across California and Florida — purchase, refinance, and investment loans, without pressure or jargon.",
 
       "nav.strategy": "Mortgage Strategy",
       "promo.eyebrow": "Property-Location Intelligence",
@@ -127,8 +127,8 @@
       "promo.cta": "Open Mortgage Strategy →",
       "promo.k1": "Loan amount", "promo.k2": "County line", "promo.k3": "Review path", "promo.kpath": "High-balance",
       "promo.badge": "Strategy Studio",
-      "ms.title": "Mortgage Strategy — Check Your County Limit | Orange Mortgage",
-      "ms.desc": "Run your property against the county conforming line — conforming vs jumbo, an estimated payment, and the smartest review path. Educational only. California & Florida.",
+      "ms.title": "Check Your County Loan Limit | Orange Mortgage",
+      "ms.desc": "Check your county's conforming line — conforming vs jumbo, an estimated payment, and the smartest review path. Educational only. CA and FL.",
       "ms.eyebrow": "🍊 Mortgage Strategy",
       "ms.h1": `Check your limit <span class="accent">before you assume jumbo.</span>`,
       "ms.lead": "Tell Orange the property and your numbers. The studio runs them against your county's conforming line and shows conforming vs jumbo, an estimated payment, and the review path — for California and Florida.",
@@ -140,8 +140,8 @@
 
       "nav.family": "Family",
       "nav.academy": "Academy",
-      "fam.title": "The Orange Family — Mortgages with a Family Touch | Orange Mortgage",
-      "fam.desc": "Meet the Orange family. Warm, trustworthy mortgage guidance for families across California and Florida — your first home, your next home, and building for the kids.",
+      "fam.title": "The Orange Family — Mortgages with a Family Touch",
+      "fam.desc": "Warm, trustworthy mortgage guidance for families across California and Florida — your first home, your next home, and building for the kids.",
       "fam.eyebrow": "🍊 The Orange Family",
       "fam.h1": `A family helping <span class="accent">your family</span> feel at home.`,
       "fam.lead": "From your first home to your forever home, the Orange family treats every client like one of their own — calm, clear, caring guidance across California and Florida.",
@@ -201,8 +201,8 @@
       "ab.disc": `West Coast Capital Mortgage, Inc. — NMLS #2817729, California DRE #01385024. Equal Housing Lender. Orange is a brand mascot and does not change the terms of any loan. This page is for general education and informational purposes only and is not a commitment to lend or an offer to extend credit. All loans are subject to full application, credit approval, income verification, and property appraisal. Rates, programs, and terms are subject to change without notice. Verify license status anytime via <a href="https://www.nmlsconsumeraccess.org" target="_blank" rel="noopener noreferrer">NMLS Consumer Access</a>.`,
       "ab.cta.h2": "Ready to ask Orange?",
       "ab.cta.p": "Whether you're buying, refinancing, or investing — Orange and the West Coast Capital Mortgage team are here to help you understand your next step.",
-      "about.title": "About Orange — West Coast Capital Mortgage, Inc. | Orange Mortgage",
-      "about.desc": "Meet Orange, the friendly brand of West Coast Capital Mortgage, Inc. — a modern mortgage company led by founder Anatoliy Kanevsky. Clear, honest guidance for buyers, homeowners, and investors across California and Florida.",
+      "about.title": "About Orange — West Coast Capital Mortgage, Inc.",
+      "about.desc": "Meet Orange, the friendly brand of West Coast Capital Mortgage, Inc., led by Anatoliy Kanevsky — honest mortgage guidance across California and Florida.",
 
       /* ---- Thank-you page ---- */
       "ty.eyebrow": "🍊 Request received",

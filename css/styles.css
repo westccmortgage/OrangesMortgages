@@ -792,3 +792,5 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
 .cards--2 { grid-template-columns: repeat(2, 1fr); }
 a.card { text-decoration: none; color: inherit; display: block; }
 @media (max-width: 720px) { .cards--2 { grid-template-columns: 1fr; } }
+
+a.fact { text-decoration: none; color: inherit; display: block; }

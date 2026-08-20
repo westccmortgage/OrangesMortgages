@@ -3,7 +3,7 @@
 Focus market: **California** (primary) and **Florida** (secondary). Niche: mortgage
 (YMYL). Strategy: genuinely useful, plain-English guides that build topical authority
 and E-E-A-T (expertise, experience, authority, trust), with clear licensing signals
-(NMLS #2817729 / CA DRE #01385024) and disclaimers on every page.
+(NMLS #2817729 / CA DRE Corp. License #02440065) and disclaimers on every page.
 
 ## Principles for this niche
 - **Accuracy over volume.** Mortgage is Your-Money-Your-Life; Google holds it to a high

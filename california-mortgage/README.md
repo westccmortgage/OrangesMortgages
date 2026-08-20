@@ -37,5 +37,5 @@ reveal, so content always shows. `prefers-reduced-motion` is respected.
 - Swap placeholder **rates** and **stats** for real, compliant figures (or remove).
 - Drop the real **founder portrait** into `assets/` and replace the `.founder__photo` block.
 - Wire the lead form: it's set up for **Netlify Forms** (`data-netlify="true"`).
-- Confirm **NMLS #2817729 / CA DRE #01385024**, phone, and email are correct.
+- Confirm **NMLS #2817729 / CA DRE Corp. License #02440065**, phone, and email are correct.
 - Add legal pages (Privacy, Licensing) and any required state disclosures.

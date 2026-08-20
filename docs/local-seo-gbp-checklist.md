@@ -76,7 +76,7 @@ identical on:
   "sameAs": ["https://westccmortgage.com"],
   "identifier": [
     { "@type": "PropertyValue", "name": "NMLS", "value": "2817729" },
-    { "@type": "PropertyValue", "name": "CA DRE", "value": "01385024" }
+    { "@type": "PropertyValue", "name": "CA DRE Corporation License", "value": "02440065" }
   ]
 }
 </script>

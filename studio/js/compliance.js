@@ -13,9 +13,10 @@
     product_description: "educational mortgage strategy resource",
     licensed_review_entity: "West Coast Capital Mortgage, Inc.",
     company_nmls: "2817729",
+    company_dre: "02440065",
     individual_name: "Anatoliy Kanevsky",
     individual_nmls: "2775380",
-    ca_dre: "01385024",
+    individual_dre: "01385024",
     lead_email: "orange@orangesmortgages.com",
     phone: "(310) 654-1577",
     business_address: "",
@@ -52,8 +53,9 @@
 
   function licensingSentence() {
     return "Licensed mortgage review may be provided by " + C.licensed_review_entity +
-      ", NMLS #" + C.company_nmls + " (" + C.individual_name + ", NMLS #" + C.individual_nmls +
-      "; CA DRE #" + C.ca_dre + "), where licensed and applicable. Additional license details must be " +
+      ", NMLS #" + C.company_nmls + ", CA DRE Corporation License #" + C.company_dre +
+      " (" + C.individual_name + ", NMLS #" + C.individual_nmls +
+      "; CA Broker DRE #" + C.individual_dre + "), where licensed and applicable. Additional license details must be " +
       C.verification_status + ".";
   }
 

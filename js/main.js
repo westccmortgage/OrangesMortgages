@@ -76,6 +76,19 @@
     document.addEventListener("om:lang", calc);
   }
 
+  /* ---- Founder experience year consistency ----
+     Keep the founder credential aligned with the verified mortgage start year
+     across English, Russian, and Spanish translations, including after a
+     language switch. */
+  const founderExperience = document.querySelector('[data-i18n="ab.fo.c2"]');
+  const syncFounderExperienceYear = () => {
+    if (founderExperience) {
+      founderExperience.textContent = founderExperience.textContent.replace("2001", "2004");
+    }
+  };
+  syncFounderExperienceYear();
+  document.addEventListener("om:lang", () => window.setTimeout(syncFounderExperienceYear, 0));
+
   /* ---- Lead form ----
      Handled natively by Netlify Forms — no JS needed. The form POSTs to
      Netlify, which stores the submission, emails the notification, and

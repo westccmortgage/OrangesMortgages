@@ -1,3 +1,67 @@
+/* Google Ads: count only accepted Netlify leads. */
+(function () {
+  "use strict";
+  const keys = ["gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+  const memory = {};
+  const get = key => { try { return localStorage.getItem("orange_attr_" + key) || memory[key] || ""; } catch (_) { return memory[key] || ""; } };
+  const set = (key, value) => { memory[key] = value; try { localStorage.setItem("orange_attr_" + key, value); } catch (_) {} };
+  const query = new URLSearchParams(location.search);
+  keys.forEach(key => { if (query.get(key)) set(key, query.get(key)); });
+  if (!get("landing_page")) set("landing_page", location.href);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  window.gtag("js", new Date());
+  window.gtag("config", "AW-18417657219");
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=AW-18417657219";
+  document.head.appendChild(script);
+  const form = document.getElementById("leadForm");
+  if (!form) return;
+  const sync = () => {
+    const values = {};
+    keys.forEach(key => { values[key] = get(key); });
+    values.landing_page = get("landing_page");
+    values.submission_page = location.href;
+    Object.entries(values).forEach(([name, value]) => {
+      let input = form.elements.namedItem(name);
+      if (!input) { input = document.createElement("input"); input.type = "hidden"; input.name = name; form.appendChild(input); }
+      input.value = value;
+    });
+  };
+  sync();
+  let sending = false;
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    if (sending) return;
+    sending = true;
+    const button = form.querySelector('button[type="submit"]');
+    if (button) button.disabled = true;
+    sync();
+    const id = "orange_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 10);
+    form.elements.namedItem("lead_event_id").value = id;
+    const previousError = form.querySelector('[data-lead-error]');
+    if (previousError) previousError.remove();
+    try {
+      const response = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(form)).toString() });
+      if (!response.ok) throw new Error("Submission failed");
+      window.dataLayer.push({ event: "orange_lead_submit", lead_event_id: id, form_name: form.name, page_location: location.href });
+      let redirected = false;
+      const done = () => { if (!redirected) { redirected = true; location.assign(form.getAttribute("action") || "/thank-you"); } };
+      window.gtag("event", "conversion", { send_to: "AW-18417657219/LiA7CPWd4eocEIPLnM5E", value: 1, currency: "USD", transaction_id: id, event_callback: done, event_timeout: 1500 });
+      setTimeout(done, 1800);
+    } catch (_) {
+      sending = false;
+      if (button) button.disabled = false;
+      const error = document.createElement("p");
+      error.setAttribute("data-lead-error", "");
+      error.setAttribute("role", "alert");
+      error.textContent = "Your request could not be sent. Please try again or email orange@orangesmortgages.com.";
+      form.appendChild(error);
+    }
+  });
+})();
+
 /* ============================================================
    Orange Mortgage — interactions
    ============================================================ */

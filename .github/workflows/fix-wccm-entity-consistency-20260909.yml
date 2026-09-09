@@ -1,0 +1,84 @@
+name: Fix WCCM entity consistency
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-wccm-entity-consistency-20260909.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/sleepy-sagan-43ahoe
+      - name: Repair entity and licensing references
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          branch_files = [p for p in Path('.').rglob('*') if p.is_file() and '.git/' not in str(p)]
+          text_ext = {'.html','.js','.md','.txt','.xml','.toml'}
+
+          replacements = [
+              ('Mortgage professional since 2001', 'Mortgage and real estate professional since 2004'),
+              ('Ипотечный специалист с 2001 года', 'Специалист по ипотеке и недвижимости с 2004 года'),
+              ('Profesional hipotecario desde 2001', 'Profesional de hipotecas y bienes raíces desde 2004'),
+              ('NMLS&nbsp;#2817729 · CA&nbsp;DRE&nbsp;#01385024', 'NMLS&nbsp;#2817729 · CA&nbsp;DRE&nbsp;Corp.&nbsp;License&nbsp;#02440065'),
+              ('West Coast Capital Mortgage, Inc. — NMLS #2817729, California DRE #01385024.', 'West Coast Capital Mortgage, Inc. — NMLS #2817729, CA DRE Corporation License #02440065.'),
+              ('https://westccmortgage.com', 'https://westcoastcapitalmortgage.com'),
+              ('>westccmortgage.com<', '>westcoastcapitalmortgage.com<'),
+          ]
+
+          changed = []
+          for p in branch_files:
+              if p.suffix.lower() not in text_ext:
+                  continue
+              try:
+                  s = p.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              old = s
+              for a,b in replacements:
+                  s = s.replace(a,b)
+              if p.name == 'about.html':
+                  s = s.replace('href="https://www2.dre.ca.gov/PublicASP/pplinfo.asp" target="_blank" rel="noopener noreferrer">#01385024</a>\n              <small data-i18n="ab.co.dreS">Licensed by the California Department of Real Estate</small>',
+                                'href="https://www2.dre.ca.gov/PublicASP/pplinfo.asp?License_id=02440065" target="_blank" rel="noopener noreferrer">#02440065</a>\n              <small data-i18n="ab.co.dreS">CA DRE Corporation License</small>')
+                  s = s.replace('<dt data-i18n="ab.co.dre">California DRE</dt>', '<dt data-i18n="ab.co.dre">California DRE Corporation License</dt>')
+              if s != old:
+                  p.write_text(s, encoding='utf-8')
+                  changed.append(str(p))
+
+          print('Changed:', *changed, sep='\n- ')
+          PY
+      - name: Validate corrections
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          about = Path('about.html').read_text()
+          i18n = Path('js/i18n.js').read_text()
+          assert 'Mortgage professional since 2001' not in about
+          assert 'Mortgage professional since 2001' not in i18n
+          assert 'Ипотечный специалист с 2001 года' not in i18n
+          assert 'Profesional hipotecario desde 2001' not in i18n
+          assert 'NMLS&nbsp;#2817729 · CA&nbsp;DRE&nbsp;#01385024' not in i18n
+          assert 'CA DRE Corporation License #02440065' in about
+          assert 'License_id=02440065' in about
+          assert 'https://westccmortgage.com' not in about
+          assert 'https://westcoastcapitalmortgage.com' in about
+          print('Entity consistency validation passed')
+          PY
+      - name: Commit repair
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add about.html js/i18n.js index.html family.html academy.html mortgage-strategy.html || true
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+          else
+            git commit -m "Correct WCCM entity and licensing references"
+            git push origin HEAD:claude/sleepy-sagan-43ahoe
+          fi

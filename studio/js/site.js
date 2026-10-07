@@ -1,5 +1,5 @@
 /* ============================================================
-   BeforeJumboLoan.com — Site behavior
+   Orange Mortgage Strategy Studio — Site behavior
    Nav, scenario rotation, scroll reveal, accordion,
    forms (webhook/email ready), cookie consent + visitor ID.
    ============================================================ */
@@ -12,7 +12,7 @@
      locally and the success message still shows.                     */
   var CONFIG = {
     FORM_ENDPOINT: "", // e.g. "/.netlify/functions/lead" or a webhook URL
-    BRAND: "BeforeJumboLoan.com"
+    BRAND: "Orange Mortgage"
   };
 
   /* ---------------- Helpers ---------------- */

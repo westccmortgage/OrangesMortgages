@@ -808,7 +808,7 @@
     var cfg = MARKET_CONFIG;
     var o = strategySummary(s);
     var L = [];
-    L.push(BRAND_CONFIG.brandName + " — Before Jumbo Strategy Studio Lead");
+    L.push(BRAND_CONFIG.brandName + " — Mortgage Strategy Studio Lead");
     L.push("");
     L.push("Lead Source:");
     L.push("  " + BRAND_CONFIG.leadSource);

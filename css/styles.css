@@ -467,7 +467,7 @@ figcaption.orange-moment { display: flex; justify-content: center; margin-top: 1
   background: linear-gradient(135deg, var(--orange), var(--orange-600)); }
 .steps--rail .step h3 { margin-bottom: 4px; }
 
-/* ---------- Service areas (California + Florida groups) ---------- */
+/* ---------- Service areas (California group) ---------- */
 .areas__groups { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); max-width: 940px; margin: 0 auto; }
 .areas__group-title { display: flex; align-items: center; gap: 9px; font-size: 1.15rem; color: var(--navy-900);
   padding-bottom: 14px; margin-bottom: 18px; border-bottom: 2px solid var(--orange-soft); }
@@ -794,3 +794,57 @@ a.card { text-decoration: none; color: inherit; display: block; }
 @media (max-width: 720px) { .cards--2 { grid-template-columns: 1fr; } }
 
 a.fact { text-decoration: none; color: inherit; display: block; }
+
+/* ============================================================
+   Mobile audit fixes (2026-11-25)
+   ============================================================ */
+.nav__call { display: none; }
+html.menu-open { overflow: hidden; }
+
+/* Floating assistant hides while a form / contact block is in view or a field has focus */
+.ask-orange { transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
+.ask-orange.is-away { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(14px); }
+
+/* Footer: bigger tap targets, legal links, room for the floating button */
+.footer__col a { display: flex; align-items: center; min-height: 40px; margin-bottom: 2px; }
+.footer__site { display: flex; align-items: center; min-height: 40px; margin-top: 2px; }
+.footer__links { display: flex; flex-wrap: wrap; gap: 0 20px; margin-top: 14px; }
+.footer__links a { display: inline-flex; align-items: center; min-height: 40px; color: #aebbd4; font-size: 0.9rem; text-decoration: underline; text-underline-offset: 3px; }
+.footer__links a:hover { color: var(--orange); }
+@media (max-width: 960px) { .footer { padding-bottom: 100px; } }
+
+/* Breadcrumbs: tap area */
+.crumbs a { display: inline-block; padding: 12px 6px; margin: -12px -6px; }
+
+/* Forms */
+.form__err { display: none; color: #b3261e; font-size: 0.8rem; font-weight: 600; margin-top: 5px; line-height: 1.35; }
+.cta__form input:user-invalid, .cta__form select:user-invalid, .cta__form textarea:user-invalid { border-color: #c62828; background: #fff5f5; box-shadow: 0 0 0 3px rgba(198,40,40,.12); }
+.cta__form input:user-invalid + .form__err { display: block; }
+.form__consent { font-size: 0.82rem; color: var(--ink); margin-top: 12px; }
+.form__consent a { color: var(--orange-600); text-decoration: underline; text-underline-offset: 2px; }
+.form__error { color: #b3261e; font-weight: 600; margin-top: 10px; font-size: .9rem; }
+.cta__call { margin-top: 16px; display: flex; width: fit-content; min-height: 48px; }
+@media (max-width: 768px) {
+  .cta__form input, .cta__form select, .cta__form textarea { font-size: 16px; }
+}
+
+/* Wide tables: swipe hint (shown by js only when the table overflows) */
+.swipe-hint { display: block; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-align: right; margin: -0.9rem 0 1.2rem; }
+.swipe-hint[hidden] { display: none !important; }
+
+/* About: company panel must not push the page wider on 320px phones */
+.company > * { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 860px) { .company { grid-template-columns: minmax(0, 1fr); } }
+
+/* Mobile menu: scrollable, contained, 44px toggle */
+@media (max-width: 1200px) {
+  .nav__links {
+    max-height: calc(100vh - 72px);
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav__call { display: inline-flex; align-items: center; padding: 12px 4px; font-weight: 700; color: var(--orange-600) !important; }
+  .nav__toggle { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; padding: 10px; }
+}

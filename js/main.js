@@ -56,7 +56,9 @@
       const error = document.createElement("p");
       error.setAttribute("data-lead-error", "");
       error.setAttribute("role", "alert");
-      error.textContent = "Your request could not be sent. Please try again or email orange@orangesmortgages.com.";
+      error.className = "form__error";
+      error.setAttribute("data-i18n", "ct.err");
+      error.textContent = (window.OMi18n && window.OMi18n.t("ct.err")) || "Your request could not be sent. Please try again or email orange@orangesmortgages.com.";
       form.appendChild(error);
     }
   });
@@ -74,18 +76,73 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
+  /* ---- Floating "Ask Orange" visibility ----
+     Hidden while the mobile menu is open, a form/contact block is on screen
+     or a form field has focus, so it never covers fields or content. ---- */
+  const root = document.documentElement;
+  const fabState = { menu: false, field: false, zones: new Set() };
+  const refreshFab = () => {
+    const widget = document.getElementById("askOrange");
+    if (!widget) return;
+    const away = fabState.menu || fabState.field || fabState.zones.size > 0;
+    widget.classList.toggle("is-away", away);
+    if (away) {
+      const panel = document.getElementById("askOrangePanel");
+      const fabBtn = document.getElementById("askOrangeFab");
+      if (panel && !panel.hidden) { panel.hidden = true; if (fabBtn) fabBtn.setAttribute("aria-expanded", "false"); }
+    }
+  };
+  const isField = (el) => !!(el && el.matches && el.matches("input:not([type=hidden]), select, textarea"));
+  document.addEventListener("focusin", (e) => { if (isField(e.target)) { fabState.field = true; refreshFab(); } });
+  document.addEventListener("focusout", () => {
+    window.setTimeout(() => { fabState.field = isField(document.activeElement); refreshFab(); }, 0);
+  });
+  if ("IntersectionObserver" in window) {
+    const zoneObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) fabState.zones.add(entry.target); else fabState.zones.delete(entry.target);
+      });
+      refreshFab();
+    }, { threshold: 0.05 });
+    document.querySelectorAll("#contact, .cta, form").forEach((el) => zoneObserver.observe(el));
+  }
+
   /* ---- Mobile menu ---- */
   const toggle = document.getElementById("navToggle");
   const links = document.getElementById("navLinks");
-  const closeMenu = () => {
-    links.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", "false");
-  };
-  toggle.addEventListener("click", () => {
-    const open = links.classList.toggle("is-open");
+  const setMenu = (open) => {
+    links.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
-  });
+    root.classList.toggle("menu-open", open);
+    fabState.menu = open;
+    refreshFab();
+  };
+  const closeMenu = () => setMenu(false);
+  toggle.addEventListener("click", () => setMenu(!links.classList.contains("is-open")));
   links.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && links.classList.contains("is-open")) { closeMenu(); toggle.focus(); }
+  });
+  document.addEventListener("click", (e) => {
+    if (links.classList.contains("is-open") && !links.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+  });
+  window.addEventListener("resize", () => { if (window.innerWidth > 1200 && links.classList.contains("is-open")) closeMenu(); });
+
+  /* ---- Wide tables: "Swipe to see more" hint only when the table overflows ---- */
+  document.querySelectorAll(".table-wrap").forEach((wrap) => {
+    const hint = document.createElement("p");
+    hint.className = "swipe-hint";
+    hint.hidden = true;
+    hint.setAttribute("data-i18n", "ui.swipe");
+    hint.textContent = (window.OMi18n && window.OMi18n.t("ui.swipe")) || "Swipe to see more →";
+    wrap.insertAdjacentElement("afterend", hint);
+    const check = () => { hint.hidden = !(wrap.scrollWidth > wrap.clientWidth + 1); };
+    check();
+    window.addEventListener("resize", check);
+    wrap.addEventListener("scroll", () => { if (wrap.scrollLeft > 4) hint.hidden = true; }, { passive: true });
+    if ("ResizeObserver" in window) new ResizeObserver(check).observe(wrap);
+    document.addEventListener("om:lang", () => window.setTimeout(check, 0));
+  });
 
   /* ---- Mortgage calculator ---- */
   const $ = (id) => document.getElementById(id);

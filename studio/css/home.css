@@ -1,5 +1,5 @@
 /* ============================================================
-   BeforeJumboLoan.com — Homepage cockpit (live strategy engine)
+   Orange Mortgage — Homepage cockpit (live strategy engine)
    Premium financial cockpit: warm ivory, deep navy, champagne.
    Instrument-panel feel — data-forward, not a brochure.
    Reuses tokens + nav/footer/btn from css/studio.css.
@@ -46,7 +46,7 @@ body.home { background: var(--ivory); }
 
 /* quick inline levers (kept inside the console, not a separate card) */
 .levers-inline { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-.levers-inline__k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); margin-right: 2px; }
+.levers-inline__k { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); margin-right: 2px; }
 
 /* wide review-paths map (no arrows; wraps as comparison chips) */
 .pathmap--wide { gap: 8px; }
@@ -76,7 +76,7 @@ body.home { background: var(--ivory); }
   display: flex; flex-direction: column; gap: 3px; padding: 14px 16px; margin: 0 0 22px;
   background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--champagne); border-radius: 12px; box-shadow: var(--shadow-sm);
 }
-.cockpit__lever-k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--champagne); }
+.cockpit__lever-k { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--champagne); }
 .cockpit__lever-v { color: var(--navy); font-weight: 600; font-size: 0.98rem; }
 .cockpit__hint { font-size: 0.76rem; color: var(--muted); margin: 14px 0 0; }
 
@@ -92,7 +92,7 @@ body.home { background: var(--ivory); }
 .scanner > * { position: relative; }
 .scanner__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .scanner__title { font-family: var(--font-display); color: var(--navy); font-size: 1.18rem; margin: 0; }
-.scanner__live { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ocean); }
+.scanner__live { display: inline-flex; align-items: center; gap: 6px; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ocean); }
 .scanner__live i { width: 7px; height: 7px; border-radius: 50%; background: #3ec98a; box-shadow: 0 0 0 0 rgba(62,201,138,0.6); animation: hpulse 2s infinite; }
 @keyframes hpulse { 0%{box-shadow:0 0 0 0 rgba(62,201,138,0.5)} 70%{box-shadow:0 0 0 7px rgba(62,201,138,0)} 100%{box-shadow:0 0 0 0 rgba(62,201,138,0)} }
 
@@ -142,7 +142,7 @@ body.home { background: var(--ivory); }
 
 /* ---------- Hero result (dominant county-line gap) ---------- */
 .hero-result { background: linear-gradient(180deg, #fff, var(--sand-soft)); border: 1px solid var(--line-strong); border-radius: 14px; padding: 18px 18px 16px; margin: 4px 0 16px; }
-.hero-result__k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--champagne); margin: 0 0 6px; }
+.hero-result__k { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--champagne); margin: 0 0 6px; }
 .hero-result__v { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.5rem, 3.4vw, 2.05rem); line-height: 1.12; margin: 0; color: var(--navy); text-transform: uppercase; letter-spacing: 0.01em; }
 .hero-result__v[data-tone="over"] { color: #b5651d; }
 .hero-result__v[data-tone="under"] { color: #2f7d44; }
@@ -155,7 +155,7 @@ body.home { background: var(--ivory); }
 
 /* ---------- Payment mode toggle ---------- */
 .paymode { display: flex; align-items: center; gap: 6px; margin: 4px 0 12px; flex-wrap: wrap; }
-.paymode__k { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); margin-right: 2px; }
+.paymode__k { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); margin-right: 2px; }
 .paymode__opt { border: 1px solid var(--line-strong); background: #fff; color: var(--navy); border-radius: 999px; padding: 6px 12px; font-size: 0.78rem; font-weight: 600; cursor: pointer; font-family: var(--font-body); transition: all .16s var(--ease); }
 .paymode__opt.is-sel { background: var(--navy); color: #fff; border-color: var(--navy); }
 
@@ -173,7 +173,7 @@ body.home { background: var(--ivory); }
 
 /* ---------- Resolve / confirm card ---------- */
 .resolve { background: var(--sand-soft); border: 1px solid var(--line-strong); border-radius: 13px; padding: 16px; margin-bottom: 14px; }
-.resolve__k { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); margin: 0 0 6px; }
+.resolve__k { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); margin: 0 0 6px; }
 .resolve__detected { font-family: var(--font-display); color: var(--navy); font-size: 1.16rem; font-weight: 600; margin: 0 0 12px; }
 .resolve__warn { color: #b5651d; font-size: 0.84rem; margin: 0 0 10px; }
 .choices { display: flex; flex-direction: column; gap: 7px; }
@@ -186,7 +186,7 @@ body.home { background: var(--ivory); }
 
 /* ---------- Confirmed chip ---------- */
 .confirmed { display: flex; align-items: center; gap: 10px; background: linear-gradient(180deg, #fff, #fffaf0); border: 1px solid var(--champagne-soft); border-left: 3px solid var(--champagne); border-radius: 11px; padding: 11px 14px; margin-bottom: 14px; }
-.confirmed__k { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--champagne); }
+.confirmed__k { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--champagne); }
 .confirmed__v { font-family: var(--font-display); color: var(--navy); font-weight: 600; font-size: 0.98rem; flex: 1; }
 .confirmed__change { border: 1px solid var(--line-strong); background: #fff; color: var(--ocean); border-radius: 999px; padding: 5px 12px; font-size: 0.74rem; font-weight: 600; cursor: pointer; font-family: var(--font-body); }
 .confirmed__change:hover { background: var(--ocean); color: #fff; border-color: var(--ocean); }
@@ -200,7 +200,7 @@ body.home { background: var(--ivory); }
 .meter__mark--line { background: var(--navy); }
 .meter__mark--baseline { background: var(--champagne); }
 .meter[data-empty] .meter__track { background: repeating-linear-gradient(90deg, var(--sand-soft), var(--sand-soft) 8px, #fff 8px, #fff 16px); }
-.meter__lbls { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--muted); margin-top: 12px; }
+.meter__lbls { display: flex; justify-content: space-between; font-size: 0.6875rem; color: var(--muted); margin-top: 12px; }
 
 /* live output rows */
 .scanner__out { margin: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
@@ -210,7 +210,7 @@ body.home { background: var(--ivory); }
 .so__delta[data-over="yes"] { color: #b5651d; } .so__delta[data-over="no"] { color: #3a7d44; }
 [data-ho="limit"][data-verify="yes"] { color: #b5651d; }
 .scanner__rate { font-size: 0.74rem; color: var(--muted); margin: 10px 0 0; }
-.scanner__note { font-size: 0.68rem; color: var(--muted); line-height: 1.5; margin: 8px 0 0; }
+.scanner__note { font-size: 0.6875rem; color: var(--muted); line-height: 1.5; margin: 8px 0 0; }
 
 /* ---------- Engine rows ---------- */
 .engine-row { padding: clamp(36px, 4.5vw, 60px) 0; }
@@ -236,7 +236,7 @@ body.home { background: var(--ivory); }
 .panel { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 22px; }
 .panel__head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
 .panel__head h2 { font-family: var(--font-display); color: var(--navy); font-size: 1.2rem; margin: 0; }
-.panel__tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); border: 1px solid var(--champagne-soft); border-radius: 999px; padding: 3px 9px; }
+.panel__tag { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); border: 1px solid var(--champagne-soft); border-radius: 999px; padding: 3px 9px; }
 .panel__foot { font-size: 0.72rem; color: var(--muted); margin: 14px 0 0; }
 
 .levers { list-style: none; margin: 0; padding: 0; }
@@ -268,3 +268,23 @@ body.home { background: var(--ivory); }
 .cookie-bar--mini p { margin: 0; font-size: 0.8rem; line-height: 1.5; }
 .cookie-bar--mini .cookie-actions { display: flex; gap: 8px; }
 @media (max-width: 480px) { .cookie-bar--mini { left: 12px; right: 12px; bottom: 12px; max-width: none; } }
+
+
+/* ---------- Orange Mortgage embed: notes, licensing line, compact cookie bar ---------- */
+.cm-notes { padding: 8px 0 20px; }
+.cm-notes .wrap { padding-inline: 16px; }
+.cm-fhfa-note { font-size: 0.8125rem; line-height: 1.55; color: var(--muted); background: #fff7ed; border: 1px solid #ffe0c2; border-left: 4px solid #f57500; border-radius: 10px; padding: 10px 14px; margin: 0; overflow-wrap: anywhere; }
+.cm-fhfa-note a { font-weight: 600; text-decoration: underline; }
+.cm-licence { display: none; font-size: 0.75rem; line-height: 1.5; color: var(--muted); margin: 12px 0 0; text-align: center; }
+html.cm-standalone .cm-licence { display: block; }
+@media (max-width: 640px) {
+  html.cm-standalone .cookie-bar--mini { left: 10px; right: 10px; bottom: 10px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
+  html.cm-standalone .cookie-bar--mini p { font-size: 0.75rem; line-height: 1.35; margin: 0; }
+  html.cm-standalone .cookie-bar--mini .cookie-actions { gap: 6px; flex: none; }
+  html.cm-standalone .cookie-bar--mini .cookie-actions .btn { padding: 8px 12px; font-size: 0.8rem; min-height: 36px; }
+}
+@media (max-width: 640px) {
+  html.cm-standalone .cookie-bar--mini p { font-size: 0.72rem; line-height: 1.3; }
+  html.cm-standalone .cookie-bar--mini .cookie-actions { flex-direction: column; }
+  html.cm-standalone .cookie-bar--mini .cookie-actions .btn { min-height: 32px; padding: 6px 12px; }
+}

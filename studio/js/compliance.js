@@ -1,5 +1,5 @@
 /* ============================================================
-   BeforeJumboLoan.com — Centralized compliance / company config
+   Orange Mortgage — Centralized compliance / company config
    Single source of truth for brand, licensing, and footer wording.
    Loaded on every page; renders the global footer-legal block and
    fills [data-compliance="…"] hooks. Conservative by design:
@@ -11,7 +11,7 @@
   var C = {
     product_brand: "Orange Mortgage",
     product_description: "educational mortgage strategy resource",
-    licensed_review_entity: "West Coast Capital Mortgage, Inc.",
+    licensed_review_entity: "West Coast Capital Mortgage",
     company_nmls: "2817729",
     company_dre: "02440065",
     individual_name: "Anatoliy Kanevsky",
@@ -21,7 +21,7 @@
     phone: "(310) 654-1577",
     business_address: "",
     equal_housing: true,
-    verification_status: "verify before production launch",
+    verification_status: "Verify license status anytime at NMLS Consumer Access",
     nmls_consumer_access_url: "https://www.nmlsconsumeraccess.org/",
     // Configurable license footprint — left empty until confirmed, so the site
     // never asserts active state licensing it can't back up.
@@ -55,7 +55,7 @@
     return "Licensed mortgage review may be provided by " + C.licensed_review_entity +
       ", NMLS #" + C.company_nmls + ", CA DRE Corporation License #" + C.company_dre +
       " (" + C.individual_name + ", NMLS #" + C.individual_nmls +
-      "; CA Broker DRE #" + C.individual_dre + "), where licensed and applicable. Additional license details must be " +
+      "; CA Broker DRE #" + C.individual_dre + "), where licensed and applicable. " +
       C.verification_status + ".";
   }
 
@@ -69,7 +69,7 @@
       '<p>' + educationalDisclaimer() + '</p>' +
       '<p>' + licensingSentence() + '</p>' +
       '<p style="margin-top:14px">&copy; ' + year + ' ' + C.product_brand +
-        ' · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="disclosures.html">Disclosures</a></p>';
+        ' · <a href="/privacy" target="_top">Privacy</a> · <a href="/terms" target="_top">Terms</a> · <a href="/about" target="_top">About</a></p>';
   }
 
   function setHTML(sel, html) {

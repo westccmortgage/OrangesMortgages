@@ -1,5 +1,5 @@
 /* ============================================================
-   BeforeJumboLoan.com — National loan-limit resolver + loader
+   Orange Mortgage — National loan-limit resolver + loader
    ------------------------------------------------------------
    Deterministic. The engine/UI never hardcode limits — they call
    resolveLoanLimits() which reads the JSON dataset under /data.
@@ -12,7 +12,7 @@
   "use strict";
 
   var COMPLIANCE =
-    "Configured reference only — verify current FHFA/Fannie/Freddie/HUD limits before launch.";
+    "Reference figures only — check current FHFA, Fannie Mae, Freddie Mac and HUD limits before relying on them.";
 
   var UNIT_KEY = [null, "one", "two", "three", "four"];
 
@@ -368,7 +368,7 @@
         // Developer/admin warning — not shown to end users.
         if (DB.conforming && DB.conforming.dataset_type === "sample" && global.console && global.console.warn) {
           global.console.warn(
-            "[BeforeJumboLoan] Sample loan-limit dataset installed (" +
+            "[OrangeMortgage] Sample loan-limit dataset installed (" +
             (DB.conforming.record_count || 0) +
             " FHFA records). Import official full FHFA/HUD files before production nationwide launch. See data/loan-limits/IMPORT.md."
           );

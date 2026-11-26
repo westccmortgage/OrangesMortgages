@@ -1,5 +1,5 @@
 /* ============================================================
-   BeforeJumboLoan.com — centralized rate ASSUMPTIONS (Phase 6)
+   Orange Mortgage — centralized rate ASSUMPTIONS (Phase 6)
    ------------------------------------------------------------
    These are owner-provided EDUCATIONAL assumptions, NOT live rates,
    not rate quotes, APRs, locked rates, or commitments to lend.

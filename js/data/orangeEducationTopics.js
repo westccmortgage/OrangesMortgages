@@ -5,7 +5,7 @@
    It is intentionally brand-neutral and data-only so the SAME
    engine + content can be reused across multiple mortgage sites
    (OrangesMortgages.com, CaliforniaMTG.com, West Coast Capital,
-   SunCoast Capital, KWest Mortgages, BeforeJumboLoan.com) by
+   sister sites) by
    swapping the `brand` block below.
 
    PHASE 1 (now): a curated, guided learning experience. No AI, no
@@ -29,7 +29,7 @@
     company: "Orange Mortgage",
     email: "orange@orangesmortgages.com",
     phone: "(310) 654-1577",
-    regions: "California & Florida",
+    regions: "Orange County & California",
     contactUrl: "index.html#contact",   // the existing ask-orange Netlify form
     applyUrl: "https://2817729.my1003app.com/2775380/register"
   };

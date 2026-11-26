@@ -1,5 +1,5 @@
 /* ============================================================
-   BeforeJumboLoan.com — Homepage property-intelligence cockpit
+   Orange Mortgage — Homepage property-intelligence cockpit
    ------------------------------------------------------------
    Two deterministic gates, in order:
      1) WHAT are you structuring?  (purchase / rate-term refi /
@@ -19,7 +19,7 @@
   var $ = function (s) { return document.querySelector(s); };
   var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
   var fmt = KW.fmtCurrency, num = KW.parseNum;
-  var COMPLIANCE = (KW.COMPLIANCE_REF) || "Configured reference only — verify current FHFA/Fannie/Freddie/HUD limits before launch.";
+  var COMPLIANCE = (KW.COMPLIANCE_REF) || "Reference figures only — check current FHFA, Fannie Mae, Freddie Mac and HUD limits before relying on them.";
   var SAFE = "Educational structure estimate only. Not approval, qualification, rate quote, APR, loan estimate, or commitment to lend.";
 
   var VALUE_LABEL = {

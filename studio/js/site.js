@@ -1,5 +1,5 @@
 /* ============================================================
-   BeforeJumboLoan.com — Site behavior
+   Orange Mortgage — Site behavior
    Nav, scenario rotation, scroll reveal, accordion,
    forms (webhook/email ready), cookie consent + visitor ID.
    ============================================================ */
@@ -12,7 +12,7 @@
      locally and the success message still shows.                     */
   var CONFIG = {
     FORM_ENDPOINT: "", // e.g. "/.netlify/functions/lead" or a webhook URL
-    BRAND: "BeforeJumboLoan.com"
+    BRAND: "Orange Mortgage"
   };
 
   /* ---------------- Helpers ---------------- */
@@ -155,7 +155,7 @@
       data.forEach(function (value, key) { encoded.append(key, value); });
       // Guarantee form-name is present even if the hidden field is ever missing.
       if (!encoded.has("form-name")) {
-        encoded.append("form-name", form.getAttribute("name") || "key-west-scenario-review");
+        encoded.append("form-name", form.getAttribute("name") || "orange-scenario-review");
       }
 
       if (btn) { btn.dataset.label = btn.textContent; btn.disabled = true; btn.textContent = "Sending…"; }
@@ -189,7 +189,7 @@
     if (p && typeof p.catch === "function") p.catch(function () {});
   });
 
-  /* ---------------- Hero "Before Jumbo Quick Check" ---------------- */
+  /* ---------------- Hero "Quick Check" ---------------- */
   var qc = $("[data-quickcheck]");
   if (qc && window.KW) {
     var priceEl = $("[data-qc-price]", qc);
@@ -246,7 +246,7 @@
     // Secondary action: prefill the simple form (#builder) with the current numbers.
     var sendLink = $("[data-qc-send]", qc);
     if (sendLink) sendLink.addEventListener("click", function () {
-      var f = document.querySelector('form[name="key-west-scenario-review"]');
+      var f = document.querySelector('form[name="orange-scenario-review"]');
       if (f) {
         var price = window.KW.parseNum(priceEl.value), pct = window.KW.parseNum(downEl.value);
         var setv = function (n, v) { var el = f.querySelector('[name="' + n + '"]'); if (el && "value" in el) el.value = v; };

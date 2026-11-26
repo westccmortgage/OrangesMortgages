@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mortgage Strategy | Orange Mortgage</title>
-<meta name="description" content="A property-location-intelligent mortgage strategy engine for California & Florida. Name the property by ZIP, city, or county; confirm the county; then run the loan against the county line, jumbo gap, and an Estimated P&I preview before accepting a jumbo path. Educational only.">
+<meta name="description" content="A property-location-intelligent mortgage strategy engine for California. Name the property by ZIP, city, or county; confirm the county; then run the loan against the county line, jumbo gap, and an Estimated P&I preview before accepting a jumbo path. Educational only.">
 <link rel="canonical" href="https://orangesmortgages.com/mortgage-strategy">
 <meta name="robots" content="noindex,follow">
 <meta property="og:type" content="website">
@@ -18,11 +18,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <script src="/config.js"></script>
 <script>try{if(window.top===window.self)document.documentElement.classList.add("cm-standalone");}catch(e){document.documentElement.classList.add("cm-standalone");}</script>
-<link rel="stylesheet" href="css/studio.css">
-<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/studio.css?v=20261125">
+<link rel="stylesheet" href="css/home.css?v=20261125">
 <link rel="stylesheet" href="/assets/css/tutorial.css">
 <style>/* Embedded inside Orange Mortgage — show only the Strategy Console */
 .skip-link,.site-header,.mobile-menu,.site-footer,.cookie,.cockpit--head,.compliance-strip{display:none!important}
+html:not(.cm-standalone) .cookie-bar{display:none!important}
 html,body{background:#ffffff!important}
 main#main{padding-top:0!important}
 .console{padding-top:14px!important}
@@ -45,21 +46,21 @@ html.cm-standalone .cm-studio-bar{display:flex;align-items:center;justify-conten
 <body class="home">
 <a href="#main" class="skip-link">Skip to content</a>
 <header class="site-header"><div class="wrap"><nav class="nav" aria-label="Primary">
-  <a class="brand" href="/"><span class="brand__name">Before <b>Jumbo</b> Loan</span></a>
+  <a class="brand" href="/" target="_top"><span class="brand__name">Orange <b>Mortgage</b></span></a>
   <ul class="nav__links">
-    <li><a href="https://westccmortgage.com/loans">Loan Options</a></li>
-    <li><a href="https://westccmortgage.com/loans">Jumbo vs Conforming</a></li>
-    <li><a href="https://westccmortgage.com/resources">Education</a></li>
-    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/#loans" target="_top">Loan Options</a></li>
+    <li><a href="/jumbo-vs-conforming-california.html" target="_top">Jumbo vs Conforming</a></li>
+    <li><a href="/guides.html" target="_top">Guides</a></li>
+    <li><a href="/#contact" target="_top">Contact</a></li>
   </ul>
   <div class="nav__cta"><a class="btn btn--primary" href="https://2817729.my1003app.com/2775380/register" target="_blank" rel="noopener">Start Application</a>
     <button class="nav__toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav></div></header>
 <div class="mobile-menu" aria-label="Mobile">
-  <a href="https://westccmortgage.com/loans">Loan Options</a>
-  <a href="https://westccmortgage.com/loans">Jumbo vs Conforming</a>
-  <a href="https://westccmortgage.com/resources">Education</a>
+  <a href="/#loans" target="_top">Loan Options</a>
+  <a href="/jumbo-vs-conforming-california.html" target="_top">Jumbo vs Conforming</a>
+  <a href="/guides.html" target="_top">Guides</a>
   <a href="/#contact">Contact</a>
   <a class="btn btn--primary btn--block" href="https://2817729.my1003app.com/2775380/register" target="_blank" rel="noopener">Start Application</a>
 </div>
@@ -129,9 +130,9 @@ html.cm-standalone .cm-studio-bar{display:flex;align-items:center;justify-conten
             <button type="button" class="ex" data-ex>Newport Beach CA</button>
             <button type="button" class="ex" data-ex>Los Angeles CA</button>
             <button type="button" class="ex" data-ex>San Diego CA</button>
-            <button type="button" class="ex" data-ex>Miami FL</button>
-            <button type="button" class="ex" data-ex>Orlando FL</button>
-            <button type="button" class="ex" data-ex>Key West FL</button>
+            <button type="button" class="ex" data-ex>Irvine CA</button>
+            <button type="button" class="ex" data-ex>Santa Ana CA</button>
+            <button type="button" class="ex" data-ex>Orange County CA</button>
           </p>
         </div>
 
@@ -351,16 +352,16 @@ html.cm-standalone .cm-studio-bar{display:flex;align-items:center;justify-conten
           <p class="scanner__note" data-ho-ionote></p>
         </div>
 
-        <!-- Conversion CTA — state-gated lender application (CA/FL) -->
+        <!-- Conversion CTA — state-gated lender application -->
         <div class="console__cta" data-cta data-tutorial="final-review">
           <!-- confirmed + supported state → secure lender application (ARIVE) -->
           <a class="btn btn--primary btn--lg" data-cta-app href="#" target="_blank" rel="noopener" hidden>Continue to Secure Lender Application →</a>
-          <p class="cta-helper" data-cta-helper hidden>You’ll continue to a secure lender application portal powered by ARIVE. BeforeJumboLoan.com does not replace a licensed mortgage application or underwriting review.</p>
+          <p class="cta-helper" data-cta-helper hidden>You’ll continue to a secure lender application portal powered by ARIVE. Orange Mortgage does not replace a licensed mortgage application or underwriting review.</p>
 
           <!-- confirmed + unsupported state → no application, contact only -->
           <div class="state-block" data-cta-state hidden>
             <p class="state-block__title">Licensed review is not available for this property state yet.</p>
-            <p class="state-block__text">BeforeJumboLoan.com can organize the scenario, but West Coast Capital Mortgage Inc. is currently routing applications only for supported states. Check back soon or contact us to ask about future availability.</p>
+            <p class="state-block__text">Orange Mortgage can organize the scenario, but West Coast Capital Mortgage is currently routing applications only for supported states. Check back soon or contact us to ask about future availability.</p>
             <a class="btn btn--ghost btn--lg" data-cta-contact href="/#contact" target="_top">Talk to a Mortgage Professional →</a>
           </div>
 
@@ -373,6 +374,12 @@ html.cm-standalone .cm-studio-bar{display:flex;align-items:center;justify-conten
     </div>
   </section>
 
+  <!-- ============ NOTES: FHFA 2027 + licensing ============ -->
+  <section class="cm-notes"><div class="wrap">
+    <p class="cm-fhfa-note"><strong>FHFA 2027 loan limits.</strong> FHFA announced the 2027 limits on November 24, 2026 ($855,400 baseline, up to $1,283,100 in high-cost areas). County figures here are the 2026 limits; check your county’s 2027 limit on <a href="https://www.fhfa.gov/data/dashboard/conforming-loan-limits" target="_blank" rel="noopener">FHFA’s map</a>.</p>
+    <p class="cm-licence">Orange Mortgage is a website of West Coast Capital Mortgage · NMLS #2817729 · CA DRE #02440065 · Equal Housing Opportunity · <a href="/privacy" target="_top">Privacy</a> · <a href="/terms" target="_top">Terms</a> · <a href="/about" target="_top">About</a></p>
+  </div></section>
+
   <!-- ============ COMPLIANCE STRIP ============ -->
   <section class="compliance-strip"><div class="wrap">
     <p>Educational structure estimate only. Not approval, qualification, rate quote, APR, loan estimate, or commitment to lend. County lines use the official FHFA 2026 conforming and HUD/FHA forward limits (full nationwide county data). ZIP lookup uses the official HUD CHUMS ZIP file (single-county auto-detect; multi-county ZIPs ask you to confirm). Verify current FHFA/Fannie/Freddie/HUD values before relying on any figure.</p>
@@ -382,25 +389,25 @@ html.cm-standalone .cm-studio-bar{display:flex;align-items:center;justify-conten
 
 <footer class="site-footer"><div class="wrap">
   <div class="footer-grid">
-    <div class="footer-brand"><span class="brand__name">Before <b>Jumbo</b> Loan</span><p>BeforeJumboLoan.com — an educational mortgage strategy resource. Run the structure before you go jumbo.</p><p class="footer-powered">Licensed mortgage review provided only where properly licensed and authorized.</p></div>
-    <div><h4>Explore</h4><ul><li><a href="https://westccmortgage.com/loans">Loan Options</a></li><li><a href="https://westccmortgage.com/loans">Jumbo vs Conforming</a></li><li><a href="https://beforejumboloan.com/rates">Rates &amp; Payments</a></li></ul></div>
-    <div><h4>Learn</h4><ul><li><a href="https://westccmortgage.com/resources">Education</a></li><li><a href="/about.html">About</a></li><li><a href="/#contact">Contact</a></li><li><a href="https://beforejumboloan.com/disclosures">Disclosures</a></li></ul></div>
-    <div><h4>Contact</h4><ul><li><a href="/#contact">Send your scenario</a></li><li>BeforeJumboLoan.com</li></ul></div>
+    <div class="footer-brand"><span class="brand__name">Orange <b>Mortgage</b></span><p>Orange Mortgage — an educational mortgage strategy resource from West Coast Capital Mortgage.</p><p class="footer-powered">Licensed mortgage review provided only where properly licensed and authorized.</p></div>
+    <div><h4>Explore</h4><ul><li><a href="/#loans" target="_top">Loan Options</a></li><li><a href="/jumbo-vs-conforming-california.html" target="_top">Jumbo vs Conforming</a></li><li><a href="/#calculator" target="_top">Payment Calculator</a></li></ul></div>
+    <div><h4>Learn</h4><ul><li><a href="/guides.html" target="_top">Guides</a></li><li><a href="/about" target="_top">About</a></li><li><a href="/#contact" target="_top">Contact</a></li><li><a href="/privacy" target="_top">Privacy</a></li><li><a href="/terms" target="_top">Terms</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="/#contact">Send your scenario</a></li><li>OrangesMortgages.com</li></ul></div>
   </div>
   <div class="footer-legal"><!-- centralized by js/compliance.js --></div>
 </div></footer>
 
 <div class="cookie-bar cookie-bar--mini" role="dialog" aria-label="Cookie consent">
-  <p>We use cookies and a first-party visitor ID, with your consent, to understand site usage. <a href="https://beforejumboloan.com/privacy">Privacy</a>.</p>
+  <p>We use cookies, with your consent, to understand how the studio is used. <a href="/privacy" target="_top">Privacy</a>.</p>
   <div class="cookie-actions"><button class="btn btn--primary btn--sm" data-consent-accept>Accept</button><button class="btn btn--ghost btn--sm" data-consent-decline>Decline</button></div>
 </div>
 
-<script src="js/rate-config.js" defer></script>
-<script src="js/loan-limits.js" defer></script>
-<script src="js/engine.js" defer></script>
-<script src="js/site.js" defer></script>
-<script src="js/compliance.js" defer></script>
-<script src="js/home.js" defer></script>
+<script src="js/rate-config.js?v=20261125" defer></script>
+<script src="js/loan-limits.js?v=20261125" defer></script>
+<script src="js/engine.js?v=20261125" defer></script>
+<script src="js/site.js?v=20261125" defer></script>
+<script src="js/compliance.js?v=20261125" defer></script>
+<script src="js/home.js?v=20261125" defer></script>
 <script src="/assets/js/tutorial.js" defer></script>
 <script>(function(){function ph(){try{parent.postMessage({cmStudioHeight:Math.ceil(document.body.scrollHeight)},"*");}catch(e){}}window.addEventListener("load",ph);try{new ResizeObserver(ph).observe(document.body);}catch(e){}document.addEventListener("click",function(){setTimeout(ph,90);},true);document.addEventListener("input",function(){setTimeout(ph,90);},true);document.addEventListener("change",function(){setTimeout(ph,90);},true);})();</script>
 </body>

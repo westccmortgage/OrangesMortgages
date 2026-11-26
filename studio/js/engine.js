@@ -1,5 +1,5 @@
 /* ============================================================
-   Before Jumbo Strategy Studio — Market config + portable logic
+   Orange Mortgage Strategy Studio — Market config + portable logic
    ------------------------------------------------------------
    PORTABILITY: market copy lives in the MARKETS registry; the default
    is a neutral "generic" market so the Studio never shows a specific
@@ -16,15 +16,15 @@
 
   /* ============================================================
      MARKET REGISTRY — add/edit markets here. The engine + UI read
-     the ACTIVE market only. Resolve by URL path (/key-west) or
-     ?market=slug. Verify every limit annually before launch.
+     the ACTIVE market only. Resolve by URL path (/orange-county) or
+     ?market=slug. Verify every limit annually.
      baselineConformingLimit = standard 1-unit conforming reference.
      highBalanceLimit = 1-unit high-cost-area ceiling for that county
        (set equal to baseline for non-high-cost counties).
      ============================================================ */
   var DEFAULT_MARKET = "orange-county";
   var LIMIT_YEAR = 2026;
-  var VERIFY = "VERIFY BEFORE LAUNCH (FHFA / Fannie Mae / HUD)";
+  var VERIFY = "Check current FHFA / Fannie Mae / HUD limits";
   // FHFA 2026 Conforming Loan Limit Values (effective 2026-01-01):
   //   baseline 1-unit $832,750 · high-cost ceiling 1-unit $1,249,125.
   // County values below reflect FHFA's published 2026 1-unit limits.
@@ -36,31 +36,10 @@
       loanLimitYear: LIMIT_YEAR, baselineConformingLimit: 832750, highBalanceLimit: 832750, fhaLimit: null,
       localDisclaimer: "", marketHeroCopy: "", lastVerifiedDate: VERIFY
     },
-    "key-west": {
-      marketSlug: "key-west", marketName: "Key West / Monroe County", countyName: "Monroe County", state: "FL",
-      loanLimitYear: LIMIT_YEAR, baselineConformingLimit: 832750, highBalanceLimit: 990150, fhaLimit: null,
-      localDisclaimer: "Monroe County is a high-cost area; coastal insurance, flood, condo, and HOA factors can significantly affect Key West scenarios.",
-      marketHeroCopy: "Buying in Key West? Don’t assume it has to be jumbo — compare your review path before you write the offer.",
-      lastVerifiedDate: VERIFIED
-    },
-    "palm-beach": {
-      marketSlug: "palm-beach", marketName: "Palm Beach County", countyName: "Palm Beach County", state: "FL",
-      loanLimitYear: LIMIT_YEAR, baselineConformingLimit: 832750, highBalanceLimit: 832750, fhaLimit: null,
-      localDisclaimer: "Palm Beach County generally uses the baseline conforming limit; insurance, flood, and HOA factors can affect scenarios.",
-      marketHeroCopy: "Buying in Palm Beach County? Compare conforming, jumbo, and other review paths before you write the offer.",
-      lastVerifiedDate: VERIFIED
-    },
-    "miami-dade": {
-      marketSlug: "miami-dade", marketName: "Miami-Dade County", countyName: "Miami-Dade County", state: "FL",
-      loanLimitYear: LIMIT_YEAR, baselineConformingLimit: 832750, highBalanceLimit: 832750, fhaLimit: null,
-      localDisclaimer: "Miami-Dade County generally uses the baseline conforming limit; condo project, insurance, and HOA review can matter.",
-      marketHeroCopy: "Buying in Miami-Dade? Compare conforming, jumbo, condo, and investor review paths before you write the offer.",
-      lastVerifiedDate: VERIFIED
-    },
     "california": {
       marketSlug: "california", marketName: "California (high-cost)", countyName: "California", state: "CA",
       loanLimitYear: LIMIT_YEAR, baselineConformingLimit: 832750, highBalanceLimit: 1249125, fhaLimit: null,
-      localDisclaimer: "California conforming limits vary by county; the configured value is the 2026 high-cost-area ceiling. Verify the specific county before launch.",
+      localDisclaimer: "California conforming limits vary by county; the configured value is the 2026 high-cost-area ceiling. Check the specific county.",
       marketHeroCopy: "Buying in California? Don’t assume it has to be jumbo — compare your review path before you write the offer.",
       lastVerifiedDate: VERIFY
     },
@@ -81,7 +60,7 @@
     "custom": {
       marketSlug: "custom", marketName: "Your Market", countyName: "Your County", state: "US",
       loanLimitYear: LIMIT_YEAR, baselineConformingLimit: 832750, highBalanceLimit: 832750, fhaLimit: null,
-      localDisclaimer: "Configure this market in MARKETS['custom'] before launch.",
+      localDisclaimer: "Configure this market in MARKETS['custom'].",
       marketHeroCopy: "Don’t assume it has to be jumbo — compare your review path before you write the offer.",
       lastVerifiedDate: VERIFY
     }
@@ -92,7 +71,7 @@
     domain: "orangesmortgages.com",
     logoText: "Orange Mortgage",
     primaryCTA: "See My Strategy",
-    poweredByText: "Powered by West Coast Capital Mortgage, Inc.",
+    poweredByText: "Powered by West Coast Capital Mortgage",
     complianceFooter: "Educational scenario-organization tool. Not a loan application, approval, rate quote, underwriting decision, or commitment to lend. Subject to borrower qualification, property eligibility, underwriting approval, and current program guidelines.",
     recipient: "orange@orangesmortgages.com"
   };
@@ -135,7 +114,7 @@
     return MARKET_CONFIG;
   }
 
-  var COMPLIANCE_REF = "Configured reference only — verify current FHFA/Fannie/Freddie/HUD limits before launch.";
+  var COMPLIANCE_REF = "Reference figures only — check current FHFA, Fannie Mae, Freddie Mac and HUD limits before relying on them.";
   var LAST_LOCATION = null;
 
   /* Resolve loan limits for a selected property location via the national
@@ -478,7 +457,7 @@
     return { score: score, label: label };
   }
 
-  /* ---------- "Before Jumbo" what-if (math illustration only) ---------- */
+  /* ---------- "Jumbo gap" what-if (math illustration only) ---------- */
   function whatIf(s) {
     var cfg = MARKET_CONFIG;
     var loan = s.loan != null ? s.loan : estimatedLoan(s);
@@ -789,7 +768,7 @@
       complexityLevel: complexity(s).label,
       keyInsights: insights(s),
       attentionItems: attentionItems(s),
-      whatIfBeforeJumbo: whatIf(s),
+      whatIfJumboGap: whatIf(s),
       rateAssumption: rateFor(s),
       payment: paymentBreakdown(s),
       dscr: dscr(s),
@@ -808,7 +787,7 @@
     var cfg = MARKET_CONFIG;
     var o = strategySummary(s);
     var L = [];
-    L.push(BRAND_CONFIG.brandName + " — Before Jumbo Strategy Studio Lead");
+    L.push(BRAND_CONFIG.brandName + " — Orange Mortgage Strategy Studio Lead");
     L.push("");
     L.push("Lead Source:");
     L.push("  " + BRAND_CONFIG.leadSource);
@@ -825,10 +804,10 @@
     L.push("  Units: " + u + (u === 1 ? " unit" : " units"));
     if (loc && loc.countyConformingLimit != null) {
       L.push("  County conforming/high-balance reference (" + u + "-unit): " + fmtCurrency(loc.countyConformingLimit) +
-        (loc.highCost ? " (high-cost)" : "") + " — configured reference only, verify before launch");
+        (loc.highCost ? " (high-cost)" : "") + " — reference only; check current limits");
     }
     if (loc && loc.fhaLimit != null) {
-      L.push("  FHA reference (" + u + "-unit): " + fmtCurrency(loc.fhaLimit) + " — configured reference only, verify before launch");
+      L.push("  FHA reference (" + u + "-unit): " + fmtCurrency(loc.fhaLimit) + " — reference only; check current limits");
     }
     if (loc && loc.source) L.push("  Source: " + loc.source + (loc.verifiedAt ? " (verified " + loc.verifiedAt + ")" : ""));
     L.push("");
@@ -862,12 +841,12 @@
       o.attentionItems.forEach(function (a) { L.push("  - " + a); });
     }
     L.push("");
-    L.push("What-if before jumbo:");
-    if (o.whatIfBeforeJumbo.state === "over") {
-      L.push("  ~" + fmtCurrency(o.whatIfBeforeJumbo.extra) + " additional down payment could bring the estimated loan amount to the configured " + o.county + " high-balance reference limit (target down ~" + o.whatIfBeforeJumbo.pct.toFixed(0) + "%). Math illustration only.");
-    } else if (o.whatIfBeforeJumbo.state === "highbalance") {
+    L.push("What-if (jumbo gap):");
+    if (o.whatIfJumboGap.state === "over") {
+      L.push("  ~" + fmtCurrency(o.whatIfJumboGap.extra) + " additional down payment could bring the estimated loan amount to the configured " + o.county + " high-balance reference limit (target down ~" + o.whatIfJumboGap.pct.toFixed(0) + "%). Math illustration only.");
+    } else if (o.whatIfJumboGap.state === "highbalance") {
       L.push("  Estimated loan amount appears within configured high-balance reference range.");
-    } else if (o.whatIfBeforeJumbo.state === "baseline") {
+    } else if (o.whatIfJumboGap.state === "baseline") {
       L.push("  Estimated loan amount appears within baseline conforming reference range.");
     } else {
       L.push("  Pending — adjust scenario.");
